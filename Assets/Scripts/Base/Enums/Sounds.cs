@@ -1,0 +1,28 @@
+﻿/// <summary>
+/// Pre loaded sounds
+/// </summary>
+public enum Sounds
+{
+    FIRE_LOW,
+    FIRE_MED,
+    FIRE_HIGH,
+    FIRE_EXPLOSION,
+    FIRE_ALARM,
+    FIRE_EXTINGUISHER,
+    FIRE_WATER,
+    WATER_THROWER,
+    CAT,
+    SIREN,
+    WATERPLUG,
+    WATER_JET,
+    UI_BUTTON,
+    LADDER_FOLD,
+    LADDER_SECTION,
+    ELECTRIC_ZAP,
+    NOTIFICATION,
+    MENU_CLICK,
+    SAVE_HUMAN_HELP_ME,
+    SAVE_HUMAN_AH,
+    SAVE_HUMAN_WHISTLING,
+    CASH_REGISTER
+}

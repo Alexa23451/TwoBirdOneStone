@@ -1,0 +1,13 @@
+﻿public enum VehicleType
+{
+    FIRE_ENGINE_1,
+    FIRE_ENGINE_2,
+    FIRE_ENGINE_3,
+    FIRE_ENGINE_4,
+    FIRE_ENGINE_5,
+    FIRE_ENGINE_6,
+    FIRE_ENGINE_7,
+    FIRE_ENGINE_8,
+    FIRE_ENGINE_9,
+    FIRE_ENGINE_10,
+}
