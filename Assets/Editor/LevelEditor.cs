@@ -7,7 +7,7 @@ public class LevelEditor : EditorWindow
 {
     int map = 11;
 
-    [MenuItem("Tools/Level Editor g")]
+    [MenuItem("Tools/Level Editor %h")]
     static void OpenWindow()
     {
         EditorWindow.GetWindow(typeof(LevelEditor));

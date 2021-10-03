@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8214076416148907169}
   - component: {fileID: 6376286804884026770}
   - component: {fileID: -1268227488140043216}
-  - component: {fileID: 2365963682293781385}
+  - component: {fileID: 1760268323217855591}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: BackupWall
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82f4c59964684de4cbebf8ede8012657, type: 3}
-  m_Color: {r: 0.9490196, g: 0.6666667, b: 0.9254902, a: 1}
+  m_Color: {r: 0.38389105, g: 0.8584906, b: 0.5203435, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -199,7 +199,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &2365963682293781385
+--- !u!114 &1760268323217855591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,6 +208,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4088916512792987909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5019b22c60deafd44a2880b3a4545f25, type: 3}
+  m_Script: {fileID: 11500000, guid: 76cfac34b5630ac429773a537ebe3156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
