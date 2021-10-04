@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3006495508686334593}
   - component: {fileID: 8361982551705878250}
   - component: {fileID: 568469490820848377}
+  - component: {fileID: 5030223635948219745}
   - component: {fileID: 7123026131348117843}
   m_Layer: 0
   m_Name: Bullet
@@ -219,6 +220,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFly: 0
   speed: 7
+--- !u!114 &5030223635948219745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3792525624293230561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6d778631de0e248ad2b1e8dcd613ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &7123026131348117843
 CircleCollider2D:
   m_ObjectHideFlags: 0

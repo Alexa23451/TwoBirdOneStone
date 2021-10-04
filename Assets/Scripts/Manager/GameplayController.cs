@@ -1,13 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class GameplayController : BaseManager<GameplayController>
 {
-    public event Action OnLoseGame;
+    public Action OnLoseGame;
     public event Action OnWinGame;
     public event Action OnKillEnemy;
 

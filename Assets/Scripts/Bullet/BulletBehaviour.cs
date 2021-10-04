@@ -42,7 +42,6 @@ public class BulletBehaviour : InitObjectSpawn
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter "+ collision);
         bulletInteract = collision.gameObject.GetComponent<IBulletInteract>();
 
         if (bulletInteract != null)

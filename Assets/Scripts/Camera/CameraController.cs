@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : BaseManager<CameraController>
 {
-    void Start()
+    public override void Init()
     {
-        DontDestroyOnLoad(this.gameObject);
+
     }
 }
