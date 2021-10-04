@@ -24,7 +24,7 @@ public class Health : MonoBehaviour, IHealth
 
     public void TakeImpact(int damage)
     {
-        health += damage;
+        health = damage;
         health = Mathf.Clamp(health, 0, maxHealth);
 
         if (damage > 0)
