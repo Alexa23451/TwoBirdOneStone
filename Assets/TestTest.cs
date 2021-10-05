@@ -20,7 +20,7 @@ public class TestTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Services.Find(out ISceneManagement sceneManagement);
-            sceneManagement.ChangeScene(1, 1);
+            sceneManagement.NextScene(1);
         }
 
     }

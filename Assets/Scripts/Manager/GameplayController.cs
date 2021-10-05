@@ -8,6 +8,8 @@ public class GameplayController : BaseManager<GameplayController>
     public Action OnLoseGame;
     public event Action OnWinGame;
     public event Action OnKillEnemy;
+    private bool _inGame = false;
+
 
     [SerializeField] private List<IHealth> enemyHealth;
     [SerializeField] private int _numberOfEnemy;
@@ -15,15 +17,16 @@ public class GameplayController : BaseManager<GameplayController>
     protected override void OnStart()
     {
         enemyHealth = new List<IHealth>();
-        SceneManager.sceneLoaded += OnLoadNewLevel;
+        SceneManager.activeSceneChanged += OnLoadNewLevel;
         SceneManager.sceneUnloaded += OnUnLoadLevel;
     }
 
-    private void OnLoadNewLevel(Scene scene, LoadSceneMode loadSceneMode)
+    private void OnLoadNewLevel(Scene fromScene, Scene toSceneMode)
     {
         FindAllEnemy();
         InitScene();
-
+        
+        _inGame = true;
         _numberOfEnemy = enemyHealth.Count;
     }
 
@@ -60,6 +63,7 @@ public class GameplayController : BaseManager<GameplayController>
     {
         enemyHealth.Clear();
         _numberOfEnemy = 0;
+        _inGame = false;
     }
 
     public override void Init()

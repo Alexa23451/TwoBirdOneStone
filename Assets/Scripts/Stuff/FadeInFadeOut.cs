@@ -6,7 +6,7 @@ using DG.Tweening;
 using System;
 
 [RequireComponent(typeof(Image))]
-public class FadeInFadeOut : DbService
+public class FadeInFadeOut : DbSingletonService
 {
     Image img;
 
@@ -17,6 +17,7 @@ public class FadeInFadeOut : DbService
 
     protected override void OnInit()
     {
+        DontDestroyOnLoad(transform.parent.gameObject);
         SetBGColor(Color.black);
         FadeOut();
     }
