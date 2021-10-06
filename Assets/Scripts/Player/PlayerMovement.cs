@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private IPlayerInput playerInput;
 
     private float _leftLimit, _rightLimit;
-    [SerializeField] float _offset = 0.6f;
+    [SerializeField] float _offset = 1f;
 
     private void Awake()
     {
@@ -23,15 +23,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        playerInput = GetComponent<IPlayerInput>();
+        Services.Find(out playerInput);
         playerInput.OnHorizontalUpdate += OnPlayerMove;
     }
 
     private void OnPlayerMove(float horizontal)
     {
+        var horizontalPos = QuanMathf.ReMap(horizontal, 0, 1, _leftLimit + _offset, _rightLimit - _offset);
+
         transform.position += Vector3.right * horizontal * playerInput.Speed * Time.deltaTime;
 
-        var horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
+        //horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
 
         transform.position = new Vector2(horizontalPos, transform.position.y);
     }
@@ -39,6 +41,19 @@ public class PlayerMovement : MonoBehaviour
     private void OnDestroy()
     {
         playerInput.OnHorizontalUpdate -= OnPlayerMove;
+    }
+
+    void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetAxis("Horizontal") != 0f)
+        {
+            var horizontal = Input.GetAxis("Horizontal");
+            transform.position += Vector3.right * horizontal * playerInput.Speed * Time.deltaTime;
+            var horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
+            transform.position = new Vector2(horizontalPos, transform.position.y);
+        }
+#endif
     }
 
 }

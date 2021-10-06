@@ -30,7 +30,7 @@ public class PlayerFirer : DbService, IPlayer
     protected override void OnAwake()
     {
         base.OnAwake();
-        playerInput = GetComponent<IPlayerInput>();
+        Services.Find(out playerInput);
         playerMechanic = GetComponent<PlayerMechanic>();
 
         playerMechanic.OnRecharge += OnRecharge;
@@ -40,6 +40,16 @@ public class PlayerFirer : DbService, IPlayer
     private void OnRecharge()
     {
         _isShot = false;
+    }
+
+    void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnPlayerShot();
+        }
+#endif
     }
 
     private void OnPlayerShot()
