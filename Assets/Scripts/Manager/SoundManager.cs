@@ -4,14 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 
 [RequireComponent(typeof(AudioSource))]
-public class SoundManager : DbSingletonService
+public class SoundManager : BaseManager<SoundManager>
 {
     AudioSource audioSource;
-
-    protected override void OnAwake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     public void PlayAudio(AudioClip audioClip) {
         audioSource.volume = 1f;
@@ -24,5 +19,10 @@ public class SoundManager : DbSingletonService
             return;
 
         DOTween.To(() => audioSource.volume, (x) => audioSource.volume = x, 0f, time);
+    }
+
+    public override void Init()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 }
