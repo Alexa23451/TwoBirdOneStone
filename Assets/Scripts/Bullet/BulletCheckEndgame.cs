@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BulletCheckEndgame : MonoBehaviour
 {
-    private float _cameraSize;
-    private float _width, _height;
     private float _upPos, _downPos;
 
     private bool _inGame = false;

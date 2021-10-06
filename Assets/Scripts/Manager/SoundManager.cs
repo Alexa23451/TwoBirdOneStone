@@ -8,8 +8,6 @@ public class SoundManager : DbSingletonService
 {
     AudioSource audioSource;
 
-    public AudioClip bgm;
-
     protected override void OnAwake()
     {
         audioSource = GetComponent<AudioSource>();

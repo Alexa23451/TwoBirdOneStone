@@ -21,6 +21,12 @@ public class GameplayController : BaseManager<GameplayController>
         SceneManager.sceneUnloaded += OnUnLoadLevel;
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= OnLoadNewLevel;
+        SceneManager.sceneUnloaded -= OnUnLoadLevel;
+    }
+
     private void OnLoadNewLevel(Scene fromScene, Scene toSceneMode)
     {
         FindAllEnemy();
