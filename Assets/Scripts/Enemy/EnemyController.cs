@@ -30,9 +30,10 @@ public class EnemyController : MonoBehaviour , IBulletInteract
     {
         var vfx = GameObject.Instantiate(_explodeVFX, transform.position, Quaternion.identity);
 
+        Handheld.Vibrate();
         vfx.Play();
         Debug.LogError("VFX");
 
-        Destroy(vfx, 2f);
+        Destroy(vfx.gameObject, 2f);
     }
 }
