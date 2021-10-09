@@ -17,8 +17,6 @@ public class MainmenuPanel : BasePanel
     private void StartGame()
     {
         Services.Find(out sceneManagement);
-        UIManager.Instance.ShowPanel(typeof(GameplayPanel));
-
         sceneManagement.NextScene();
     }
 
