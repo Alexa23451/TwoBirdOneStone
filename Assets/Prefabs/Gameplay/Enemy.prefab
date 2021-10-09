@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5019b22c60deafd44a2880b3a4545f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explodeVFX: {fileID: 7649820816425280622, guid: 7431db5c8854843469c13f3a56064fd1, type: 3}
   _damageTaken: -1
 --- !u!114 &6577129773965833484
 MonoBehaviour:

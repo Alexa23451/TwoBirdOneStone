@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour , IBulletInteract
 {
+    public ParticleSystem _explodeVFX;
+
     private IHealth health;
     [SerializeField] private int _damageTaken = -1;
 
@@ -26,6 +28,11 @@ public class EnemyController : MonoBehaviour , IBulletInteract
 
     private void VFX()
     {
+        var vfx = GameObject.Instantiate(_explodeVFX, transform.position, Quaternion.identity);
 
+        vfx.Play();
+        Debug.LogError("VFX");
+
+        Destroy(vfx, 2f);
     }
 }
