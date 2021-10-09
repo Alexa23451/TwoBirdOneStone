@@ -8,35 +8,43 @@ using System;
 [RequireComponent(typeof(Image))]
 public class FadeInFadeOut : DbSingletonService
 {
-    Image img;
+    private Image img;
+    private bool _isFade = false;
 
     protected override void OnAwake()
     {
-        img = GetComponent<Image>();
-    }
-
-    protected override void OnInit()
-    {
         DontDestroyOnLoad(transform.parent.gameObject);
+        img = GetComponent<Image>();
         SetBGColor(Color.black);
-        FadeOut();
     }
 
     public void SetBGColor(Color c) => img.color = c; 
 
-    public Tweener Fade(float fadeInTime = 1f , float fadeOutTime = 1f)
+    public Tweener Fade(float fadeInTime = 1f , Action eventBetween = null, float fadeOutTime = 1f)
     {
-        return DOTween.To( () => img.color, (x) => img.color = x, Color.black, fadeInTime)
-            .OnComplete( () => FadeOut(fadeOutTime));
+        if (_isFade)
+        {
+            Debug.LogWarning("FADE IN USE !");
+            return null;
+        }
+
+        img.enabled = true;
+        _isFade = true;
+
+        return FadeIn(fadeInTime).OnComplete(delegate {
+                eventBetween?.Invoke();
+                DOTween.Play(FadeOut());
+            });
     }
 
-    public Tweener FadeIn(float fadeInTime = 1f)
+    private Tweener FadeIn(float fadeInTime = 1f)
     {
         return DOTween.To(() => img.color, (x) => img.color = x, Color.black, fadeInTime);
     }
 
-    public void FadeOut(float fadeOutTime = 1f)
+    private Tweener FadeOut(float fadeOutTime = 1f)
     {
-        DOTween.To(() => img.color, (x) => img.color = x, Color.clear, fadeOutTime);
+        return DOTween.To(() => img.color, (x) => img.color = x, Color.clear, fadeOutTime).OnComplete(
+            delegate { img.enabled = false; _isFade = false; });
     }
 }

@@ -60,8 +60,7 @@ public class SceneController : SceneInvocation , ISceneManagement
         Services.Find(out FadeInFadeOut fadeInFadeOut);
 
         _currentScene = id;
-        DOTween.Play(fadeInFadeOut.FadeIn(timeWait).OnComplete(() => SceneManager.LoadScene(id)));
-        
+        DOTween.Play(fadeInFadeOut.Fade(timeWait, () => SceneManager.LoadScene(id), timeWait));
     }
 
     public void NextScene(float timeWait = 1)
@@ -75,13 +74,12 @@ public class SceneController : SceneInvocation , ISceneManagement
         Services.Find(out FadeInFadeOut fadeInFadeOut);
 
         _currentScene++;
-        DOTween.Play(fadeInFadeOut.FadeIn(timeWait).OnComplete(() => SceneManager.LoadScene(_currentScene)));
+        DOTween.Play(fadeInFadeOut.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait));
     }
 
     public void ReloadScene(float timeWait = 1)
     {
         Services.Find(out FadeInFadeOut fadeInFadeOut);
-
-        DOTween.Play(fadeInFadeOut.FadeIn(timeWait).OnComplete(() => SceneManager.LoadScene(_currentScene)));
+        DOTween.Play(fadeInFadeOut.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait));
     }
 }
