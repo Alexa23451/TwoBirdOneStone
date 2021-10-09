@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public interface IPlayer
 {
     GameObject GetPlayer();
 
     public bool IsShot { get; }
+    event Action OnPlayerShot;
 }
 
 public class PlayerFirer : DbService, IPlayer
 {
     private IPlayerInput playerInput;
+    public event Action OnPlayerShot;
 
     [SerializeField] private GameObject bulletPoint;
     [SerializeField] private GameObject bulletPrefab;
@@ -34,7 +37,7 @@ public class PlayerFirer : DbService, IPlayer
         playerMechanic = GetComponent<PlayerMechanic>();
 
         playerMechanic.OnRecharge += OnRecharge;
-        playerInput.OnSpaceUpdate += OnPlayerShot;
+        playerInput.OnSpaceUpdate += OnShot;
     }
 
     private void OnRecharge()
@@ -47,12 +50,12 @@ public class PlayerFirer : DbService, IPlayer
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnPlayerShot();
+            OnShot();
         }
 #endif
     }
 
-    private void OnPlayerShot()
+    private void OnShot()
     {
         if (!_isShot)
         {
@@ -70,6 +73,7 @@ public class PlayerFirer : DbService, IPlayer
             _isShot = true;
             currentBullet.OnBulletHit += OnBulletGone;
             currentBullet.SetDirection(transform.up);
+            OnPlayerShot?.Invoke();
         }
     }
 
@@ -88,7 +92,7 @@ public class PlayerFirer : DbService, IPlayer
     protected override void OnObjectDestroyed()
     {
         playerMechanic.OnRecharge -= OnRecharge;
-        playerInput.OnSpaceUpdate -= OnPlayerShot;
+        playerInput.OnSpaceUpdate -= OnShot;
 
         Services.Unregister(this);
     }
