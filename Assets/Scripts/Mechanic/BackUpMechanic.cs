@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackUpObj : MonoBehaviour, IBulletInteract
+public class BackUpMechanic : MonoBehaviour, IBulletInteract
 {
     public void OnEnter(GameObject onObject)
     {
@@ -14,8 +14,9 @@ public class BackUpObj : MonoBehaviour, IBulletInteract
 
     private void VFX()
     {
+        SoundManager.Instance.Play(Sounds.BACKUP_MECHANIC);
 
     }
 
-    
+
 }

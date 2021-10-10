@@ -23,7 +23,6 @@ public class BulletCheckEndgame : MonoBehaviour
             if(transform.position.y > _upPos || transform.position.y < _downPos)
             {
                 GameplayController.Instance.LoseLevelState();
-                Debug.Log("LOSE GAME");
                 _inGame = false;
             }
         }

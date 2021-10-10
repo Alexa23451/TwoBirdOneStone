@@ -16,6 +16,7 @@ public class MainmenuPanel : BasePanel
 
     private void StartGame()
     {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
         Services.Find(out sceneManagement);
         sceneManagement.NextScene();
     }

@@ -15,7 +15,10 @@ public class Win1GameState : IState
 
     public void Enter()
     {
+        Debug.Log("WIN GAME");
+
         OnWinGame?.Invoke();
+        SoundManager.Instance.Play(Sounds.WIN_LV);
         UIManager.Instance.HideAllPanel();
         sceneManagement.NextScene();
     }

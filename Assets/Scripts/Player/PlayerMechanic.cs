@@ -16,6 +16,6 @@ public class PlayerMechanic : MonoBehaviour , IBulletInteract
 
     private void VFX()
     {
-
+        SoundManager.Instance.Play(Sounds.TAKE_BULLET_BACK);
     }
 }

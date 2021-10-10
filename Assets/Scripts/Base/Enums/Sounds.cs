@@ -9,4 +9,5 @@ public enum Sounds
     BACKUP_MECHANIC,
     TAKE_BULLET_BACK,
     UI_POPUP,
+    SHOT,
 }

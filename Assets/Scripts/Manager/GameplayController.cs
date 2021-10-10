@@ -45,4 +45,6 @@ public class GameplayController : BaseManager<GameplayController>
     public void InitLevelState() => _stateController.SetState<StartLevelState>();
     public void WinLevelState() => _stateController.SetState<Win1GameState>();
     public void LoseLevelState() => _stateController.SetState<LoseState>();
+
+    public IState GetCurrentState() => _stateController.CurrentState;
 }

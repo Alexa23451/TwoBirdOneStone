@@ -70,6 +70,7 @@ public class PlayerFirer : DbService, IPlayer
                 currentBullet.gameObject.transform.rotation = bulletPoint.transform.rotation;
             }
 
+            SoundManager.Instance.Play(Sounds.SHOT);
             _isShot = true;
             currentBullet.OnBulletHit += OnBulletGone;
             currentBullet.SetDirection(transform.up);

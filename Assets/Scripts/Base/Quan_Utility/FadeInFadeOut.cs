@@ -11,6 +11,8 @@ public class FadeInFadeOut : DbSingletonService
     private Image img;
     private bool _isFade = false;
 
+    public bool IsFade => _isFade;
+
     protected override void OnAwake()
     {
         DontDestroyOnLoad(transform.parent.gameObject);

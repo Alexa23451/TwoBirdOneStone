@@ -63,7 +63,6 @@ public class StartLevelState : IState
 
         if (_numberOfEnemy <= 0)
         {
-            Debug.Log("WIN GAME");
             GameplayController.Instance.WinLevelState();
         }
     }
