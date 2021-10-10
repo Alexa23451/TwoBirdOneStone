@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1268227488140043216}
   - component: {fileID: 2365963682293781385}
   - component: {fileID: 6577129773965833484}
-  - component: {fileID: 1578305978579837086}
+  - component: {fileID: 4062720858969955712}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4088916512792987909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7, y: -2, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   maxHealth: 1
---- !u!61 &1578305978579837086
+--- !u!61 &4062720858969955712
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,12 +229,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.55, y: 3.48}
+    oldSize: {x: 0.75, y: 1.02}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.55, y: 3.48}
+  m_Size: {x: 0.75, y: 1.02}
   m_EdgeRadius: 0
