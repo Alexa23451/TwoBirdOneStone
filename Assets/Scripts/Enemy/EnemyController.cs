@@ -23,16 +23,17 @@ public class EnemyController : MonoBehaviour , IBulletInteract
         gameObject.SetActive(false);
         health.TakeImpact(_damageTaken);
 
-        VFX();
+        FX();
     }
 
-    private void VFX()
+    private void FX()
     {
+        SoundManager.Instance.Play(Sounds.ENEMY_HIT);
+
         var vfx = GameObject.Instantiate(_explodeVFX, transform.position, Quaternion.identity);
 
         Handheld.Vibrate();
         vfx.Play();
-        Debug.LogError("VFX");
 
         Destroy(vfx.gameObject, 2f);
     }

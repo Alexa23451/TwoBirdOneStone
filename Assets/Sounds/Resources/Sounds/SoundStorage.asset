@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0104f1f5ea920b46b01cfc32fc858be, type: 3}
+  m_Name: SoundStorage
+  m_EditorClassIdentifier: 
+  _loadedSounds:
+  - audioClip: {fileID: 8300000, guid: ac0d0bc9c3009884e905c4cc205c1bd2, type: 3}
+    soundKey: 0
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 0}
+    soundKey: 1
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 0}
+    soundKey: 2
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 0}
+    soundKey: 3
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 0}
+    soundKey: 4
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 0}
+    soundKey: 5
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
