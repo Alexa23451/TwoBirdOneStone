@@ -1,27 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using DG.Tweening;
 using TheDeveloper.AdvancedObjectPool;
 
 
-public class TestTest : MonoBehaviour
+
+public class TestTest : MonoBehaviour, IDragHandler
 {
-
-
-    void Start()
+    public void OnDrag(PointerEventData eventData)
     {
-        
+        Debug.Log("TEST");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Services.Find(out ISceneManagement sceneManagement);
-            sceneManagement.NextScene(1);
-        }
-
-    }
 }
