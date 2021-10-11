@@ -7,7 +7,7 @@ public class MyAllPostprocessor : AssetPostprocessor
     {
         foreach (string str in importedAssets)
         {
-            Debug.Log("IMPORT Asset: " + str);
+
         }
         foreach (string str in deletedAssets)
         {

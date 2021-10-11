@@ -26,6 +26,7 @@ public class GameplayController : BaseManager<GameplayController>
     {
         if(SceneManager.GetActiveScene().buildIndex > 1)
         {
+            UIManager.Instance.HideAllPanel();
             UIManager.Instance.ShowPanel(typeof(GameplayPanel));
             InitLevelState();
         }
@@ -34,6 +35,7 @@ public class GameplayController : BaseManager<GameplayController>
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= InitGame;
+        UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv -= _stateController.GetState<Win1GameState>().OnNexLv;
     }
 
     private void SetEvent()
