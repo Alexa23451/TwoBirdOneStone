@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Controller of transitions between States
@@ -9,16 +10,12 @@ public class StateController
     /// <summary>
     /// Current active State
     /// </summary>
-    public IState CurrentState
-    {
-        get
-        {
-            return m_CurrentState;
-        }
-    }
-
     private IState m_CurrentState;
+
     private Dictionary<Type, IState> m_States;
+
+    public IState CurrentState => m_CurrentState;
+    public Type CurrentTypeState => m_States.FirstOrDefault(x => x.Value == m_CurrentState).Key;
 
     public StateController(Dictionary<Type, IState> states)
     {

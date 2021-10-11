@@ -20,7 +20,8 @@ public class BulletCheckEndgame : MonoBehaviour
     {
         if (_inGame)
         {
-            if(transform.position.y > _upPos || transform.position.y < _downPos)
+            if( (transform.position.y > _upPos || transform.position.y < _downPos) 
+                && GameplayController.Instance.GetCurrentType() != typeof(Win1GameState))
             {
                 GameplayController.Instance.LoseLevelState();
                 _inGame = false;

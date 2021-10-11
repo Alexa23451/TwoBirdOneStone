@@ -39,6 +39,7 @@ public class GameplayController : BaseManager<GameplayController>
     private void SetEvent()
     {
         SceneManager.sceneLoaded += InitGame;
+        UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += _stateController.GetState<Win1GameState>().OnNexLv;
     }
 
     public T GetState<T>() where T: class, IState => _stateController.GetState<T>();
@@ -47,4 +48,6 @@ public class GameplayController : BaseManager<GameplayController>
     public void LoseLevelState() => _stateController.SetState<LoseState>();
 
     public IState GetCurrentState() => _stateController.CurrentState;
+
+    public Type GetCurrentType() => _stateController.CurrentTypeState;
 }

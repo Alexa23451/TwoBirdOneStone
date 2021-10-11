@@ -15,9 +15,6 @@ public class LoseState : IState
 
     public void Enter()
     {
-        if (fadeSystem.IsFade)
-            return;
-
         Debug.Log("LOSE GAME");
 
         OnLoseGame?.Invoke();
