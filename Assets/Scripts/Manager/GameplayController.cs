@@ -36,12 +36,15 @@ public class GameplayController : BaseManager<GameplayController>
     {
         SceneManager.sceneLoaded -= InitGame;
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv -= _stateController.GetState<Win1GameState>().OnNexLv;
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks -= _stateController.GetState<LoseState>().OnPlayAgain;
+
     }
 
     private void SetEvent()
     {
         SceneManager.sceneLoaded += InitGame;
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += _stateController.GetState<Win1GameState>().OnNexLv;
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
     }
 
     public T GetState<T>() where T: class, IState => _stateController.GetState<T>();
