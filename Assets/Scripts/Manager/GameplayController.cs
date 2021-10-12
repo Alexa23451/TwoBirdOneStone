@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameplayController : BaseManager<GameplayController>
 {
     private StateController _stateController;
+    public event Action OnStartLv;
     ISceneManagement sceneManagement;
 
     public override void Init()
@@ -28,6 +29,7 @@ public class GameplayController : BaseManager<GameplayController>
         {
             UIManager.Instance.HideAllPanel();
             UIManager.Instance.ShowPanel(typeof(GameplayPanel));
+            OnStartLv?.Invoke();
             InitLevelState();
         }
     }

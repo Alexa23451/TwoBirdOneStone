@@ -28,11 +28,16 @@ public class GameplayPanel : BasePanel, IPlayerInput
 
     private void Start()
     {
-        moveSlider.value = (moveSlider.minValue + moveSlider.maxValue) / 2;
-
         shotBtn.onClick.AddListener(OnShotBtn);
         moveSlider.onValueChanged.AddListener(OnSliderChange);
     }
+
+    void OnEnable()
+    {
+        ResetSlider();
+    }
+
+    public void ResetSlider() => moveSlider.value = (moveSlider.minValue + moveSlider.maxValue) / 2;
 
     private void OnSliderChange(float value)
     {
