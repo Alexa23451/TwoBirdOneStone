@@ -68,12 +68,34 @@ public class UIPanelManager
 
     #region public
     /// <summary>
+    /// Show UI panel according to Panel Type with DG
+    /// </summary>
+    public void ShowPanelWithDG(Type type)
+    {
+        if (m_Panels.ContainsKey(type))
+            m_Panels[type].ShowWithDG();
+        else
+            Debug.LogWarning("Panel is not contained");
+    }
+
+    /// <summary>
     /// Show UI panel according to Panel Type
     /// </summary>
     public void ShowPanel(Type type)
     {
         if (m_Panels.ContainsKey(type))
             m_Panels[type].Show();
+        else
+            Debug.LogWarning("Panel is not contained");
+    }
+
+    /// <summary>
+    /// Hide UI panel according to Panel Type using DG
+    /// </summary>
+    public void HidePanelWithDG(Type type)
+    {
+        if (m_Panels.ContainsKey(type))
+            m_Panels[type].HideWithDG();
         else
             Debug.LogWarning("Panel is not contained");
     }
@@ -90,7 +112,17 @@ public class UIPanelManager
     }
 
     /// <summary>
-    /// Hide all panel 
+    /// Hide all panel with DG
+    /// </summary>
+    /// <param name="type"></param>
+    public void HideAllPanelWithDG()
+    {
+        foreach (var panel in m_Panels.Values)
+            panel.HideWithDG();
+    }
+
+    /// <summary>
+    /// Hide all panel
     /// </summary>
     /// <param name="type"></param>
     public void HideAllPanel()

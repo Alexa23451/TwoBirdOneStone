@@ -19,11 +19,12 @@ public class LoseState : IState
 
         OnLoseGame?.Invoke();
         SoundManager.Instance.Play(Sounds.LOSE_LV);
-        UIManager.Instance.ShowPanel(typeof(PlayAgainPanel));
+        UIManager.Instance.ShowPanelWithDG(typeof(PlayAgainPanel));
     }
 
     public void OnPlayAgain()
     {
+        UIManager.Instance.HidePanelWithDG(typeof(PlayAgainPanel));
         sceneManagement.ReloadScene();
     }
 

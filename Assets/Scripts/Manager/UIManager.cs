@@ -46,10 +46,13 @@ public class UIManager : BaseManager<UIManager>
     #endregion
 
     #region panel
+    public void ShowPanelWithDG(Type type) => m_panelManager.ShowPanelWithDG(type);
     public void ShowPanel(Type type) => m_panelManager.ShowPanel(type);
 
+    public void HidePanelWithDG(Type type) => m_panelManager.HidePanelWithDG(type);
     public void HidePanel(Type type) => m_panelManager.HidePanel(type);
 
+    public void HideAllPanelWithDG() => m_panelManager.HideAllPanelWithDG();
     public void HideAllPanel() => m_panelManager.HideAllPanel();
 
     public T GetPanel<T>() where T : BasePanel => m_panelManager.GetPanel<T>();

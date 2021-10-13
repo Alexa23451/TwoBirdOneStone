@@ -11,7 +11,7 @@ public class GameplayPanel : BasePanel, IPlayerInput
 
 
     public float Speed => _speed;
-    private float _speed = 5f;
+    [SerializeField] private float _speed = 5f;
 
     public event Action<float> OnHorizontalUpdate;
     public event Action OnSpaceUpdate;
@@ -35,6 +35,7 @@ public class GameplayPanel : BasePanel, IPlayerInput
     void OnEnable()
     {
         ResetSlider();
+        Debug.LogError("RESET SLDIER");
     }
 
     public void ResetSlider() => moveSlider.value = (moveSlider.minValue + moveSlider.maxValue) / 2;

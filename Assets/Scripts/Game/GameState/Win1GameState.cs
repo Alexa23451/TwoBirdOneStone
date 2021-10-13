@@ -19,12 +19,13 @@ public class Win1GameState : IState
 
         OnWinGame?.Invoke();
         SoundManager.Instance.Play(Sounds.WIN_LV);
-        UIManager.Instance.ShowPanel(typeof(WinLvPanel));
+        UIManager.Instance.ShowPanelWithDG(typeof(WinLvPanel));
     }
 
     public void OnNexLv()
     {
         sceneManagement.NextScene();
+        UIManager.Instance.HidePanelWithDG(typeof(WinLvPanel));
     }
 
     public void Exit()
