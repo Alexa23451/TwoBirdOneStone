@@ -252,6 +252,22 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: moveRightFirst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _leftOffsetPercent
+      value: 0.799
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _rightOffsetPercent
+      value: 0.199
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02153cfdd730604692088029b32ed12, type: 3}
 --- !u!1001 &639113184

@@ -30,11 +30,10 @@ public class EnemyController : MonoBehaviour , IBulletInteract
     {
         SoundManager.Instance.Play(Sounds.ENEMY_HIT);
 
-        var vfx = GameObject.Instantiate(_explodeVFX, transform.position, Quaternion.identity);
-
+        var vfx = Pooling.InstantiateObject<ParticleSystem>(_explodeVFX.gameObject, transform.position, Quaternion.identity);
         Handheld.Vibrate();
         vfx.Play();
 
-        Destroy(vfx.gameObject, 2f);
+        Pooling.DestroyObject(vfx.gameObject, 2f);
     }
 }

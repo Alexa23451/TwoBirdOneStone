@@ -35,7 +35,6 @@ public class GameplayPanel : BasePanel, IPlayerInput
     void OnEnable()
     {
         ResetSlider();
-        Debug.LogError("RESET SLDIER");
     }
 
     public void ResetSlider() => moveSlider.value = (moveSlider.minValue + moveSlider.maxValue) / 2;
