@@ -23,7 +23,7 @@ public class GameplayPanel : BasePanel
     {
         shotBtn.onClick.AddListener(OnShotBtn);
         moveSlider.onValueChanged.AddListener(OnSliderChange);
-        moveSlider.onValueChanged.AddListener(OnSliderChange);
+        stopGameBtn.onClick.AddListener(OnStopBtnPress);
     }
 
     void OnEnable()
@@ -36,6 +36,15 @@ public class GameplayPanel : BasePanel
     private void OnSliderChange(float value)
     {
         OnHorizontalUpdate?.Invoke(value);
+    }
+
+    private void OnStopBtnPress()
+    {
+        OnStopMenu?.Invoke();
+
+        Services.Find(out ISceneManagement sceneManagement);
+        UIManager.Instance.HideAllPanel();
+        sceneManagement.ChangeScene(1);
     }
 
     private void OnShotBtn()

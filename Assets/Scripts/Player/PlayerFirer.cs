@@ -66,11 +66,6 @@ public class PlayerFirer : MonoBehaviour
     }
 
 
-    public GameObject GetPlayer()
-    {
-        return this.gameObject;
-    }
-
     private void OnDestroy()
     {
         playerMechanic.OnRecharge -= OnRecharge;

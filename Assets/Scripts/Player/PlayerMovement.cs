@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        UIManager.Instance.GetPanel<GameplayPanel>().OnHorizontalUpdate += OnPlayerMove;
+        UIManager.Instance.GetPanel<GameplayPanel>().OnHorizontalUpdate -= OnPlayerMove;
     }
 
     void Update()
