@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class PlayAgainPanel : BasePanel
 {
-    public Button WatchAdsBtn;
-    public Button NoTksBtn;
+    [SerializeField] private Button WatchAdsBtn;
+    [SerializeField] private Button NoTksBtn;
+    [SerializeField] private Text currentLv;
 
     public event Action OnWatchAds;
     public event Action OnNoTks;
@@ -56,6 +57,8 @@ public class PlayAgainPanel : BasePanel
         countTime = countDown;
         NoTksBtn.gameObject.SetActive(false);
     }
+
+    public void SetLvText(string txt) => currentLv.text = txt;
 
 
     private void OnWatchAdBtn()

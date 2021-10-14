@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoseState : IState
 {
@@ -20,6 +21,7 @@ public class LoseState : IState
         OnLoseGame?.Invoke();
         SoundManager.Instance.Play(Sounds.LOSE_LV);
         UIManager.Instance.ShowPanelWithDG(typeof(PlayAgainPanel));
+        UIManager.Instance.GetPanel<PlayAgainPanel>().SetLvText("Level " + (SceneManager.GetActiveScene().buildIndex - 1).ToString());
     }
 
     public void OnPlayAgain()

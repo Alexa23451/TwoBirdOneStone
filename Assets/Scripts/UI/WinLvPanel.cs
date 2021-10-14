@@ -6,7 +6,7 @@ using System;
 
 public class WinLvPanel : BasePanel
 {
-    public Button nextLvBtn;
+    [SerializeField] private Button nextLvBtn;
     public event Action OnNextLv;
 
     private void Awake()
