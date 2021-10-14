@@ -15,7 +15,7 @@ public class ThornMechanic : MonoBehaviour, IBulletInteract
 
 
         VFX();
-        GameplayController.Instance.LoseLevelState();
+        TimerManager.Instance.AddTimer(0.5f, ()=> GameplayController.Instance.LoseLevelState());
     }
 
     private void VFX()
