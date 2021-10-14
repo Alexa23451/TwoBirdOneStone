@@ -61,7 +61,7 @@ public class PlayerFirer : DbService, IPlayer
         {
             if (!currentBullet)
             {
-                currentBullet = Instantiate(bulletPrefab, bulletPoint.transform.position, Quaternion.identity).GetComponent<BulletBehaviour>();
+                currentBullet = Pooling.InstantiateObject(bulletPrefab, bulletPoint.transform.position, Quaternion.identity).GetComponent<BulletBehaviour>();
             }
             else
             {

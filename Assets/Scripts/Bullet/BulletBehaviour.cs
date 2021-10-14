@@ -6,7 +6,7 @@ public interface IBulletInteract
 }
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BulletBehaviour : InitObjectSpawn
+public class BulletBehaviour : MonoBehaviour
 {
     private IBulletInteract bulletInteract;
     private Vector2 _direction;
@@ -16,18 +16,13 @@ public class BulletBehaviour : InitObjectSpawn
     [SerializeField] private bool isFly;
     [SerializeField] float speed;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
-    public void SetDirection(Vector2 direc) => _direction = direc;
-
-    protected override void InitObject()
+    private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         rig.velocity = _direction * speed;
     }
+
+    public void SetDirection(Vector2 direc) => _direction = direc;
 
     private void OnEnable()
     {
