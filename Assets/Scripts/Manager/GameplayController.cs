@@ -29,7 +29,7 @@ public class GameplayController : BaseManager<GameplayController>
         {
             UIManager.Instance.HideAllPanel();
             UIManager.Instance.ShowPanel(typeof(GameplayPanel));
-            UIManager.Instance.GetPanel<GameplayPanel>().textLv.text = "Level " + (SceneManager.GetActiveScene().buildIndex - 1).ToString();
+            UIManager.Instance.GetPanel<GameplayPanel>().SetTextLv("Level " + (SceneManager.GetActiveScene().buildIndex - 1).ToString());
             OnStartLv?.Invoke();
             InitLevelState();
         }

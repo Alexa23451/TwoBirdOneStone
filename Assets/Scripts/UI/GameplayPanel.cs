@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class GameplayPanel : BasePanel
 {
-    public Button shotBtn;
-    public Button stopGameBtn;
-    public Slider moveSlider;
-    public Text textLv;
+    [SerializeField] private Button shotBtn;
+    [SerializeField] private Button stopGameBtn;
+    [SerializeField] private Slider moveSlider;
+    [SerializeField] private Text textLv;
 
 
     public float Speed => _speed;
@@ -52,6 +52,10 @@ public class GameplayPanel : BasePanel
         OnSpaceUpdate?.Invoke();
     }
 
+    public void SetTextLv(string txt)
+    {
+        textLv.text = txt;
+    }
 
     public override void OverrideText()
     {
