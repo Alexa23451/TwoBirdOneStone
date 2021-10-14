@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (moveRightFirst)
         {
-            if(transform.localScale.x == -1f)
+            if(transform.localScale.x < 0)
             {
                 transform.localScale = new Vector3(1,1,1);
             }
@@ -43,7 +43,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            if (transform.localScale.x == 1f)
+            if (transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
