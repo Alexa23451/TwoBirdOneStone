@@ -1,19 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
-public interface IPlayer
+public class PlayerFirer : MonoBehaviour
 {
-    GameObject GetPlayer();
-
-    public bool IsShot { get; }
-    event Action OnPlayerShot;
-}
-
-public class PlayerFirer : DbService, IPlayer
-{
-    private IPlayerInput playerInput;
     public event Action OnPlayerShot;
 
     [SerializeField] private GameObject bulletPoint;
@@ -25,19 +14,11 @@ public class PlayerFirer : DbService, IPlayer
     private bool _isShot = false;
     public bool IsShot => _isShot;
 
-    protected override void OnRegisterServices()
+    private void Awake()
     {
-        Services.RegisterAs<IPlayer>(this);
-    }
-
-    protected override void OnAwake()
-    {
-        base.OnAwake();
-        Services.Find(out playerInput);
         playerMechanic = GetComponent<PlayerMechanic>();
-
         playerMechanic.OnRecharge += OnRecharge;
-        playerInput.OnSpaceUpdate += OnShot;
+        UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate += OnShot;
     }
 
     private void OnRecharge()
@@ -90,11 +71,9 @@ public class PlayerFirer : DbService, IPlayer
         return this.gameObject;
     }
 
-    protected override void OnObjectDestroyed()
+    private void OnDestroy()
     {
         playerMechanic.OnRecharge -= OnRecharge;
-        playerInput.OnSpaceUpdate -= OnShot;
-
-        Services.Unregister(this);
+        UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate -= OnShot;
     }
 }

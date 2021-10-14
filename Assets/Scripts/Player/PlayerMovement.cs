@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private IPlayerInput playerInput;
-
     private float _leftLimit, _rightLimit;
+    private float playerInputSpeed;
     [SerializeField] float _offset = 1f;
 
     private void Awake()
@@ -22,15 +21,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Services.Find(out playerInput);
-        playerInput.OnHorizontalUpdate += OnPlayerMove;
+        UIManager.Instance.GetPanel<GameplayPanel>().OnHorizontalUpdate += OnPlayerMove;
+        playerInputSpeed = UIManager.Instance.GetPanel<GameplayPanel>().Speed;
     }
 
     private void OnPlayerMove(float horizontal)
     {
         var horizontalPos = QuanMathf.ReMap(horizontal, 0, 1, _leftLimit + _offset, _rightLimit - _offset);
 
-        transform.position += Vector3.right * horizontal * playerInput.Speed * Time.deltaTime;
+        transform.position += Vector3.right * horizontal * playerInputSpeed * Time.deltaTime;
 
         //horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
 
@@ -39,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerInput.OnHorizontalUpdate -= OnPlayerMove;
+        UIManager.Instance.GetPanel<GameplayPanel>().OnHorizontalUpdate += OnPlayerMove;
     }
 
     void Update()
@@ -48,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0f)
         {
             var horizontal = Input.GetAxis("Horizontal");
-            transform.position += Vector3.right * horizontal * playerInput.Speed * Time.deltaTime;
+            transform.position += Vector3.right * horizontal * playerInputSpeed * Time.deltaTime;
             var horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
             transform.position = new Vector2(horizontalPos, transform.position.y);
         }

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameplayPanel : BasePanel, IPlayerInput
+public class GameplayPanel : BasePanel
 {
     public Button shotBtn;
+    public Button stopGameBtn;
     public Slider moveSlider;
+    public Text textLv;
 
 
     public float Speed => _speed;
@@ -15,20 +17,12 @@ public class GameplayPanel : BasePanel, IPlayerInput
 
     public event Action<float> OnHorizontalUpdate;
     public event Action OnSpaceUpdate;
-
-    private void Awake()
-    {
-        Services.RegisterAs<IPlayerInput>(this);
-    }
-
-    private void OnDestroy()
-    {
-        Services.Unregister(this);
-    }
+    public event Action OnStopMenu;
 
     private void Start()
     {
         shotBtn.onClick.AddListener(OnShotBtn);
+        moveSlider.onValueChanged.AddListener(OnSliderChange);
         moveSlider.onValueChanged.AddListener(OnSliderChange);
     }
 
