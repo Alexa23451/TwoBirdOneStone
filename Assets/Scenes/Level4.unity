@@ -489,6 +489,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _leftOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _rightOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
       propertyPath: moveRightFirst
       value: 1
       objectReference: {fileID: 0}
@@ -560,6 +568,14 @@ PrefabInstance:
     - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
       propertyPath: _speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _leftOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _rightOffset
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
       propertyPath: _leftOffsetPercent

@@ -26,13 +26,12 @@ public class LoseState : IState
 
     public void OnPlayAgain()
     {
-        UIManager.Instance.HidePanelWithDG(typeof(PlayAgainPanel));
         sceneManagement.ReloadScene();
     }
 
     public void Exit()
     {
-
+        UIManager.Instance.HidePanelWithDG(typeof(PlayAgainPanel));
     }
 
 }

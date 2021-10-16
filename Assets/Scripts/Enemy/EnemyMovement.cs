@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private float _leftLimit, _rightLimit;
-    [SerializeField] private float _leftLimitRange, _rightLimitRange;
+    private float _leftLimitRange, _rightLimitRange;
 
     [SerializeField] private float _speed;
 
-    [SerializeField] [Range(0, 0.8f)] private float _leftOffsetPercent;
-    [SerializeField] [Range(0, 0.8f)] private float _rightOffsetPercent;
+    [SerializeField] [Range(0, 6f)] private float _leftOffset;
+    [SerializeField] [Range(0, 6f)] private float _rightOffset;
 
     public bool moveRightFirst;
 
@@ -26,8 +26,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        _leftLimitRange = _leftLimit * _leftOffsetPercent;
-        _rightLimitRange = _rightLimit * _rightOffsetPercent;
+        _leftLimitRange = transform.position.x - _leftOffset;
+        _rightLimitRange = transform.position.x + _rightOffset;
     }
 
     void Update()
@@ -52,12 +52,12 @@ public class EnemyMovement : MonoBehaviour
         }
 
         //range check
-        if(transform.position.x > _rightLimitRange)
+        if(transform.position.x > _rightLimitRange || transform.position.x > _rightLimit)
         {
             moveRightFirst = false;
         }
         
-        if(transform.position.x < _leftLimitRange)
+        if(transform.position.x < _leftLimitRange || transform.position.x < _leftLimit)
         {
             moveRightFirst = true;
         }

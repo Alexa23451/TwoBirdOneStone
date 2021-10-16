@@ -10,11 +10,14 @@ public class ThornMechanic : MonoBehaviour, IBulletInteract
 
     public void OnEnter(GameObject onObject)
     {
+
         onObject.SetActive(false);
         OnThorn?.Invoke();
 
-
         VFX();
+
+        if (GameplayController.Instance.GetCurrentType() == typeof(Win1GameState))
+            return;
         TimerManager.Instance.AddTimer(0.5f, ()=> GameplayController.Instance.LoseLevelState());
     }
 

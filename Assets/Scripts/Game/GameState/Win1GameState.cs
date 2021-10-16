@@ -25,11 +25,10 @@ public class Win1GameState : IState
     public void OnNexLv()
     {
         sceneManagement.NextScene();
-        UIManager.Instance.HidePanelWithDG(typeof(WinLvPanel));
     }
 
     public void Exit()
     {
-
+        UIManager.Instance.HidePanelWithDG(typeof(WinLvPanel));
     }
 }
