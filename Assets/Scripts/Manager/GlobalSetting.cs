@@ -4,17 +4,7 @@ using UnityEngine;
 
 
 
-public class GlobalSetting : MonoBehaviour
+public class GlobalSetting : SettingsSingleton<GlobalSetting>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Range(1,69)] public int totalLevel;
 }

@@ -10,6 +10,7 @@ public class UIObjectSelectorItem : MonoBehaviour
     [SerializeField] Transform lockMark;
     [SerializeField] UIProgressBar itemOpenProgressBar;
     [SerializeField] Text itemOpenProgressText;
+    [SerializeField] Text lvText;
 
     private bool _isLocked;
 
@@ -53,4 +54,9 @@ public class UIObjectSelectorItem : MonoBehaviour
             button.onClick.AddListener(() => onClicked?.Invoke());
     }
 
+    public void SetLvText(string txt)
+    {
+        if(lvText)
+            lvText.text = txt;
+    }
 }

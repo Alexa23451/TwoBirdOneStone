@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainmenuPanel : BasePanel 
+public class MainmenuPanel : MonoBehaviour 
 {
     [SerializeField] private Button startGame;
 
@@ -19,11 +19,6 @@ public class MainmenuPanel : BasePanel
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         Services.Find(out sceneManagement);
         sceneManagement.NextScene();
-    }
-
-    public override void OverrideText()
-    {
-
     }
 
 }

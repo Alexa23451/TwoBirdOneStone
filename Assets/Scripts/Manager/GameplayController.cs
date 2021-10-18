@@ -27,9 +27,20 @@ public class GameplayController : BaseManager<GameplayController>
     {
         if(SceneManager.GetActiveScene().buildIndex > 1)
         {
+
+            int lv = SceneManager.GetActiveScene().buildIndex - 1;
+
+            if(lv > DataManager.Instance.UnlockLv)
+            {
+                DataManager.Instance.UnlockLv = lv;
+            }
+
+            DataManager.Instance.CurrentLv = lv;
+            DataManager.Instance.SaveGame();
+
             UIManager.Instance.HideAllPanel();
             UIManager.Instance.ShowPanel(typeof(GameplayPanel));
-            UIManager.Instance.GetPanel<GameplayPanel>().SetTextLv("Level " + (SceneManager.GetActiveScene().buildIndex - 1).ToString());
+            UIManager.Instance.GetPanel<GameplayPanel>().SetTextLv("Level " + lv.ToString());
             OnStartLv?.Invoke();
             InitLevelState();
         }

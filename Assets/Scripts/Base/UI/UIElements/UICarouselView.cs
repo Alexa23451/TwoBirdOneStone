@@ -18,6 +18,9 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [SerializeField] float maxScale = 0.3f;
     [SerializeField] AnimationCurve scaleAnim;
 
+    [SerializeField] protected Button nextButton;
+    [SerializeField] protected Button prevButton;
+    [SerializeField] protected Button selectButton;
 
 
     protected int _currentIndex;
@@ -54,6 +57,12 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             images[i].anchoredPosition = new Vector2((imageWidth + imageSpace) * i, 0);
         }
+
+
+        nextButton.onClick.AddListener(() => ChangePage(1));
+        prevButton.onClick.AddListener(() => ChangePage(-1));
+
+        UpdatePageButtons();
     }
 
     // Update is called once per frame
@@ -176,6 +185,8 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         }
 
         dragAmount = 0;
+
+        UpdatePageButtons();
     }
 
     private int GetCurrentIndex()
@@ -215,5 +226,21 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         currentIndex = value;
         lerpTimer = 0;
         lerpPosition = (imageWidth + imageSpace) * currentIndex;
+    }
+
+    void ChangePage(int direction)
+    {
+        direction = direction > 0 ? 1 : -1;
+        currentIndex += direction;
+        GoToIndexSmooth(currentIndex);
+
+        UpdatePageButtons();
+    }
+
+    void UpdatePageButtons()
+    {
+        int maxPage = images.Length;
+        nextButton.interactable = currentIndex < maxPage - 1;
+        prevButton.interactable = currentIndex > 0;
     }
 }
