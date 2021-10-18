@@ -5,20 +5,12 @@ using UnityEngine.UI;
 
 public class MainmenuPanel : MonoBehaviour 
 {
-    [SerializeField] private Button startGame;
+    [SerializeField] private Text currentLv;
 
-    private ISceneManagement sceneManagement;
 
     private void Start()
     {
-        startGame.onClick.AddListener(StartGame);
-    }
-
-    private void StartGame()
-    {
-        SoundManager.Instance.Play(Sounds.UI_POPUP);
-        Services.Find(out sceneManagement);
-        sceneManagement.NextScene();
+        currentLv.text = "Level " + DataManager.Instance.CurrentLv.ToString();
     }
 
 }
