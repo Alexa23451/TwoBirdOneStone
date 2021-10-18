@@ -39,6 +39,7 @@ public class LevelEditor : EditorWindow
             if (GUILayout.Button("Click"))
             {
                 EditorSceneManager.OpenScene("Assets/Scenes/Level" + (i + 1)+ ".unity", OpenSceneMode.Single);
+                Debug.Log("OPEN LV " + (i + 1));
             }
 
             EditorGUILayout.EndHorizontal();
