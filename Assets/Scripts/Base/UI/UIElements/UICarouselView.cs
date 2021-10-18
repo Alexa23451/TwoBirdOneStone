@@ -219,6 +219,8 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             images[i].anchoredPosition = new Vector2(screenPosition + ((imageWidth + imageSpace) * i), 0);
         }
+
+        UpdatePageButtons();
     }
 
     public void GoToIndexSmooth(int value)
@@ -237,7 +239,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         UpdatePageButtons();
     }
 
-    void UpdatePageButtons()
+    private void UpdatePageButtons()
     {
         int maxPage = images.Length;
         nextButton.interactable = currentIndex < maxPage - 1;

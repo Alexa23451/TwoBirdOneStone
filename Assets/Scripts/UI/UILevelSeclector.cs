@@ -50,15 +50,16 @@ public class UILevelSeclector : UICarouselView
             images[i] = lvObj.GetComponent<RectTransform>();
         }
 
-        base.Init();
 
+        base.Init();
 
         onIndexChanged += OnIndexChanged;
 
         selectButton.onClick.AddListener(SelectObject);
 
         //go to current lv
-        GoToIndex(DataManager.Instance.CurrentLv -1);
+        GoToIndex(DataManager.Instance.CurrentLv - 1);
+        
 
         Services.Find(out sceneManagement);
     }
