@@ -24,7 +24,7 @@ public class SettingsSingleton<T> : ScriptableObject where T : ScriptableObject
     protected static void Instantiate()
     {
         s_Instance = ScriptableObject.CreateInstance<T>();
-        UnityEditor.AssetDatabase.CreateAsset(s_Instance, $"Assets/Firefighters/Resources/Settings/{typeof(T).Name}.asset");
+        UnityEditor.AssetDatabase.CreateAsset(s_Instance, $"Assets/Resources/Settings/{typeof(T).Name}.asset");
     }
 #endif
 }

@@ -40,14 +40,14 @@ public abstract class BasePopUpWindow : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         StartCoroutine(ShowTimer());
-        //SoundManager.Instance.Play(_showSounds);        
+        SoundManager.Instance.Play(_showSounds);        
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         if (!_isStartHidding)
         {
-            //SoundManager.Instance.Play(_touchSounds);
+            SoundManager.Instance.Play(_touchSounds);
 
             StopAllCoroutines();
             HideWindow();

@@ -8,9 +8,9 @@ public class AppController : MonoBehaviour
     {
         UIManager.Instance.Init();
         GameplayController.Instance.Init();
-        CameraController.Instance.Init();
         SoundManager.Instance.Init();
         TimerManager.Instance.Init();
+        DataManager.Instance.Init();
     }
 
     
