@@ -1,11 +1,14 @@
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
-public class SaveAreaUI : MonoBehaviour
+public class SafeAreaUI : MonoBehaviour
 {
     private void Awake()
     {
         RectTransform rectTr = GetComponent<RectTransform>();
+        if (!rectTr)
+            return;
+
         Rect saveArea = Screen.safeArea;
 
         Vector2 anchorMin = saveArea.position;

@@ -42,6 +42,7 @@ public class UIPanelManager
     {
         GameObject canvasGameObject = new GameObject("Canvas");
         Canvas canvas = canvasGameObject.AddComponent<Canvas>();
+        canvasGameObject.AddComponent<SafeAreaUI>();
 
         var scaler = canvasGameObject.AddComponent<UnityEngine.UI.CanvasScaler>();
         var raycaster = canvasGameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
