@@ -13,6 +13,9 @@
         maven {
             url "https://maven.google.com" // Assets/GoogleMobileAdsMediationTestSuite/Editor/GoogleMobileAdsMediationTestSuiteDependencies.xml:7
         }
+        maven {
+            url (unityProjectPath + "/Assets/GeneratedLocalRepo/Firebase/m2repository") // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:22
+        }
         mavenLocal()
         jcenter()
         mavenCentral()
@@ -28,6 +31,10 @@ dependencies {
 // Android Resolver Dependencies Start
     implementation 'com.google.android.ads:mediation-test-suite:1.5.0' // Assets/GoogleMobileAdsMediationTestSuite/Editor/GoogleMobileAdsMediationTestSuiteDependencies.xml:7
     implementation 'com.google.android.gms:play-services-ads:20.0.0' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
+    implementation 'com.google.android.gms:play-services-base:17.6.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:17
+    implementation 'com.google.firebase:firebase-analytics:19.0.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:15
+    implementation 'com.google.firebase:firebase-app-unity:8.4.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:22
+    implementation 'com.google.firebase:firebase-common:20.0.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:13
 // Android Resolver Dependencies End
 **DEPS**}
 

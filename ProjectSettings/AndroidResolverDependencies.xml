@@ -2,8 +2,15 @@
   <packages>
     <package>com.google.android.ads:mediation-test-suite:1.5.0</package>
     <package>com.google.android.gms:play-services-ads:20.0.0</package>
+    <package>com.google.android.gms:play-services-base:17.6.0</package>
+    <package>com.google.firebase:firebase-analytics:19.0.0</package>
+    <package>com.google.firebase:firebase-app-unity:8.4.0</package>
+    <package>com.google.firebase:firebase-common:20.0.0</package>
   </packages>
-  <files />
+  <files>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/8.4.0/firebase-app-unity-8.4.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/8.4.0/firebase-app-unity-8.4.0.pom</file>
+  </files>
   <settings>
     <setting name="androidAbis" value="armeabi-v7a" />
     <setting name="bundleId" value="com.isNullStudio.OneBullet" />
