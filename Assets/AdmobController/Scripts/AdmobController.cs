@@ -66,7 +66,6 @@ public enum RewardType
 
 public interface IAdmobService
 {
-    void ShowRewarded(RewardType type , float amount = 0);
     void ShowRewardedAd(System.Action onUserClaimed);
     void ShowInterstitial(System.Action onAdClose);
 }
@@ -92,7 +91,7 @@ public interface IAdmobCallback
     event Action OnNativeFailedToLoad;
 }
 
-public class AdmobController : DbSingletonService , IAdmobCallback, IAdmobService
+public class AdmobController : BaseManager<AdmobController> , IAdmobCallback, IAdmobService
 {
     [System.Flags]
     public enum ControllerFlags
@@ -137,16 +136,9 @@ public class AdmobController : DbSingletonService , IAdmobCallback, IAdmobServic
             Init();
         }
     }
+    
 
-    protected override void OnRegisterServices()
-    {
-        base.OnRegisterServices();
-        Debug.LogError("ON REGISTER ADMOB");
-        Services.RegisterAs<IAdmobService>(this);
-        Services.RegisterAs<IAdmobCallback>(this);
-    }
-
-    public void Init()
+    public override void Init()
     {
         if (Initialized)
             return;
@@ -160,6 +152,11 @@ public class AdmobController : DbSingletonService , IAdmobCallback, IAdmobServic
         controlFlags |= ControllerFlags.INITIALIZING;
         MobileAds.Initialize(MobileAdsInitializationCallback);
 
+
+        //register
+        Debug.LogError("ON REGISTER ADMOB");
+        Services.RegisterAs<IAdmobService>(this);
+        Services.RegisterAs<IAdmobCallback>(this);
 
         //quickly load the ads as possible
         //controlFlags |= ControllerFlags.INITIALIZED;
@@ -547,20 +544,6 @@ public class AdmobController : DbSingletonService , IAdmobCallback, IAdmobServic
         rewardedAd.Show();
     }
     #endregion
-
-    public void ShowRewarded(RewardType type , float amount =0)
-    {
-        Debug.Log("Rewarded Ad Status : " + rewardedFlags);
-        if (!IsRewardedAdLoaded)
-            return;
-
-        rewardedAd.Show();
-        
-        rewardedAdUserClaimedCallback = () => { 
-            OnRewardedUserEarned?.Invoke(type , amount);
-        };
-    }
-
 
     #region exposed properties
     public ControllerFlags ControlFlags => controlFlags;

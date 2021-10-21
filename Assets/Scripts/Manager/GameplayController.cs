@@ -17,6 +17,7 @@ public class GameplayController : BaseManager<GameplayController>
             { typeof(LoseState), new LoseState() },
             { typeof(PauseState), new PauseState() },
             { typeof(NormalState), new NormalState() },
+            { typeof(AdsState), new AdsState() },
         });
 
         SetEvent();
@@ -61,6 +62,7 @@ public class GameplayController : BaseManager<GameplayController>
         SceneManager.sceneLoaded += InitGame;
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += _stateController.GetState<Win1GameState>().OnNexLv;
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += _stateController.GetState<AdsState>().OnPlayAgain;
         UIManager.Instance.GetPanel<GameplayPanel>().OnStopMenu += PauseState;
         UIManager.Instance.GetPanel<PausePanel>().OnResumeGame += NormanlState;
         UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += _stateController.GetState<PauseState>().OnSettingGame;
@@ -73,6 +75,7 @@ public class GameplayController : BaseManager<GameplayController>
     public void LoseLevelState() => _stateController.SetState<LoseState>();
     public void PauseState() => _stateController.SetState<PauseState>();
     public void NormanlState() => _stateController.SetState<NormalState>();
+    public void AdsState() => _stateController.SetState<AdsState>();
 
     public IState GetCurrentState() => _stateController.CurrentState;
 

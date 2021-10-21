@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flags: 797
   adId_banner: 
-  adId_interstitial: ca-app-pub-9023460378948435/5033788266
-  adId_rewarded: ca-app-pub-9023460378948435/5558733579
+  adId_interstitial: ca-app-pub-5612727195892361/6271320412
+  adId_rewarded: ca-app-pub-5612727195892361/1111875966
   bannerAdPosition: 1
   autoRefresh_banner: 30
   autoRefresh_interstitial: 3

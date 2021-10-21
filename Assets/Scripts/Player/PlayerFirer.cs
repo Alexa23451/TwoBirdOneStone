@@ -69,6 +69,6 @@ public class PlayerFirer : MonoBehaviour
     private void OnDestroy()
     {
         playerMechanic.OnRecharge -= OnRecharge;
-        UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate -= OnShot;
+        //UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate -= OnShot;
     }
 }
