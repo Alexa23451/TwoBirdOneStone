@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "951064232788",
+    "project_id": "two-bird-one-stone",
+    "storage_bucket": "two-bird-one-stone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951064232788:android:a57afdf63a861a2bd4fec1",
+        "android_client_info": {
+          "package_name": "com.isNullStudio.OneBullet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951064232788-167db2li2efef3ploi3dt99fpavaepsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4CZ3JlZOrfqtFMTi288N02NgnkRh3gkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951064232788-167db2li2efef3ploi3dt99fpavaepsm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
