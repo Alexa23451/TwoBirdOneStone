@@ -1309,7 +1309,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 359952eed08b8c44ca4f0cac4979ee02, type: 3}
-    m_FontSize: 130
+    m_FontSize: 80
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1320,9 +1320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0
-  m_Text: 'ONE BULLET
-
-'
+  m_Text: TWO BIRD, ONE STONE
 --- !u!222 &1799835985
 CanvasRenderer:
   m_ObjectHideFlags: 0

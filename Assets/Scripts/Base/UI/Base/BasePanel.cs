@@ -17,7 +17,7 @@ public abstract class BasePanel : MonoBehaviour
         rect = GetComponent<RectTransform>();
     }
 
-    public void ShowWithDG()
+    public void ShowWithDG(Action OnAfterShow = null)
     {
         gameObject.SetActive(true);
 
@@ -26,11 +26,12 @@ public abstract class BasePanel : MonoBehaviour
         transform.DOKill();
 
         transform.localScale = Vector2.one * 0.15f;
-        transform.DOScale(1, 0.5f).SetEase(Ease.InOutBack);
+        transform.DOScale(1, 0.5f).SetEase(Ease.InOutBack).OnComplete( ()=> OnAfterShow?.Invoke() );
     }
 
     public void Show()
     {
+        transform.localScale = Vector3.one;
         gameObject.SetActive(true);
     }
 

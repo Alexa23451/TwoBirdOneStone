@@ -41,10 +41,6 @@ public class GameplayPanel : BasePanel
     private void OnStopBtnPress()
     {
         OnStopMenu?.Invoke();
-
-        Services.Find(out ISceneManagement sceneManagement);
-        UIManager.Instance.HideAllPanel();
-        sceneManagement.ChangeScene(1);
     }
 
     private void OnShotBtn()

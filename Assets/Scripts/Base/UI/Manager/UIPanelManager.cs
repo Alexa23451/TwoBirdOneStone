@@ -71,10 +71,10 @@ public class UIPanelManager
     /// <summary>
     /// Show UI panel according to Panel Type with DG
     /// </summary>
-    public void ShowPanelWithDG(Type type)
+    public void ShowPanelWithDG(Type type, Action OnAfterShow = null)
     {
         if (m_Panels.ContainsKey(type))
-            m_Panels[type].ShowWithDG();
+            m_Panels[type].ShowWithDG(OnAfterShow);
         else
             Debug.LogWarning("Panel is not contained");
     }

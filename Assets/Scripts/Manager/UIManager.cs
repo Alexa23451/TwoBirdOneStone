@@ -46,7 +46,7 @@ public class UIManager : BaseManager<UIManager>
     #endregion
 
     #region panel
-    public void ShowPanelWithDG(Type type) => m_panelManager.ShowPanelWithDG(type);
+    public void ShowPanelWithDG(Type type, Action OnAfterShow = null) => m_panelManager.ShowPanelWithDG(type,OnAfterShow);
     public void ShowPanel(Type type) => m_panelManager.ShowPanel(type);
 
     public void HidePanelWithDG(Type type) => m_panelManager.HidePanelWithDG(type);

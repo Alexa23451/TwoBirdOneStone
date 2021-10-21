@@ -17,13 +17,16 @@ public class StartLevelState : IState
 
     public void Enter()
     {
+        OnUnLoadLevel();
         OnLoadNewLevel();
     }
 
     public void Exit()
     {
-        OnUnLoadLevel();
+
     }
+
+
 
     private void OnLoadNewLevel()
     {

@@ -15,6 +15,8 @@ public class GameplayController : BaseManager<GameplayController>
             { typeof(StartLevelState), new StartLevelState() },
             { typeof(Win1GameState), new Win1GameState() },
             { typeof(LoseState), new LoseState() },
+            { typeof(PauseState), new PauseState() },
+            { typeof(NormalState), new NormalState() },
         });
 
         SetEvent();
@@ -59,12 +61,18 @@ public class GameplayController : BaseManager<GameplayController>
         SceneManager.sceneLoaded += InitGame;
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += _stateController.GetState<Win1GameState>().OnNexLv;
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
+        UIManager.Instance.GetPanel<GameplayPanel>().OnStopMenu += PauseState;
+        UIManager.Instance.GetPanel<PausePanel>().OnResumeGame += NormanlState;
+        UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += _stateController.GetState<PauseState>().OnSettingGame;
+        UIManager.Instance.GetPanel<PausePanel>().OnMainMenuGame += _stateController.GetState<PauseState>().OnMainMenuGame;
     }
 
     public T GetState<T>() where T: class, IState => _stateController.GetState<T>();
     public void InitLevelState() => _stateController.SetState<StartLevelState>();
     public void WinLevelState() => _stateController.SetState<Win1GameState>();
     public void LoseLevelState() => _stateController.SetState<LoseState>();
+    public void PauseState() => _stateController.SetState<PauseState>();
+    public void NormanlState() => _stateController.SetState<NormalState>();
 
     public IState GetCurrentState() => _stateController.CurrentState;
 
