@@ -5,7 +5,6 @@ using System;
 
 public class Win1GameState : IState
 {
-    public event Action OnWinGame;
     ISceneManagement sceneManagement;
 
     public Win1GameState()
@@ -17,7 +16,7 @@ public class Win1GameState : IState
     {
         Debug.Log("WIN GAME");
 
-        OnWinGame?.Invoke();
+        DataManager.Instance.Money += GlobalSetting.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
         SoundManager.Instance.Play(Sounds.WIN_LV);
         TimerManager.Instance.AddTimer(1f,()=> UIManager.Instance.ShowPanelWithDG(typeof(WinLvPanel)));
     }

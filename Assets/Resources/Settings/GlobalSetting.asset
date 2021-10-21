@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GlobalSetting
   m_EditorClassIdentifier: 
   totalLevel: 11
+  moneyRewardOnLevel: 64000000c80000002c01000090010000f401000058020000bc0200002003000084030000e80300004c040000
