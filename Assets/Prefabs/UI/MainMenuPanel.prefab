@@ -488,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   images: []
   imageSpace: 100
-  swipeThrustHold: 30
+  swipeThrustHold: 100
   maxScale: 0.5
   scaleAnim:
     serializedVersion: 2

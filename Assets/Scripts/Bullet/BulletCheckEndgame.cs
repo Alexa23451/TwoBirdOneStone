@@ -14,6 +14,16 @@ public class BulletCheckEndgame : MonoBehaviour
         _downPos = -Camera.main.orthographicSize;
 
         _inGame = true;
+
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += ResetGame;
+    }
+
+
+    private void ResetGame() => _inGame = true;
+
+    private void OnDestroy()
+    {
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds -= ResetGame;
     }
 
     void Update()
@@ -25,6 +35,7 @@ public class BulletCheckEndgame : MonoBehaviour
             {
                 GameplayController.Instance.LoseLevelState();
                 _inGame = false;
+                Pooling.DestroyObject(this.gameObject);
             }
         }
     }

@@ -19,6 +19,7 @@ public class PlayerFirer : MonoBehaviour
         playerMechanic = GetComponent<PlayerMechanic>();
         playerMechanic.OnRecharge += OnRecharge;
         UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate += OnShot;
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += OnRecharge;
     }
 
     private void OnRecharge()
@@ -69,6 +70,7 @@ public class PlayerFirer : MonoBehaviour
     private void OnDestroy()
     {
         playerMechanic.OnRecharge -= OnRecharge;
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds -= OnRecharge;
         UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate -= OnShot;
     }
 }
