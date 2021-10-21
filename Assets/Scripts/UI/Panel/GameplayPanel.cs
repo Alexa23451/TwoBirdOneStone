@@ -40,6 +40,7 @@ public class GameplayPanel : BasePanel
 
     private void OnStopBtnPress()
     {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
         OnStopMenu?.Invoke();
     }
 

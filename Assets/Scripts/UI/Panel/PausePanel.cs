@@ -1,12 +1,13 @@
 using System;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine;
 
 public class PausePanel : BasePanel, IPointerDownHandler
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        
+        OnResume();
     }
 
     public Button resumeBtn;
@@ -29,9 +30,23 @@ public class PausePanel : BasePanel, IPointerDownHandler
         mainMenuBtn.onClick.AddListener(OnMainMenu);
     }
 
-    private void OnResume() => OnResumeGame?.Invoke();
-    private void OnSetting() => OnSettingGame?.Invoke();
-    private void OnMainMenu() => OnMainMenuGame?.Invoke();
+    private void OnResume()
+    {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        OnResumeGame?.Invoke();
+    }
+    private void OnSetting() {
+
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        OnSettingGame?.Invoke();
+    } 
+    private void OnMainMenu()
+    {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        OnMainMenuGame?.Invoke();
+    }
+
 
     
 }
+

@@ -232,6 +232,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void ChangePage(int direction)
     {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
         direction = direction > 0 ? 1 : -1;
         currentIndex += direction;
         GoToIndexSmooth(currentIndex);
