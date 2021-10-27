@@ -1015,6 +1015,7 @@ GameObject:
   - component: {fileID: 4443575681287280766}
   - component: {fileID: 4443575681287280767}
   - component: {fileID: 4443575681287280736}
+  - component: {fileID: 7778227792670064353}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -1103,6 +1104,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7778227792670064353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443575681287280737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611466c180ca1a840a13c29a074a0f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLv: {fileID: 4472337170795464451}
+  playerMoney: {fileID: 4472337171281818168}
+  vibrateSettingBtn: {fileID: 4472337170974924740}
+  soundSettingBtn: {fileID: 4472337170598898374}
+  vibrateSettingImg: {fileID: 4472337170974924743}
+  soundSettingImg: {fileID: 4472337170598898377}
+  infoSettingBtn: {fileID: 4472337171224223921}
+  bgmMainMenu: {fileID: 0}
+  colorOn: {r: 0.19607843, g: 0.5176471, b: 0.15686275, a: 1}
+  colorOff: {r: 0.8584906, g: 0, b: 0, a: 1}
 --- !u!1 &4472337170393222008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1213,6 @@ GameObject:
   - component: {fileID: 4472337170575863295}
   - component: {fileID: 4472337170575863265}
   - component: {fileID: 4472337170575863294}
-  - component: {fileID: 4472337170575863291}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -1262,20 +1284,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4472337170575863291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472337170575863292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611466c180ca1a840a13c29a074a0f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLv: {fileID: 4472337170795464451}
-  playerMoney: {fileID: 4472337171281818168}
 --- !u!1 &4472337170598898372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1320,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -2, y: -273}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337170598898376
 CanvasRenderer:
@@ -1432,7 +1440,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.336, y: -59.246}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337170761646512
 CanvasRenderer:
@@ -1828,7 +1836,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -1.9999962, y: -166.81508}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337170974924742
 CanvasRenderer:
@@ -2068,7 +2076,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -1.9999962, y: -492}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337171224223923
 CanvasRenderer:
@@ -2267,7 +2275,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -1.9999962, y: -380}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337171746871114
 CanvasRenderer:

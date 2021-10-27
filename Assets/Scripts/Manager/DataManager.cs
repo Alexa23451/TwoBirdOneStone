@@ -23,6 +23,9 @@ public class DataManager : BaseManager<DataManager>
     public int Money { get => _gameData.playerMoney; set => _gameData.playerMoney = value;}
     public int CurrentLv { get => _gameData.currentLv; set => _gameData.currentLv = value;}
     public int UnlockLv { get => _gameData.unlockLv; set => _gameData.unlockLv = value; }
+    public bool VibrateOn { get => _gameData.vibrateOn; set => _gameData.vibrateOn = value; }
+    public bool SoundOn { get => _gameData.soundOn; set => _gameData.soundOn = value; }
+    public bool IapOn { get => _gameData.iapOn; set => _gameData.iapOn = value; }
 
 
     private void OnDestroy()

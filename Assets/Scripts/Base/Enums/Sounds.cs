@@ -10,4 +10,6 @@ public enum Sounds
     TAKE_BULLET_BACK,
     UI_POPUP,
     SHOT,
+    BGM,
+    LevelBGM,
 }

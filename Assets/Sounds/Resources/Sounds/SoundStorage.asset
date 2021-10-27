@@ -55,3 +55,9 @@ MonoBehaviour:
     id: 0
     audioSource: {fileID: 0}
     isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 8300000, guid: d1713f079f54f4946b812b2127c588c4, type: 3}
+    soundKey: 7
+    soundVolume: 1
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0

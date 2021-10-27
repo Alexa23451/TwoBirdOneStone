@@ -11,6 +11,8 @@ public class SoundManager : BaseManager<SoundManager>
     private const bool REMOVE_IF_STOP = true;
     private const float FADE_RATIO = 0.4f;
 
+    public bool GLOBAL_ON = true;
+
     private Dictionary<Sounds, FFSound> _loadedSoundsDictionary = new Dictionary<Sounds, FFSound>();    // Preload sounds from soundStorage 
     private List<FFSound> _sounds = new List<FFSound>();                                                // The sounds that were created
 
@@ -45,6 +47,9 @@ public class SoundManager : BaseManager<SoundManager>
     /// <param name="isDeleteOnStopPlay">   Destroy Audiosource object on audiosource stop play.</param>
     public void Play(Sounds soundKey, bool isLoop, bool isDestroyOnStopPlay, bool IsFade, bool is3D, Transform parent)
     {
+        if (!GLOBAL_ON)
+            return;
+
         FFSound ffSound = null;
 
         try
@@ -113,6 +118,9 @@ public class SoundManager : BaseManager<SoundManager>
     /// <param name="isDestroyOnStopPlay"></param>
     public void PlayOneSound(Sounds soundKey, bool isLoop = false, bool isDestroyOnStopPlay = true)
     {
+        if (!GLOBAL_ON)
+            return;
+
         foreach (var sound in _sounds)
             if (sound.soundKey == soundKey)
             {
