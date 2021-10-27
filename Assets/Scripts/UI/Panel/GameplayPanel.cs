@@ -36,6 +36,7 @@ public class GameplayPanel : BasePanel
     void OnEnable()
     {
         ResetSlider();
+        shotImg.color = canShotableColor;
     }
 
     private void OnReplayBtn()
