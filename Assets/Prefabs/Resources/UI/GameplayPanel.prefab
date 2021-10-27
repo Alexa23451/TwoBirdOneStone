@@ -136,8 +136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotBtn: {fileID: 3069355144136109747}
   stopGameBtn: {fileID: 7253497029831391726}
+  shotImg: {fileID: 3242083883205779507}
   moveSlider: {fileID: 5985027239827450588}
   textLv: {fileID: 42077444912545046}
+  canShotableColor: {r: 0.90588236, g: 0.54901963, b: 0.09803922, a: 1}
+  notShotableColor: {r: 0.9056604, g: 0.2341046, b: 0.2341046, a: 1}
+  timeChangeColor: 1
   _speed: 5
 --- !u!1 &3689814937329918863
 GameObject:
@@ -227,6 +231,7 @@ GameObject:
   - component: {fileID: 8341484689300329665}
   - component: {fileID: 3242083883205779507}
   - component: {fileID: 3069355144136109747}
+  - component: {fileID: 5671253918325178664}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -243,7 +248,7 @@ RectTransform:
   m_GameObject: {fileID: 3797567990480276989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 6769014910358356555}
   m_RootOrder: 0
@@ -251,7 +256,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 180, y: 130}
+  m_SizeDelta: {x: 270, y: 195}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &8341484689300329665
 CanvasRenderer:
@@ -274,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6037736, g: 0.349733, b: 0.349733, a: 1}
+  m_Color: {r: 0.9056604, g: 0.5485139, b: 0.09740115, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -335,6 +340,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &5671253918325178664
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797567990480276989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22cf308fe11c6784ba37e8412049b4d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5148494288677001694
 GameObject:
   m_ObjectHideFlags: 0

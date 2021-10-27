@@ -1,15 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameplayPanel : BasePanel
 {
     [SerializeField] private Button shotBtn;
     [SerializeField] private Button stopGameBtn;
+    [SerializeField] private Image shotImg;
     [SerializeField] private Slider moveSlider;
     [SerializeField] private Text textLv;
+
+    [SerializeField] private Color canShotableColor;
+    [SerializeField] private Color notShotableColor;
+    [SerializeField] private float timeChangeColor = 1f;
 
 
     public float Speed => _speed;
@@ -46,12 +50,18 @@ public class GameplayPanel : BasePanel
 
     private void OnShotBtn()
     {
+        shotImg.DOColor(notShotableColor, timeChangeColor);
         OnSpaceUpdate?.Invoke();
     }
 
     public void SetTextLv(string txt)
     {
         textLv.text = txt;
+    }
+
+    public void OnRecharge()
+    {
+        shotImg.DOColor(canShotableColor, timeChangeColor);
     }
 
     public override void OverrideText()

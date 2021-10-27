@@ -1,10 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerMechanic : MonoBehaviour , IBulletInteract
 {
-    public event System.Action OnRecharge;
+    public event Action OnRecharge;
+
+    private void Start()
+    {
+        OnRecharge += UIManager.Instance.GetPanel<GameplayPanel>().OnRecharge;
+    }
+
 
     public void OnEnter(GameObject onObject)
     {
