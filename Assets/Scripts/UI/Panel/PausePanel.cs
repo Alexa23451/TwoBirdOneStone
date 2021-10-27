@@ -26,7 +26,7 @@ public class PausePanel : BasePanel, IPointerDownHandler
     void Awake()
     {
         resumeBtn.onClick.AddListener(OnResume);
-        settingBtn.onClick.AddListener(OnSetting);
+        //settingBtn.onClick.AddListener(OnSetting);
         mainMenuBtn.onClick.AddListener(OnMainMenu);
     }
 
