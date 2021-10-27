@@ -7,6 +7,7 @@ public class GameplayPanel : BasePanel
 {
     [SerializeField] private Button shotBtn;
     [SerializeField] private Button stopGameBtn;
+    [SerializeField] private Button rePlayBtn;
     [SerializeField] private Image shotImg;
     [SerializeField] private Slider moveSlider;
     [SerializeField] private Text textLv;
@@ -22,17 +23,28 @@ public class GameplayPanel : BasePanel
     public event Action<float> OnHorizontalUpdate;
     public event Action OnSpaceUpdate;
     public event Action OnStopMenu;
+    public event Action OnRePlayGame;
 
     private void Start()
     {
         shotBtn.onClick.AddListener(OnShotBtn);
         moveSlider.onValueChanged.AddListener(OnSliderChange);
         stopGameBtn.onClick.AddListener(OnStopBtnPress);
+        rePlayBtn.onClick.AddListener(OnReplayBtn);
     }
 
     void OnEnable()
     {
         ResetSlider();
+    }
+
+    private void OnReplayBtn()
+    {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        OnRePlayGame?.Invoke();
+        Services.Find(out ISceneManagement sceneManagement);
+        sceneManagement.ReloadScene();
+
     }
 
     public void ResetSlider() => moveSlider.value = (moveSlider.minValue + moveSlider.maxValue) / 2;
