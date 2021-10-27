@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] [Range(0, 6f)] private float _leftOffset;
     [SerializeField] [Range(0, 6f)] private float _rightOffset;
 
+    [SerializeField] [Range(0, 1f)] private float _edgeOffset = 0.5f;
+
     public bool moveRightFirst;
 
     private void Awake()
@@ -20,8 +22,8 @@ public class EnemyMovement : MonoBehaviour
         var ratio = (float)Screen.width / Screen.height;
         var width = ratio * height;
 
-        _leftLimit = -width;
-        _rightLimit = width;
+        _leftLimit = -width + _edgeOffset;
+        _rightLimit = width - _edgeOffset;
     }
 
     void Start()
