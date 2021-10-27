@@ -33,8 +33,10 @@ public class MainmenuPanel : MonoBehaviour
         vibrateSettingImg.color = DataManager.Instance.VibrateOn ? colorOn : colorOff;
         soundSettingImg.color = DataManager.Instance.SoundOn ? colorOn : colorOff;
 
-        bgmMainMenu.enabled = DataManager.Instance.SoundOn;
+        SoundManager.Instance.StopAll(true);
         SoundManager.Instance.GLOBAL_ON = DataManager.Instance.SoundOn;
+
+        bgmMainMenu.enabled = DataManager.Instance.SoundOn;
     }
 
     private void OnVibrateSetting()

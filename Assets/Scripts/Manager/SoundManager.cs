@@ -45,7 +45,7 @@ public class SoundManager : BaseManager<SoundManager>
     /// <param name="soundKey"> Sounds enum.</param>
     /// <param name="isLoop">   If true - Audiosource loop is enable.</param>
     /// <param name="isDeleteOnStopPlay">   Destroy Audiosource object on audiosource stop play.</param>
-    public void Play(Sounds soundKey, bool isLoop, bool isDestroyOnStopPlay, bool IsFade, bool is3D, Transform parent)
+    public void Play(Sounds soundKey, bool isLoop, bool isDestroyOnLoad, bool IsFade, bool is3D, Transform parent)
     {
         if (!GLOBAL_ON)
             return;
@@ -63,6 +63,7 @@ public class SoundManager : BaseManager<SoundManager>
 
         _currentId++;
         AudioSource audioSource = new GameObject($"Sound: {ffSound.audioClip.name} {_currentId}").AddComponent<AudioSource>();
+
 
         if (!parent)
         {
@@ -93,6 +94,12 @@ public class SoundManager : BaseManager<SoundManager>
 
         _sounds.Add(ffSound);
 
+        if (isDestroyOnLoad)
+        {
+            audioSource.transform.parent = null;
+            DontDestroyOnLoad(audioSource.gameObject);
+        }
+
         return;
     }
 
@@ -101,14 +108,14 @@ public class SoundManager : BaseManager<SoundManager>
     /// </summary>
     /// <param name="soundKey"></param>
     /// <returns></returns>
-    public void Play(Sounds soundKey) => Play(soundKey, false, true, false, false, null);
+    public void Play(Sounds soundKey) => Play(soundKey, false, false, false, false, null);
 
     /// <summary>
     /// Play sound loop. After end play, sound-gameobject destroy.
     /// </summary>
     /// <param name="soundKey"></param>
     /// <returns></returns>
-    public void PlayLoop(Sounds soundKey) => Play(soundKey, true, true, false, false, null);
+    public void PlayLoop(Sounds soundKey, bool isDestroyOnLoad = false) => Play(soundKey, true, isDestroyOnLoad, false, false, null);
 
     /// <summary>
     /// Play only if this sound not playing on scene.
@@ -116,7 +123,7 @@ public class SoundManager : BaseManager<SoundManager>
     /// <param name="soundKey"></param>
     /// <param name="isLoop"></param>
     /// <param name="isDestroyOnStopPlay"></param>
-    public void PlayOneSound(Sounds soundKey, bool isLoop = false, bool isDestroyOnStopPlay = true)
+    public void PlayOneSound(Sounds soundKey, bool isLoop = false, bool isDestroyOnStopPlay = false)
     {
         if (!GLOBAL_ON)
             return;
@@ -139,17 +146,17 @@ public class SoundManager : BaseManager<SoundManager>
     public void PlayOneSoundOnParent(Sounds soundKey, bool isLoop, bool isFade, bool is3D, Transform parent)
     {
         StopAll(parent, isFade);
-        Play(soundKey, isLoop, true, isFade, is3D, parent);
+        Play(soundKey, isLoop, false, isFade, is3D, parent);
     }
 
     /// <summary>
     /// Stop all sounds
     /// </summary>
-    public void StopAll()
+    public void StopAll(bool isFade = false)
     {
         foreach (var sound in _sounds)
             if (sound.audioSource)
-                sound.audioSource.Stop();
+                StopAll( sound.soundKey , isFade);
     }
 
     public void StopAll(Transform parent, bool isFade)
@@ -217,6 +224,21 @@ public class SoundManager : BaseManager<SoundManager>
                 return sound;
 
         return null;
+    }
+
+    //Playing sound if it not be play
+    public void PlaySoundIfNotPlay(Sounds soundKey, bool isFade = false, bool isDestroyOnLoad = false, bool isLoop = false)
+    {
+        foreach (var sound in _sounds)
+            if (sound.soundKey == soundKey)
+            {
+                if (sound.audioSource.isPlaying)
+                {
+                    return;
+                }
+            }
+
+        Play(soundKey, isLoop , isDestroyOnLoad, isFade, false, null);
     }
 
     private IEnumerator Clear()

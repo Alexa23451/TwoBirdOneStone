@@ -30,6 +30,7 @@ public class GameplayController : BaseManager<GameplayController>
     {
         if(SceneManager.GetActiveScene().buildIndex > 1)
         {
+            SoundManager.Instance.PlaySoundIfNotPlay(Sounds.LevelBGM, true, true, true);
 
             int lv = SceneManager.GetActiveScene().buildIndex - 1;
 
