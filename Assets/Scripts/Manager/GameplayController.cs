@@ -61,7 +61,10 @@ public class GameplayController : BaseManager<GameplayController>
     private void SetEvent()
     {
         SceneManager.sceneLoaded += InitGame;
-        UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += _stateController.GetState<Win1GameState>().OnNexLv;
+        UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += () => {
+            _stateController.GetState<Win1GameState>().OnNexLv();
+            SoundManager.Instance.Play(Sounds.UI_POPUP);
+        };
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += _stateController.GetState<AdsState>().OnPlayAgain;
         UIManager.Instance.GetPanel<GameplayPanel>().OnStopMenu += PauseState;
