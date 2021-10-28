@@ -23,6 +23,7 @@ public class MainmenuPanel : MonoBehaviour
     {
         vibrateSettingBtn.onClick.AddListener(OnVibrateSetting);
         soundSettingBtn.onClick.AddListener(OnSoundSetting);
+        infoSettingBtn.onClick.AddListener(OnInfoSetting);
     }
 
     private void Start()
@@ -54,9 +55,9 @@ public class MainmenuPanel : MonoBehaviour
         SoundManager.Instance.GLOBAL_ON = DataManager.Instance.SoundOn;
     }
 
-    private void OnIAPSetting()
+    private void OnInfoSetting()
     {
-
+        UIManager.Instance.ShowPanelWithDG(typeof(InfoPanel));
     }
 
 }
