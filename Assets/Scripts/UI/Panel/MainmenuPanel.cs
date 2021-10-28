@@ -44,6 +44,7 @@ public class MainmenuPanel : MonoBehaviour
     {
         DataManager.Instance.VibrateOn = !DataManager.Instance.VibrateOn;
         vibrateSettingImg.color = DataManager.Instance.VibrateOn ? colorOn : colorOff;
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
     }
 
     private void OnSoundSetting()
@@ -53,11 +54,13 @@ public class MainmenuPanel : MonoBehaviour
 
         bgmMainMenu.enabled = DataManager.Instance.SoundOn;
         SoundManager.Instance.GLOBAL_ON = DataManager.Instance.SoundOn;
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
     }
 
     private void OnInfoSetting()
     {
         UIManager.Instance.ShowPanelWithDG(typeof(InfoPanel));
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
     }
 
 }

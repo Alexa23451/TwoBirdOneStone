@@ -11,6 +11,7 @@ public class InfoPanel : BasePanel, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         HideWithDG();
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
     }
 
     public override void OverrideText()
