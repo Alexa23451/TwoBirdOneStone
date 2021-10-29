@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelEditor : EditorWindow
 {
-    int map = 11;
+    int map = 19;
 
     [MenuItem("Tools/Level Editor %g")]
     static void OpenWindow()
