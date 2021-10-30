@@ -26,7 +26,11 @@ public class UnityAndroidVibrator : MonoBehaviour
     /// <param name="DurationInMilliseconds">Duration in milliseconds.</param>
     public void VibrateForGivenDuration(int DurationInMilliseconds = 200)
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         plugin.Call("VibrateForGivenDuration", DurationInMilliseconds);
+#else
+        Handheld.Vibrate();
+#endif
     }
 
     /// <summary>
