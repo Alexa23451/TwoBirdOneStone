@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool moveRightFirst;
 
+    private Animator animator;
+
     private void Awake()
     {
         var height = Camera.main.orthographicSize;
@@ -30,24 +32,31 @@ public class EnemyMovement : MonoBehaviour
     {
         _leftLimitRange = transform.position.x - _leftOffset;
         _rightLimitRange = transform.position.x + _rightOffset;
+
+        animator = GetComponent<Animator>();
+        
+        if(_speed > 0)
+            animator.SetBool("Fly", true);
+        else 
+            animator.SetBool("Fly", false);
     }
 
     void Update()
     {
         if (moveRightFirst)
         {
-            if(transform.localScale.x < 0)
+            if(transform.localScale.x > 0)
             {
-                transform.localScale = new Vector3(1,1,1);
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
             }
 
             transform.position += Vector3.right * Time.deltaTime * _speed;
         }
         else
         {
-            if (transform.localScale.x > 0)
+            if (transform.localScale.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
             }
 
             transform.position -= Vector3.right * Time.deltaTime * _speed;
