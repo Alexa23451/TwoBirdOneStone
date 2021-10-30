@@ -21,6 +21,8 @@ public class BackUpMechanic : MonoBehaviour, IBulletInteract
     private void VFX()
     {
         SoundManager.Instance.Play(Sounds.BACKUP_MECHANIC);
+        if (DataManager.Instance.VibrateOn)
+            UnityAndroidVibrator.Instance.VibrateForGivenDuration();
 
         var vfx = Pooling.InstantiateObject<ParticleSystem>(_dustParticle.gameObject, transform.position, Quaternion.identity);
 
