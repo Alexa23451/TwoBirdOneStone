@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8214076416148907169}
   - component: {fileID: 1760268323217855591}
   - component: {fileID: 960847312455677034}
+  - component: {fileID: -2549570481065691464}
   m_Layer: 0
   m_Name: BackupWall
   m_TagString: Mechanic
@@ -123,3 +124,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.74}
   m_EdgeRadius: 0
+--- !u!114 &-2549570481065691464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088916512792987909}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a42c845ab89e5f46a168abaf3097780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0
+  _leftOffset: 0
+  _rightOffset: 0
+  _edgeOffset: 0.5
+  moveRightFirst: 0

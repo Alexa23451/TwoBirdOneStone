@@ -33,12 +33,12 @@ public class EnemyMovement : MonoBehaviour
         _leftLimitRange = transform.position.x - _leftOffset;
         _rightLimitRange = transform.position.x + _rightOffset;
 
-        animator = GetComponent<Animator>();
-        
-        if(_speed > 0)
-            animator.SetBool("Fly", true);
-        else 
-            animator.SetBool("Fly", false);
+        if(TryGetComponent(out animator)){
+            if(_speed > 0)
+                animator.SetBool("Fly", true);
+            else 
+                animator.SetBool("Fly", false);
+        }        
     }
 
     void Update()

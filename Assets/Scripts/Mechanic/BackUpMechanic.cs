@@ -9,7 +9,10 @@ public class BackUpMechanic : MonoBehaviour, IBulletInteract
     public void OnEnter(GameObject onObject)
     {
         var rig = onObject.GetComponent<Rigidbody2D>();
-        rig.velocity *= -1;
+
+        //calculate direction
+        float objMag = rig.velocity.magnitude;
+        rig.velocity = -transform.up * objMag;
         
 
         VFX();
