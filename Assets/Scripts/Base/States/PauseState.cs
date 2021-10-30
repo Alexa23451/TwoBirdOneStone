@@ -22,9 +22,8 @@ public class PauseState : IState
 
     public void OnMainMenuGame()
     {
-        GameplayController.Instance.NormanlState();
+        GameplayController.Instance.NormalState();
         Services.Find(out ISceneManagement sceneManagement);
-        UIManager.Instance.HideAllPanel();
         sceneManagement.ChangeScene(1);
     }
 }

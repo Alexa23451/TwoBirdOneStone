@@ -275,7 +275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -52}
+  m_AnchoredPosition: {x: 0, y: -127}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5319709439778705606
@@ -351,7 +351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -92, y: -56}
+  m_AnchoredPosition: {x: -92, y: -131}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6054391748751454154
@@ -426,8 +426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 165}
-  m_SizeDelta: {x: -100, y: -570}
+  m_AnchoredPosition: {x: 0, y: 128.5}
+  m_SizeDelta: {x: -100, y: -497}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8604680624739708541
 CanvasRenderer:
@@ -470,9 +470,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Made by Gem Dep ratatata
+  m_Text: 'This is beta test version, not final product !
 
-    => Follow'
+    Follow me anyway =))'
 --- !u!1 &3120390631720611143
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 88, y: -48}
+  m_AnchoredPosition: {x: 88, y: -123}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8551585303702134209
@@ -761,9 +761,9 @@ GameObject:
   - component: {fileID: 5224996885871947211}
   - component: {fileID: 5224996885871947205}
   - component: {fileID: 5224996885871947210}
-  - component: {fileID: 2267631079743904163}
+  - component: {fileID: 8697038789744889907}
   m_Layer: 5
-  m_Name: InfoPanel
+  m_Name: BetaPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2267631079743904163
+--- !u!114 &8697038789744889907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5224996885871947208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 009f9b5fec8697243b8dfe3669805ed4, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c940f8da8c7be4a96e45efdbc95a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fbBtn: {fileID: 7777857169465919158}
@@ -1041,4 +1041,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ABOUT THE GAME
+  m_Text: THANKS FOR PLAYING

@@ -435,6 +435,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
+      propertyPath: _edgeOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584007712873707281, guid: c02153cfdd730604692088029b32ed12, type: 3}
       propertyPath: _leftOffset
       value: 3
       objectReference: {fileID: 0}

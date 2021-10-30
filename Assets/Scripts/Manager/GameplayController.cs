@@ -48,6 +48,10 @@ public class GameplayController : BaseManager<GameplayController>
             OnStartLv?.Invoke();
             InitLevelState();
         }
+        else
+        {
+            UIManager.Instance.HideAllPanel();
+        }
     }
 
     private void OnDestroy()
@@ -62,13 +66,21 @@ public class GameplayController : BaseManager<GameplayController>
     {
         SceneManager.sceneLoaded += InitGame;
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += () => {
+
+            if(DataManager.Instance.CurrentLv == GlobalSetting.Instance.totalLevel)
+            {
+                UIManager.Instance.HidePanelWithDG(typeof(WinLvPanel));
+                UIManager.Instance.ShowPanelWithDG(typeof(BetaTestPanel));
+                return;
+            }
+
             _stateController.GetState<Win1GameState>().OnNexLv();
             SoundManager.Instance.Play(Sounds.UI_POPUP);
         };
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += _stateController.GetState<AdsState>().OnPlayAgain;
         UIManager.Instance.GetPanel<GameplayPanel>().OnStopMenu += PauseState;
-        UIManager.Instance.GetPanel<PausePanel>().OnResumeGame += NormanlState;
+        UIManager.Instance.GetPanel<PausePanel>().OnResumeGame += NormalState;
         UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += _stateController.GetState<PauseState>().OnSettingGame;
         UIManager.Instance.GetPanel<PausePanel>().OnMainMenuGame += _stateController.GetState<PauseState>().OnMainMenuGame;
     }
@@ -78,7 +90,7 @@ public class GameplayController : BaseManager<GameplayController>
     public void WinLevelState() => _stateController.SetState<Win1GameState>();
     public void LoseLevelState() => _stateController.SetState<LoseState>();
     public void PauseState() => _stateController.SetState<PauseState>();
-    public void NormanlState() => _stateController.SetState<NormalState>();
+    public void NormalState() => _stateController.SetState<NormalState>();
     public void AdsState() => _stateController.SetState<AdsState>();
 
     public IState GetCurrentState() => _stateController.CurrentState;

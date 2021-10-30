@@ -10,7 +10,7 @@ public class AdsState : IState
         Time.timeScale = 0;
         AdmobController.Instance.ShowRewardedAd(
             delegate {
-                GameplayController.Instance.NormanlState();
+                GameplayController.Instance.NormalState();
             });
     }
 
@@ -19,7 +19,7 @@ public class AdsState : IState
         AdmobController.Instance.ShowRewardedAd(
             delegate {
                 UIManager.Instance.GetPanel<PlayAgainPanel>().HideWithDG();
-                GameplayController.Instance.NormanlState();
+                GameplayController.Instance.NormalState();
             });
     }
 
