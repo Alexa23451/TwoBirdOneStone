@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour , IBulletInteract
         var vfx = Pooling.InstantiateObject<ParticleSystem>(_explodeVFX.gameObject, transform.position, Quaternion.identity);
 
         if(DataManager.Instance.VibrateOn)
-            Vibrator.Vibrate();
+            UnityAndroidVibrator.Instance.VibrateForGivenDuration();
 
         vfx.Play();
 

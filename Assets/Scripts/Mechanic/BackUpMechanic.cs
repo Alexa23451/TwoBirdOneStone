@@ -20,8 +20,6 @@ public class BackUpMechanic : MonoBehaviour, IBulletInteract
         SoundManager.Instance.Play(Sounds.BACKUP_MECHANIC);
 
         var vfx = Pooling.InstantiateObject<ParticleSystem>(_dustParticle.gameObject, transform.position, Quaternion.identity);
-        if (DataManager.Instance.VibrateOn)
-            Vibrator.Vibrate();
 
         vfx.Play();
 

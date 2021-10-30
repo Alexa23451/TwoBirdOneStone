@@ -28,7 +28,8 @@ public class ThornMechanic : MonoBehaviour, IBulletInteract
         var vfx = Pooling.InstantiateObject<ParticleSystem>(_thornParticle.gameObject, transform.position, Quaternion.identity);
 
         if (DataManager.Instance.VibrateOn)
-            Vibrator.Vibrate();
+            UnityAndroidVibrator.Instance.VibrateForGivenDuration();
+
 
         vfx.Play();
 
