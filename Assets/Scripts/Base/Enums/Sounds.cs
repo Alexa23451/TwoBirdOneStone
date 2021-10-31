@@ -12,4 +12,6 @@ public enum Sounds
     SHOT,
     BGM,
     LevelBGM,
+    FadeIn,
+    FadeOut,
 }

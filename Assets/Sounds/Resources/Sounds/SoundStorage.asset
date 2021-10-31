@@ -19,7 +19,7 @@ MonoBehaviour:
     id: 0
     audioSource: {fileID: 0}
     isDestroyOnStopPlay: 0
-  - audioClip: {fileID: 8300000, guid: b9812e9af86f906439b2f2d8010c264b, type: 3}
+  - audioClip: {fileID: 8300000, guid: 44c679b009574f144a55c0545babb80b, type: 3}
     soundKey: 1
     soundVolume: 1
     id: 0
@@ -57,6 +57,18 @@ MonoBehaviour:
     isDestroyOnStopPlay: 0
   - audioClip: {fileID: 8300000, guid: 2918d2cbea801394ba97bc12665befb5, type: 3}
     soundKey: 8
+    soundVolume: 0.6
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 8300000, guid: 628086ea61c01154bae1afc7283b0213, type: 3}
+    soundKey: 9
+    soundVolume: 0.6
+    id: 0
+    audioSource: {fileID: 0}
+    isDestroyOnStopPlay: 0
+  - audioClip: {fileID: 8300000, guid: 23ee361512d1f8d41b30dd287971f0b2, type: 3}
+    soundKey: 10
     soundVolume: 0.6
     id: 0
     audioSource: {fileID: 0}
