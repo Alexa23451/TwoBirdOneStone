@@ -14,6 +14,7 @@ public class PlayAgainPanel : BasePanel
     public event Action OnNoTks;
 
     public Image[] imageSprites;
+    public Image emojiSprite;
 
     private const float countDown = 3.5f;
     [SerializeField] private float countTime;
@@ -31,7 +32,10 @@ public class PlayAgainPanel : BasePanel
 
     private void ActiveNumberSprite(int num)
     {
-        for(int i=0; i<imageSprites.Length; i++)
+        if(num < 1)
+            emojiSprite.enabled = true;
+
+        for (int i=0; i<imageSprites.Length; i++)
         {
             imageSprites[i].enabled = (i + 1) == num;
         }
@@ -43,12 +47,13 @@ public class PlayAgainPanel : BasePanel
         {
             countTime -= Time.deltaTime;
 
-            ActiveNumberSprite(Mathf.RoundToInt(countTime));
 
             if(countTime <= 0)
             {
                 NoTksBtn.gameObject.SetActive(true);
             }
+            else
+                ActiveNumberSprite(Mathf.RoundToInt(countTime));
         }
     }
 
@@ -56,6 +61,7 @@ public class PlayAgainPanel : BasePanel
     {
         countTime = countDown;
         NoTksBtn.gameObject.SetActive(false);
+        emojiSprite.enabled = false;
     }
 
     public void SetLvText(string txt) => currentLv.text = txt;
