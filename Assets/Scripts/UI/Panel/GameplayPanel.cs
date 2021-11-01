@@ -77,6 +77,12 @@ public class GameplayPanel : BasePanel
         shotImg.DOColor(canShotableColor, timeChangeColor);
     }
 
+    public void SetSlider(float value)
+    {
+        value = Mathf.Clamp01(value);
+        moveSlider.value = value;
+    }
+
     public override void OverrideText()
     {
 

@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     private float playerInputSpeed;
     [SerializeField] float _offset = 1f;
 
+    private bool isDragging = false;
+    private Camera cam;
+
+    private float downHorizontal;
+
     private void Awake()
     {
         var height = Camera.main.orthographicSize;
@@ -21,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         UIManager.Instance.GetPanel<GameplayPanel>().OnHorizontalUpdate += OnPlayerMove;
         playerInputSpeed = UIManager.Instance.GetPanel<GameplayPanel>().Speed;
     }
@@ -30,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
         var horizontalPos = QuanMathf.ReMap(horizontal, 0, 1, _leftLimit + _offset, _rightLimit - _offset);
 
         transform.position += Vector3.right * horizontal * playerInputSpeed * Time.deltaTime;
-
-        //horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
 
         transform.position = new Vector2(horizontalPos, transform.position.y);
     }
@@ -52,6 +56,32 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector2(horizontalPos, transform.position.y);
         }
 #endif
+
+        OnPlayerUpdate();
     }
 
+    private void OnPlayerUpdate()
+    {
+        if (isDragging)
+        {
+            Vector2 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            mousePosition.y = 0f;
+            transform.Translate(mousePosition);
+            var horizontalPos = Mathf.Clamp(transform.position.x, _leftLimit + _offset, _rightLimit - _offset);
+            transform.position = new Vector2(horizontalPos, transform.position.y);
+
+            var sliderPos = QuanMathf.ReMap(transform.position.x, _leftLimit + _offset, _rightLimit - _offset, 0 ,1);
+            UIManager.Instance.GetPanel<GameplayPanel>().SetSlider(sliderPos);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        isDragging = true;
+    }
+
+    private void OnMouseUp()
+    {
+        isDragging = false;
+    }
 }
