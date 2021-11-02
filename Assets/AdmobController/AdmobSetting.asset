@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bad23eeca49253428e7e233bb668ed2, type: 3}
   m_Name: AdmobSetting
   m_EditorClassIdentifier: 
-  flags: 797
+  flags: 796
   adId_banner: 
   adId_interstitial: ca-app-pub-5612727195892361/6271320412
   adId_rewarded: ca-app-pub-5612727195892361/1111875966
   bannerAdPosition: 1
   autoRefresh_banner: 30
-  autoRefresh_interstitial: 3
-  autoRefresh_rewarded: 5
+  autoRefresh_interstitial: 7
+  autoRefresh_rewarded: 7

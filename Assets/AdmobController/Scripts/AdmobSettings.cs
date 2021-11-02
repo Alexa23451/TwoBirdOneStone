@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Dashbit/New Admob Settings")]
+[CreateAssetMenu(menuName ="Quandz/New Admob Settings")]
 public class AdmobSettings : ScriptableObject
 {
     [System.Flags]
