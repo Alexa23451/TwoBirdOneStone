@@ -41,7 +41,7 @@ public abstract class BasePanel : MonoBehaviour
             rect = GetComponent<RectTransform>();
 
         transform.DOKill();
-        transform.DOScale(0f, 0.6f).SetEase(Ease.InOutCubic).OnComplete(() => gameObject.SetActive(false));
+        transform.DOScale(0f, 0.3f).SetEase(Ease.InOutCubic).OnComplete(() => gameObject.SetActive(false));
     }
 
     public void Hide()
