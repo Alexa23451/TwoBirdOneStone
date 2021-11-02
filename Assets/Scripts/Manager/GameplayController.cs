@@ -74,8 +74,20 @@ public class GameplayController : BaseManager<GameplayController>
                 return;
             }
 
-            _stateController.GetState<Win1GameState>().OnNexLv();
-            SoundManager.Instance.Play(Sounds.UI_POPUP);
+            //Load inter ads
+            if(DataManager.Instance.CurrentLv % 3 == 0)
+            {
+                AdmobController.Instance.ShowInterstitial(() =>
+                {
+                    _stateController.GetState<Win1GameState>().OnNexLv();
+                    SoundManager.Instance.Play(Sounds.UI_POPUP);
+                });
+            }
+            else
+            {
+                _stateController.GetState<Win1GameState>().OnNexLv();
+                SoundManager.Instance.Play(Sounds.UI_POPUP);
+            }
         };
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += _stateController.GetState<AdsState>().OnPlayAgain;
