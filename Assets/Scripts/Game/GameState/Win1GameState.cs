@@ -5,11 +5,10 @@ using System;
 
 public class Win1GameState : IState
 {
-    ISceneManagement sceneManagement;
 
     public Win1GameState()
     {
-        Services.Find(out sceneManagement);
+
     }
 
     public void Enter()
@@ -26,7 +25,7 @@ public class Win1GameState : IState
 
     public void OnNexLv()
     {
-        sceneManagement.NextScene();
+        SceneController.Instance.NextScene();
     }
 
     public void Exit()

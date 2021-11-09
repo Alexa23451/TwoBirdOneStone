@@ -16,9 +16,6 @@ public class UILevelSeclector : UICarouselView
     [SerializeField] Sprite lockSprite;
     [SerializeField] Sprite unlockSprite;
 
-    ISceneManagement sceneManagement;
-
-
     int selectedIndex;
     public System.Action<UnlockableItemData> onObjectSelected;
 
@@ -61,7 +58,6 @@ public class UILevelSeclector : UICarouselView
         GoToIndex(DataManager.Instance.CurrentLv - 1);
         
 
-        Services.Find(out sceneManagement);
     }
 
     protected override void OnSwipeComplete()
@@ -76,7 +72,7 @@ public class UILevelSeclector : UICarouselView
 
         //load new lv
         SoundManager.Instance.Play(Sounds.UI_POPUP);
-        sceneManagement.ChangeScene(selectedIndex +2);
+        SceneController.Instance.ChangeScene(selectedIndex +2);
         AdmobController.Instance.ShowInterstitial(null);
     }
 

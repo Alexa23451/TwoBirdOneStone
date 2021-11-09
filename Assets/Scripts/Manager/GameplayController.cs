@@ -6,7 +6,6 @@ public class GameplayController : BaseManager<GameplayController>
 {
     private StateController _stateController;
     public event Action OnStartLv;
-    ISceneManagement sceneManagement;
 
     public override void Init()
     {
@@ -22,8 +21,7 @@ public class GameplayController : BaseManager<GameplayController>
 
         SetEvent();
 
-        Services.Find(out sceneManagement);
-        sceneManagement.NextScene(1);
+        SceneController.Instance.NextScene(1);
     }
 
     private void InitGame(Scene scene, LoadSceneMode loadSceneMode)

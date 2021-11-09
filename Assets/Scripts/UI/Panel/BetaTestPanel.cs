@@ -9,7 +9,6 @@ public class BetaTestPanel : BasePanel, IPointerDownHandler
     [SerializeField] private Button youtubeBtn;
     [SerializeField] private Button closeBtn;
 
-    private ISceneManagement sceneManagement;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -19,7 +18,7 @@ public class BetaTestPanel : BasePanel, IPointerDownHandler
     public void BackToMenu()
     {
         SoundManager.Instance.Play(Sounds.UI_POPUP);
-        sceneManagement.ChangeScene(1);
+        SceneController.Instance.ChangeScene(1);
     }
 
     public override void OverrideText()
@@ -29,8 +28,6 @@ public class BetaTestPanel : BasePanel, IPointerDownHandler
 
     private void Awake()
     {
-        Services.Find(out sceneManagement);
-
         closeBtn.onClick.AddListener(BackToMenu);
         fbBtn.onClick.AddListener(() => Application.OpenURL("https://www.facebook.com/GemDep"));
         twitterBtn.onClick.AddListener(() => Application.OpenURL("https://twitter.com/Qun71380816"));

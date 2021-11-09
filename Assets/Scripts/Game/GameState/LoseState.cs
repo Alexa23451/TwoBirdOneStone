@@ -4,14 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class LoseState : IState
 {
-    ISceneManagement sceneManagement;
-    FadeInFadeOut fadeSystem;
     public event Action OnLoseGame;
 
     public LoseState()
     {
-        Services.Find(out sceneManagement);
-        Services.Find(out fadeSystem);
+
     }
 
     public void Enter()
@@ -26,7 +23,7 @@ public class LoseState : IState
 
     public void OnPlayAgain()
     {
-        sceneManagement.ReloadScene();
+        SceneController.Instance.ReloadScene();
     }
 
     public void Exit()

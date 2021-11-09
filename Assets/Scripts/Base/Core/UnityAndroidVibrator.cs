@@ -1,23 +1,17 @@
 using UnityEngine;
-public class UnityAndroidVibrator : MonoBehaviour 
+public class UnityAndroidVibrator : BaseManager<UnityAndroidVibrator> 
 {
     #if UNITY_ANDROID || UNITY_EDITOR 
     private static AndroidJavaObject plugin = null;
     #endif
 
-    public static UnityAndroidVibrator Instance;
-
     // Use this for initialization
-    void Awake () 
+    public override void Init() 
     {
         #if UNITY_ANDROID && !UNITY_EDITOR 
         plugin = new AndroidJavaClass("com.oilwelldrilling.master.UnityAndroidVibrator").CallStatic<AndroidJavaObject>("instance");
         #endif
-
-        Instance = this;
-        DontDestroyOnLoad(this);
     }
-
 
     /// <summary>
     /// <para>Vibrates For Given Amount Of Time.</para>

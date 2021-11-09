@@ -5,18 +5,15 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 
-[RequireComponent(typeof(Image))]
-public class FadeInFadeOut : DbSingletonService
+public class FadeInFadeOut : BaseManager<FadeInFadeOut>
 {
-    private Image img;
+    [SerializeField] private Image img;
     private bool _isFade = false;
 
     public bool IsFade => _isFade;
 
-    protected override void OnAwake()
+    public override void Init()
     {
-        DontDestroyOnLoad(transform.parent.gameObject);
-        img = GetComponent<Image>();
         SetBGColor(Color.black);
     }
 
@@ -54,4 +51,6 @@ public class FadeInFadeOut : DbSingletonService
                 _isFade = false;
             });
     }
+
+
 }

@@ -43,8 +43,7 @@ public class GameplayPanel : BasePanel
     {
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         OnRePlayGame?.Invoke();
-        Services.Find(out ISceneManagement sceneManagement);
-        sceneManagement.ReloadScene();
+        SceneController.Instance.ReloadScene();
 
     }
 
