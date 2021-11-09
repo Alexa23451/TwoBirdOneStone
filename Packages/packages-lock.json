@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.brunomikoski.animationsequencer": {
+      "version": "0.2.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.google.external-dependency-manager": {
       "version": "file:../GooglePackages/com.google.external-dependency-manager-1.2.167.tgz",
       "depth": 0,
