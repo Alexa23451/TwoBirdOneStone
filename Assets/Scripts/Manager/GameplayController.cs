@@ -24,9 +24,9 @@ public class GameplayController : BaseManager<GameplayController>
         SceneController.Instance.NextScene(1);
     }
 
-    private void InitGame(Scene scene, LoadSceneMode loadSceneMode)
+    private void OnLoadScene(int sceneId)
     {
-        if(SceneManager.GetActiveScene().buildIndex > 1)
+        if(sceneId > 1)
         {
             SoundManager.Instance.PlaySoundIfNotPlay(Sounds.LevelBGM, true, true, true);
 
@@ -54,7 +54,7 @@ public class GameplayController : BaseManager<GameplayController>
 
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded -= InitGame;
+        SceneController.Instance.OnChangeScene -= OnLoadScene;
         //UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv -= _stateController.GetState<Win1GameState>().OnNexLv;
         //UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks -= _stateController.GetState<LoseState>().OnPlayAgain;
 
@@ -62,7 +62,8 @@ public class GameplayController : BaseManager<GameplayController>
 
     private void SetEvent()
     {
-        SceneManager.sceneLoaded += InitGame;
+        SceneController.Instance.OnChangeScene += OnLoadScene;
+
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += () => {
 
             if(DataManager.Instance.CurrentLv == GlobalSetting.Instance.totalLevel)

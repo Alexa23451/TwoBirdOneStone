@@ -39,8 +39,8 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        OnStart();
+        OnAwake();
     }
-    protected virtual void OnStart(){ }
+    protected virtual void OnAwake(){ }
 
 }

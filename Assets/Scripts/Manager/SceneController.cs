@@ -1,26 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class SceneController : BaseManager<SceneController>
 {
     private int _currentScene = 0;
+    public event Action<int> OnChangeScene;
 
     public override void Init()
     {
-        SceneManager.activeSceneChanged += OnChangeScene;
+        SceneManager.activeSceneChanged += OnLoadScene;
     }
 
-    void OnChangeScene(Scene cur, Scene next)
+    void OnLoadScene(Scene cur, Scene next)
     {
-
+        OnChangeScene?.Invoke(next.buildIndex);
     }
 
     private void OnDestroy()
     {
-        SceneManager.activeSceneChanged -= OnChangeScene;
+        SceneManager.activeSceneChanged -= OnLoadScene;
     }
 
     public void ChangeScene(int id, float timeWait =1f)
