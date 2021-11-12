@@ -73,7 +73,7 @@ public class UILevelSeclector : UICarouselView
         //load new lv
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         SceneController.Instance.ChangeScene(selectedIndex +2);
-        AdmobController.Instance.ShowInterstitial(null);
+        //AdmobController.Instance.ShowInterstitial(null);
     }
 
     void OnIndexChanged(int idx)
