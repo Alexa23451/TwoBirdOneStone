@@ -66,7 +66,7 @@ public enum RewardType
 
 public interface IAdmobService
 {
-    void ShowRewardedAd(System.Action onUserClaimed);
+    void ShowRewardedAd(System.Action onUserClaimed, System.Action onUserAdsFailed);
     void ShowInterstitial(System.Action onAdClose);
 }
 
@@ -420,6 +420,7 @@ public class AdmobController : BaseManager<AdmobController> , IAdmobCallback, IA
         Debug.LogError("Ad failed to show: " + e.Message);
         rewardedFlags = AdFlags.FAILED;
         OnRewardedFailedToShow?.Invoke();
+        OnRewardedFailedToShow = null;
     }
 
     private void AutoRefreshRewarded()
@@ -530,7 +531,7 @@ public class AdmobController : BaseManager<AdmobController> , IAdmobCallback, IA
     }
 
     public bool IsRewardedAdLoaded => rewardedAd != null && rewardedAd.IsLoaded();
-    public void ShowRewardedAd(System.Action onUserClaimed)
+    public void ShowRewardedAd(System.Action onUserClaimed, Action onUserAdsFailed = null)
     {
        Debug.Log("Rewarded Ad Status : " + rewardedFlags);
         if (!IsRewardedAdLoaded)
@@ -539,6 +540,11 @@ public class AdmobController : BaseManager<AdmobController> , IAdmobCallback, IA
         if(onUserClaimed!=null)
         {
             rewardedAdUserClaimedCallback = onUserClaimed;
+        }
+
+        if (onUserAdsFailed != null)
+        {
+            OnRewardedFailedToShow = onUserAdsFailed;
         }
 
         rewardedAd.Show();

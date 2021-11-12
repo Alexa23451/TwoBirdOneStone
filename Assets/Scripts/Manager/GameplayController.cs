@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameplayController : BaseManager<GameplayController>
 {
@@ -26,13 +27,13 @@ public class GameplayController : BaseManager<GameplayController>
 
     private void OnLoadScene(int sceneId)
     {
-        if(sceneId > 1)
+        if (sceneId > 1)
         {
             SoundManager.Instance.PlaySoundIfNotPlay(Sounds.LevelBGM, true, true, true);
 
             int lv = SceneManager.GetActiveScene().buildIndex - 1;
 
-            if(lv > DataManager.Instance.UnlockLv)
+            if (lv > DataManager.Instance.UnlockLv)
             {
                 DataManager.Instance.UnlockLv = lv;
             }
@@ -66,7 +67,7 @@ public class GameplayController : BaseManager<GameplayController>
 
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += () => {
 
-            if(DataManager.Instance.CurrentLv == GlobalSetting.Instance.totalLevel)
+            if (DataManager.Instance.CurrentLv == GlobalSetting.Instance.totalLevel)
             {
                 UIManager.Instance.HidePanelWithDG(typeof(WinLvPanel));
                 UIManager.Instance.ShowPanelWithDG(typeof(BetaTestPanel));
@@ -74,13 +75,20 @@ public class GameplayController : BaseManager<GameplayController>
             }
 
             //Load inter ads
-            if(DataManager.Instance.CurrentLv % 3 == 0)
+            if (DataManager.Instance.CurrentLv % 3 == 0)
             {
-                AdmobController.Instance.ShowInterstitial(() =>
+                if (Application.internetReachability != NetworkReachability.NotReachable)
                 {
-                    _stateController.GetState<Win1GameState>().OnNexLv();
-                    SoundManager.Instance.Play(Sounds.UI_POPUP);
-                });
+                    AdmobController.Instance.ShowInterstitial(() =>
+                    {
+                        _stateController.GetState<Win1GameState>().OnNexLv();
+                        SoundManager.Instance.Play(Sounds.UI_POPUP);
+                    });
+                }
+                else
+                {
+                    UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                }
             }
             else
             {
@@ -96,13 +104,15 @@ public class GameplayController : BaseManager<GameplayController>
         UIManager.Instance.GetPanel<PausePanel>().OnMainMenuGame += _stateController.GetState<PauseState>().OnMainMenuGame;
     }
 
-    public T GetState<T>() where T: class, IState => _stateController.GetState<T>();
+    public T GetState<T>() where T : class, IState => _stateController.GetState<T>();
     public void InitLevelState() => _stateController.SetState<StartLevelState>();
     public void WinLevelState() => _stateController.SetState<Win1GameState>();
     public void LoseLevelState() => _stateController.SetState<LoseState>();
     public void PauseState() => _stateController.SetState<PauseState>();
     public void NormalState() => _stateController.SetState<NormalState>();
-    public void AdsState() => _stateController.SetState<AdsState>();
+    public void AdsState() {
+        _stateController.SetState<AdsState>();
+    }
 
     public IState GetCurrentState() => _stateController.CurrentState;
 

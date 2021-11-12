@@ -8,19 +8,44 @@ public class AdsState : IState
     public void Enter()
     {
         Time.timeScale = 0;
-        AdmobController.Instance.ShowRewardedAd(
-            delegate {
-                GameplayController.Instance.NormalState();
-            });
+
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            AdmobController.Instance.ShowRewardedAd(
+                () =>
+                {
+                    GameplayController.Instance.NormalState();
+                },
+                () =>
+                {
+                    UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                });
+        }
+        else
+        {
+            UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+        }
     }
 
     public void OnPlayAgain()
     {
-        AdmobController.Instance.ShowRewardedAd(
-            delegate {
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            AdmobController.Instance.ShowRewardedAd(
+            ()=> {
                 UIManager.Instance.GetPanel<PlayAgainPanel>().HideWithDG();
                 GameplayController.Instance.NormalState();
+            }, 
+            ()=>
+            {   
+                UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
             });
+        }
+        else
+        {
+            UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+            Debug.Log("ADAD");
+        }
     }
 
     public void Exit()

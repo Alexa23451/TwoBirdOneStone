@@ -75,7 +75,8 @@ public class TestShowAd : MonoBehaviour
         admobController.ShowRewardedAd(()=>
         {
             Debug.Log("Oke user get rewards");
-        });
+
+        }, () => Debug.Log("ADS FAILED TO SHOW"));
     }
 
     public void ShowTestSuite()
