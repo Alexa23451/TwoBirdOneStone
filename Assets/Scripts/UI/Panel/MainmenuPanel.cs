@@ -44,6 +44,9 @@ public class MainmenuPanel : MonoBehaviour
     {
         DataManager.Instance.VibrateOn = !DataManager.Instance.VibrateOn;
         vibrateSettingImg.color = DataManager.Instance.VibrateOn ? colorOn : colorOff;
+        if(DataManager.Instance.VibrateOn)
+            UnityAndroidVibrator.Instance.VibrateForGivenDuration();
+
         SoundManager.Instance.Play(Sounds.UI_POPUP);
     }
 
