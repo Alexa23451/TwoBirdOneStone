@@ -13,23 +13,34 @@ public class MainmenuPanel : MonoBehaviour
     [SerializeField] private Image soundSettingImg;
     [SerializeField] private Button infoSettingBtn;
 
+    [Header("MENU BTN")]
+    [SerializeField] private Button bonusBtn;
+    [SerializeField] private Button shopBtn;
+    [SerializeField] private Button challengeBtn;
+
 
     [SerializeField] private AudioSource bgmMainMenu;
 
     [SerializeField] private Color colorOn;
     [SerializeField] private Color colorOff;
 
+    int startMoney;
+
     private void Awake()
     {
         vibrateSettingBtn.onClick.AddListener(OnVibrateSetting);
         soundSettingBtn.onClick.AddListener(OnSoundSetting);
         infoSettingBtn.onClick.AddListener(OnInfoSetting);
+
+        bonusBtn.onClick.AddListener(OnBonusBtn);
+        shopBtn.onClick.AddListener(OnShopBtn);
+        challengeBtn.onClick.AddListener(OnChallengeBtn);
+
     }
 
     private void Start()
     {
         currentLv.text = "Level " + DataManager.Instance.CurrentLv.ToString();
-        playerMoney.text = DataManager.Instance.Money.ToString();
 
         vibrateSettingImg.color = DataManager.Instance.VibrateOn ? colorOn : colorOff;
         soundSettingImg.color = DataManager.Instance.SoundOn ? colorOn : colorOff;
@@ -38,6 +49,36 @@ public class MainmenuPanel : MonoBehaviour
         SoundManager.Instance.GLOBAL_ON = DataManager.Instance.SoundOn;
 
         bgmMainMenu.enabled = DataManager.Instance.SoundOn;
+
+        startMoney = int.Parse(playerMoney.text);
+    }
+
+    private void Update()
+    {
+        if (startMoney != DataManager.Instance.Money)
+        {
+            playerMoney.text = DataManager.Instance.Money.ToString();
+            startMoney = DataManager.Instance.Money;
+        }
+    }
+
+    private void OnBonusBtn()
+    {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        UIManager.Instance.ShowPanelWithDG(typeof(BonusPanel));
+    }
+
+    private void OnShopBtn()
+    {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        UIManager.Instance.ShowPanelWithDG(typeof(ShopPanel));
+    }
+
+
+    private void OnChallengeBtn()
+    {
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        UIManager.Instance.ShowPanelWithDG(typeof(ChallengePanel));
     }
 
     private void OnVibrateSetting()

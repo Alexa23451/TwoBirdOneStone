@@ -44,7 +44,26 @@ public class AdsState : IState
         else
         {
             UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
-            Debug.Log("ADAD");
+        }
+    }
+
+    public void OnGetBonusMoney(int moneyAmount)
+    {
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            AdmobController.Instance.ShowRewardedAd(
+            () => {
+                UIManager.Instance.GetPanel<BonusPanel>().HideWithDG();
+                DataManager.Instance.Money += moneyAmount;
+            },
+            () =>
+            {
+                UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+            });
+        }
+        else
+        {
+            UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
         }
     }
 
