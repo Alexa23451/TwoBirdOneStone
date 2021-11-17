@@ -5,6 +5,7 @@ using System;
 
 public class Win1GameState : IState
 {
+    public Action<int> OnWinGame;
 
     public Win1GameState()
     {
@@ -15,6 +16,7 @@ public class Win1GameState : IState
     {
         Debug.Log("WIN GAME");
 
+        OnWinGame?.Invoke(DataManager.Instance.CurrentLv);
         DataManager.Instance.Money += GlobalSetting.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
         
         TimerManager.Instance.AddTimer(1f,() => { 
