@@ -333,7 +333,7 @@ namespace Module.Achievement
                 activity.Value = value;
 
             }
-
+            
 
             for (int i = 0; i < wrapper.achs.Length; i++)
             {
@@ -371,6 +371,16 @@ namespace Module.Achievement
             ref var progress = ref GetAchievementProgress(id);
 
             return epoch.AddMilliseconds(progress.CompleteTime);
+        }
+
+        public void GetAchievementProgress(out AchievementProgress[] progressList)
+        {
+            progressList = (AchievementProgress[]) progress.Clone();
+        }
+
+        public void GetAchievementData(out Achievement[] achievementDatas)
+        {
+            achievementDatas = (Achievement[])achievements.Clone();
         }
     }
 

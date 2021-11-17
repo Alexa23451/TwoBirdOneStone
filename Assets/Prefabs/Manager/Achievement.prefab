@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5364674518939802165}
   - component: {fileID: 5364674518939802164}
+  - component: {fileID: 6281832227114435834}
   m_Layer: 0
   m_Name: Achievement
   m_TagString: Untagged
@@ -49,3 +50,15 @@ MonoBehaviour:
   newUnlockedAchievements: 
   Library: {fileID: 11400000, guid: 07bdbd965a6326740b3e5cce55dacb27, type: 2}
   dataString: 
+--- !u!114 &6281832227114435834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364674518939802167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cfffba42d82a5408ab8caad6325d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

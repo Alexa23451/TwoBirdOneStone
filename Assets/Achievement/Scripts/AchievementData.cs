@@ -10,6 +10,7 @@ namespace Module.Achievement.Data
     {
         [IdRange(IsEditable = true, SupportType = typeof(AchievementData))]
         public int achievementID;
+        public int moneyReward;
         public string achievevementName;
         public string achievementDescription;
         public AchievementCondition[] Conditions;
@@ -40,7 +41,7 @@ namespace Module.Achievement.Data
                 conditions[i] = cond;
             }
 
-            Achievement achievement = new Achievement(achievementID, achievevementName, achievementDescription, conditions);
+            Achievement achievement = new Achievement(achievementID, achievevementName, moneyReward, achievementDescription, conditions);
             
             return achievement;            
         }

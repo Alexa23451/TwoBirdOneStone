@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c50d7b0bfbd40af488bbd8874dd6354b, type: 3}
-  m_Name: Lv_2
+  m_Name: LV_18
   m_EditorClassIdentifier: 
-  achievementID: 1000000002
-  achievevementName: Win Lv 2
-  achievementDescription: Win Lv 2
+  achievementID: 1000000018
+  moneyReward: 100
+  achievevementName: Win Lv 18
+  achievementDescription: Win Lv 18
   Conditions:
-  - activityID: 49070
+  - activityID: 43557
     type: 1
-    value: 2
-  - activityID: 49070
-    type: 1
-    value: 1
+    value: 18

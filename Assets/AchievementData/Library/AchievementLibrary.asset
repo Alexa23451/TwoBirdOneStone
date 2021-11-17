@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CoreData:
   - {fileID: 11400000, guid: d5586437e88a1834ab995bcaf6e8412c, type: 2}
-  - {fileID: 11400000, guid: ad1bdf5fa7b41074da11242dceec2620, type: 2}
-  InitialData:
-  - {fileID: 11400000, guid: d5586437e88a1834ab995bcaf6e8412c, type: 2}
-  - {fileID: 11400000, guid: ad1bdf5fa7b41074da11242dceec2620, type: 2}
+  - {fileID: 11400000, guid: 5b90bba0c153d4842ba4993191563eda, type: 2}
+  - {fileID: 11400000, guid: 1fb4cc381874c1b4b9cfecc8925a208c, type: 2}
+  - {fileID: 11400000, guid: 47947435125ecc745862281ac81c412f, type: 2}
+  - {fileID: 11400000, guid: 885e5a7590291224793313b49ce9b52c, type: 2}
+  - {fileID: 11400000, guid: 2dd6eab1c82271345a583f207b6db509, type: 2}
+  - {fileID: 11400000, guid: ba543f7306e909140ba809f49144ce16, type: 2}
+  InitialData: []
   GroupData: []

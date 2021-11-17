@@ -43,6 +43,7 @@ namespace Module.Achievement
 
         [IdRange(IsEditable = true, SupportType = typeof(AchievementData))]
         [SerializeField] private int id;
+        [SerializeField] private int moneyReward;
         [SerializeField] private string name;
         [SerializeField] private string desc;
         [SerializeField] private Condition[] conditions;
@@ -50,10 +51,12 @@ namespace Module.Achievement
         public int ID => id;
         public string Name => name;
         public string Desc => desc;
+        public int Money => moneyReward;
         public Condition[] Conditions => conditions;
-        public Achievement(int id, string name, string desc, Condition[] conditions)
+        public Achievement(int id, string name, int moneyReward, string desc, Condition[] conditions)
         {
             this.id = id;
+            this.moneyReward = moneyReward;
             this.name = name;
             this.desc = desc;
             this.conditions = conditions;

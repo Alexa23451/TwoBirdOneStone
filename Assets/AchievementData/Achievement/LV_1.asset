@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LV_1
   m_EditorClassIdentifier: 
   achievementID: 1000000001
+  moneyReward: 100
   achievevementName: Win Lv1
   achievementDescription: Win Lv 1
   Conditions:
-  - activityID: 49070
+  - activityID: 43557
     type: 1
     value: 1

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50d7b0bfbd40af488bbd8874dd6354b, type: 3}
   m_Name: LV_3
   m_EditorClassIdentifier: 
-  achievementID: 1524216329
-  achievevementName: 
-  achievementDescription: 
-  Conditions: []
+  achievementID: 1000000003
+  moneyReward: 100
+  achievevementName: Win Lv 3
+  achievementDescription: Win Lv 3
+  Conditions:
+  - activityID: 43557
+    type: 1
+    value: 3

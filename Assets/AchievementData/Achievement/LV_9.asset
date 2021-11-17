@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c50d7b0bfbd40af488bbd8874dd6354b, type: 3}
-  m_Name: LV_4
+  m_Name: LV_9
   m_EditorClassIdentifier: 
-  achievementID: 1291461294
-  achievevementName: 
-  achievementDescription: 
-  Conditions: []
+  achievementID: 1000000009
+  moneyReward: 100
+  achievevementName: Win Lv 9
+  achievementDescription: Win Lv 9
+  Conditions:
+  - activityID: 43557
+    type: 1
+    value: 9

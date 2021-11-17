@@ -49,6 +49,12 @@ public class AchievementManager : AchievementModule
         Save();
     }
 
+    [ContextMenu("PRINT SAVE DATA")]
+    public void DATASTRING()
+    {
+        Debug.LogError( PlayerPrefs.GetString(saveStringKey));
+    }
+
     [ContextMenu("LOAD DATA")]
     public void LoadData()
     {
@@ -56,7 +62,7 @@ public class AchievementManager : AchievementModule
         {
             return;
         }
-
+        
         dataString = PlayerPrefs.GetString(saveStringKey);
         Load(dataString);
     }
@@ -92,23 +98,9 @@ public class AchievementManager : AchievementModule
         Debug.Log(dataString);
     }
 
-
-    private void OnGetContainer_Callback()
-    {
-        this.LogActivity(
-            new Activity()
-            {
-                ID = ActivityID.MONEY_RICH,
-                Value = 1,
-                actType = Activity.VALUETYPE.ADD
-
-            }
-            );
-    }
-
     public override void Init()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnDestroy()

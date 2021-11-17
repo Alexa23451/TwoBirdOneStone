@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AppController : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         SoundManager.Instance.Init();
         SceneController.Instance.Init();
