@@ -31,5 +31,7 @@ public class MissionElement : MonoBehaviour
     {
         DataManager.Instance.Money += int.Parse(rewardTxt.text);
         gameObject.SetActive(false);
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
+        AchievementManager.Instance.Save();
     }
 }
