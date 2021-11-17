@@ -20,7 +20,7 @@ namespace Module.Achievement.Tool
             var newLine = $"ACH_{totalRecord++} = {id}";
             File.AppendAllText(path, newLine + Environment.NewLine);
 
-            AssetDatabase.Refresh();
+            //AssetDatabase.Refresh();
 
         }
 
