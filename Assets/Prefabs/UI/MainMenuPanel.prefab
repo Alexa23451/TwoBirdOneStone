@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 4443575679820007564}
   - component: {fileID: 4443575679820007562}
   - component: {fileID: 4443575679820007563}
-  - component: {fileID: 2781415609130835298}
+  - component: {fileID: 6986504073483778204}
   m_Layer: 5
   m_Name: GameNameDisplay
   m_TagString: Untagged
@@ -396,25 +396,64 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2781415609130835298
-Animator:
-  serializedVersion: 3
+--- !u!114 &6986504073483778204
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4443575679820007565}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 22cf308fe11c6784ba37e8412049b4d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps:
+  - id: 0
+  updateType: 0
+  timeScaleIndependent: 0
+  playOnAwake: 1
+  pauseOnAwake: 0
+  playType: 0
+  loops: -1
+  loopType: 1
+  onStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onProgressEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 1
+    00000000:
+      type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 0
+        target: {fileID: 4443575679820007565}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - id: 1
+    00000001:
+      type: {class: ScaleDOTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 28
+          curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        isRelative: 0
+        scale: {x: 1.05, y: 1.05, z: 1.05}
+        axisConstraint: 0
 --- !u!1 &4443575679870652742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1159,7 @@ MonoBehaviour:
   playerMoney: {fileID: 4472337171281818168}
   vibrateSettingBtn: {fileID: 4472337170974924740}
   soundSettingBtn: {fileID: 4472337170598898374}
+  iapBtn: {fileID: 4042485417473666003}
   vibrateSettingImg: {fileID: 4472337170974924743}
   soundSettingImg: {fileID: 4472337170598898377}
   infoSettingBtn: {fileID: 4472337171224223921}
@@ -2312,7 +2352,8 @@ GameObject:
   - component: {fileID: 4472337171746871113}
   - component: {fileID: 4472337171746871114}
   - component: {fileID: 4472337171746871115}
-  - component: {fileID: 4472337171746871112}
+  - component: {fileID: 584644554474671908}
+  - component: {fileID: 4042485417473666003}
   m_Layer: 5
   m_Name: IAP
   m_TagString: Untagged
@@ -2377,7 +2418,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4472337171746871112
+--- !u!114 &584644554474671908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2416,11 +2457,59 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 4472337171746871115}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4042485417473666003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472337171746871110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: isnullstudio.removeads
+  buttonType: 0
+  consumePurchase: 0
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7778227792670064353}
+        m_TargetAssemblyTypeName: MainmenuPanel, Assembly-CSharp
+        m_MethodName: OnIAPRemoveAdsSuccess
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7778227792670064353}
+        m_TargetAssemblyTypeName: MainmenuPanel, Assembly-CSharp
+        m_MethodName: OnIAPRemoveAdsFailed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &4472337171771250734
 GameObject:
   m_ObjectHideFlags: 0
