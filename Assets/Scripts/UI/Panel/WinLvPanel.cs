@@ -24,7 +24,7 @@ public class WinLvPanel : BasePanel
 
     private void OnEnable()
     {
-        int money = GlobalSetting.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
+        int money = LevelData.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
         startMoney = 0;
         DOTween.To(() => startMoney, (x) => startMoney = x, money , timeCount);
     }

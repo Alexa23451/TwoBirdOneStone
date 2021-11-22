@@ -67,7 +67,7 @@ public class GameplayController : BaseManager<GameplayController>
 
         UIManager.Instance.GetPanel<WinLvPanel>().OnNextLv += () => {
 
-            if (DataManager.Instance.CurrentLv == GlobalSetting.Instance.totalLevel)
+            if (DataManager.Instance.CurrentLv == LevelData.Instance.totalLevel)
             {
                 UIManager.Instance.HidePanelWithDG(typeof(WinLvPanel));
                 UIManager.Instance.ShowPanelWithDG(typeof(BetaTestPanel));

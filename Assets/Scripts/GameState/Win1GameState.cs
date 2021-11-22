@@ -17,7 +17,7 @@ public class Win1GameState : IState
         Debug.Log("WIN GAME");
 
         OnWinGame?.Invoke(DataManager.Instance.CurrentLv);
-        int moneyBonus = GlobalSetting.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
+        int moneyBonus = LevelData.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
         DataManager.Instance.Money += moneyBonus;
         
         TimerManager.Instance.AddTimer(1f,() => { 

@@ -45,4 +45,9 @@ public class DataManager : BaseManager<DataManager>
     {
         SaveGame();
     }
+
+    private void OnApplicationPause(bool pause)
+    {
+        SaveGame();
+    }
 }

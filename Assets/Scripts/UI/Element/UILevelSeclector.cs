@@ -23,8 +23,8 @@ public class UILevelSeclector : UICarouselView
     protected override void Init()
     {
         //Add new prefab to img
-        images = new RectTransform[GlobalSetting.Instance.totalLevel];
-        for(int i=0; i< GlobalSetting.Instance.totalLevel; i++)
+        images = new RectTransform[LevelData.Instance.totalLevel];
+        for(int i=0; i< LevelData.Instance.totalLevel; i++)
         {
             var lvObj = Instantiate(itemSamplePrefab, itemsParent);
 

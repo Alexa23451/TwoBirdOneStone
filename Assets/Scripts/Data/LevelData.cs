@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-public class GlobalSetting : SettingsSingleton<GlobalSetting>
+[CreateAssetMenu(fileName = "LevelData")]
+public class LevelData : SettingsSingleton<LevelData>
 {
     [Range(1,69)] public int totalLevel;
 
