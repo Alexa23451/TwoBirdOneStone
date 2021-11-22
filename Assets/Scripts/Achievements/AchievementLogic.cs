@@ -5,8 +5,10 @@ using Module.Achievement;
 
 public class AchievementLogic : MonoBehaviour
 {
-    void Start()
+    IEnumerator Start()
     {
+        yield return WaitForSecondCache.WAIT_TIME_ONE;
+
         GameplayController.Instance.GetState<Win1GameState>().OnWinGame += OnWinGame;
     }
 
