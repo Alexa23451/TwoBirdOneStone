@@ -10,7 +10,7 @@ public class GameData : SettingsSingleton<GameData>
 
     public bool vibrateOn;
     public bool soundOn;
-    public bool iapOn;
+    public bool removeAds;
 
     public GameData()
     {
@@ -18,7 +18,7 @@ public class GameData : SettingsSingleton<GameData>
         currentLv = 1;
         unlockLv = 1;
 
-        iapOn = false;
+        removeAds = false;
         vibrateOn = true;
         soundOn = true;
     }

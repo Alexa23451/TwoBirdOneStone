@@ -9,6 +9,7 @@ public class MainmenuPanel : MonoBehaviour
     [SerializeField] private Text playerMoney;
     [SerializeField] private Button vibrateSettingBtn;
     [SerializeField] private Button soundSettingBtn;
+    [SerializeField] private Button iapBtn;
     [SerializeField] private Image vibrateSettingImg;
     [SerializeField] private Image soundSettingImg;
     [SerializeField] private Button infoSettingBtn;
@@ -31,6 +32,7 @@ public class MainmenuPanel : MonoBehaviour
         vibrateSettingBtn.onClick.AddListener(OnVibrateSetting);
         soundSettingBtn.onClick.AddListener(OnSoundSetting);
         infoSettingBtn.onClick.AddListener(OnInfoSetting);
+        iapBtn.onClick.AddListener(OnIAPRemoveAds);
 
         bonusBtn.onClick.AddListener(OnBonusBtn);
         shopBtn.onClick.AddListener(OnShopBtn);
@@ -60,6 +62,11 @@ public class MainmenuPanel : MonoBehaviour
             playerMoney.text = DataManager.Instance.Money.ToString();
             startMoney = DataManager.Instance.Money;
         }
+    }
+
+    public void OnIAPRemoveAds()
+    {
+        IAPManager.instance.BuyRemoveAds();
     }
 
     private void OnBonusBtn()

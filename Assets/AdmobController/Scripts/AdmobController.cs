@@ -470,6 +470,7 @@ public class AdmobController : BaseManager<AdmobController> , IAdmobCallback, IA
         rewardedFlags &= ~(AdFlags.LOADED | AdFlags.LOADING);
         rewardedFlags |= AdFlags.NOT_LOADED;
         OnRewardedFailedToLoad?.Invoke();
+        OnRewardedFailedToLoad = null;
     }
 
     private void RewardedAd_OnAdLoaded(object sender, System.EventArgs e)
@@ -545,6 +546,7 @@ public class AdmobController : BaseManager<AdmobController> , IAdmobCallback, IA
         if (onUserAdsFailed != null)
         {
             OnRewardedFailedToShow = onUserAdsFailed;
+            OnRewardedFailedToLoad = onUserAdsFailed;
         }
 
         rewardedAd.Show();

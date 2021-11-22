@@ -77,17 +77,25 @@ public class GameplayController : BaseManager<GameplayController>
             //Load inter ads
             if (DataManager.Instance.CurrentLv % 3 == 0)
             {
-                if (Application.internetReachability != NetworkReachability.NotReachable)
+                if (DataManager.Instance.RemoveAdsOn)
                 {
-                    AdmobController.Instance.ShowInterstitial(() =>
-                    {
-                        _stateController.GetState<Win1GameState>().OnNexLv();
-                        SoundManager.Instance.Play(Sounds.UI_POPUP);
-                    });
+                    _stateController.GetState<Win1GameState>().OnNexLv();
+                    SoundManager.Instance.Play(Sounds.UI_POPUP);
                 }
                 else
                 {
-                    UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                    if (Application.internetReachability != NetworkReachability.NotReachable)
+                    {
+                        AdmobController.Instance.ShowInterstitial(() =>
+                        {
+                            _stateController.GetState<Win1GameState>().OnNexLv();
+                            SoundManager.Instance.Play(Sounds.UI_POPUP);
+                        });
+                    }
+                    else
+                    {
+                        UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                    }
                 }
             }
             else

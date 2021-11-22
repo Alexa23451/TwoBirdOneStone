@@ -17,11 +17,13 @@ public class Win1GameState : IState
         Debug.Log("WIN GAME");
 
         OnWinGame?.Invoke(DataManager.Instance.CurrentLv);
-        DataManager.Instance.Money += GlobalSetting.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
+        int moneyBonus = GlobalSetting.Instance.moneyRewardOnLevel[DataManager.Instance.CurrentLv - 1];
+        DataManager.Instance.Money += moneyBonus;
         
         TimerManager.Instance.AddTimer(1f,() => { 
             UIManager.Instance.ShowPanelWithDG(typeof(WinLvPanel));
             SoundManager.Instance.Play(Sounds.WIN_LV);
+            //UIManager.Instance.AddPopUpText<PopupTextInfo>("+ " + moneyBonus.ToString(), Color.white);
         });
     }
 

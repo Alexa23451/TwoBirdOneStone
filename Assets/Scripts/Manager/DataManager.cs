@@ -15,7 +15,15 @@ public class DataManager : BaseManager<DataManager>
     public override void Init()
     {
         _jsonManager = new JsonManager();
-        _gameData = _jsonManager.ReadDataFromFile<GameData>(GAME_DATA_PATH);  
+        _gameData = _jsonManager.ReadDataFromFile<GameData>(GAME_DATA_PATH);
+
+        IAPManager.instance.OnRemoveAds += OnRemoveAds;
+    }
+
+    private void OnRemoveAds()
+    {
+        Debug.Log("ON PURCHASE REMOVE ADS");
+        RemoveAdsOn = true;
     }
 
     public void SaveGame() => _jsonManager.WriteDataToFile(_gameData, GAME_DATA_PATH);
@@ -25,8 +33,13 @@ public class DataManager : BaseManager<DataManager>
     public int UnlockLv { get => _gameData.unlockLv; set => _gameData.unlockLv = value; }
     public bool VibrateOn { get => _gameData.vibrateOn; set => _gameData.vibrateOn = value; }
     public bool SoundOn { get => _gameData.soundOn; set => _gameData.soundOn = value; }
-    public bool IapOn { get => _gameData.iapOn; set => _gameData.iapOn = value; }
+    public bool RemoveAdsOn { get => _gameData.removeAds; set => _gameData.removeAds = value; }
 
+    [ContextMenu("SEE DATA")]
+    public void WatchData()
+    {
+        Debug.Log(_gameData.removeAds);
+    }
 
     private void OnDestroy()
     {

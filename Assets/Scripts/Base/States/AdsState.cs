@@ -9,6 +9,12 @@ public class AdsState : IState
     {
         Time.timeScale = 0;
 
+        if (DataManager.Instance.RemoveAdsOn)
+        {
+            GameplayController.Instance.NormalState();
+            return;
+        }
+
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
             AdmobController.Instance.ShowRewardedAd(
@@ -29,6 +35,13 @@ public class AdsState : IState
 
     public void OnPlayAgain()
     {
+        if (DataManager.Instance.RemoveAdsOn)
+        {
+            UIManager.Instance.GetPanel<PlayAgainPanel>().HideWithDG();
+            GameplayController.Instance.NormalState();
+            return;
+        }
+
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
             AdmobController.Instance.ShowRewardedAd(
@@ -49,6 +62,14 @@ public class AdsState : IState
 
     public void OnGetBonusMoney(int moneyAmount)
     {
+        if (DataManager.Instance.RemoveAdsOn)
+        {
+            UIManager.Instance.GetPanel<BonusPanel>().HideWithDG();
+            DataManager.Instance.Money += moneyAmount;
+            Debug.Log("GET REWARD WITHOUT WATCH ADS");
+            return;
+        }
+
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
             AdmobController.Instance.ShowRewardedAd(

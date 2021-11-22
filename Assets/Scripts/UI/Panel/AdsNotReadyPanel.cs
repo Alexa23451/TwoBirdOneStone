@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class AdsNotReadyPanel : BasePanel, IPointerDownHandler
 {
 
+
     public void OnPointerDown(PointerEventData eventData)
     {
         ClosePanel();

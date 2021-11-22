@@ -58,5 +58,6 @@ public class UIManager : BaseManager<UIManager>
     public T GetPanel<T>() where T : BasePanel => m_panelManager.GetPanel<T>();
 
     public void OverrideTexts() => m_panelManager.OverrideTexts();
+
     #endregion
 }
