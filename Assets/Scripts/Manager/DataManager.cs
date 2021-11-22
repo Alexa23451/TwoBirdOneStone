@@ -17,7 +17,7 @@ public class DataManager : BaseManager<DataManager>
         _jsonManager = new JsonManager();
         _gameData = _jsonManager.ReadDataFromFile<GameData>(GAME_DATA_PATH);
 
-        IAPManager.instance.OnRemoveAds += OnRemoveAds;
+        IAPManager.Instance.OnRemoveAds += OnRemoveAds;
     }
 
     private void OnRemoveAds()

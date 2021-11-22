@@ -94,7 +94,9 @@ public class GameplayController : BaseManager<GameplayController>
                     }
                     else
                     {
-                        UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                        UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("ADVERTISEMENT NOT READY YET",
+                            "CHEATING detected !!!\n\nOpen your wifi, Watch some ads, or I will cry: (((((((((");
+                        UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
                     }
                 }
             }
@@ -104,12 +106,14 @@ public class GameplayController : BaseManager<GameplayController>
                 SoundManager.Instance.Play(Sounds.UI_POPUP);
             }
         };
-        UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += _stateController.GetState<LoseState>().OnPlayAgain;
-        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += _stateController.GetState<AdsState>().OnPlayAgain;
         UIManager.Instance.GetPanel<GameplayPanel>().OnStopMenu += PauseState;
         UIManager.Instance.GetPanel<PausePanel>().OnResumeGame += NormalState;
-        UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += _stateController.GetState<PauseState>().OnSettingGame;
-        UIManager.Instance.GetPanel<PausePanel>().OnMainMenuGame += _stateController.GetState<PauseState>().OnMainMenuGame;
+        IAPManager.Instance.OnRemoveAds += () =>
+        {
+            UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("THANKS FOR SUPPORT",
+    "It mean so much to me !!!\n\nNow you can 'hack' your money by spawn reward, no limited play with the game");
+            UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
+        };
     }
 
     public T GetState<T>() where T : class, IState => _stateController.GetState<T>();

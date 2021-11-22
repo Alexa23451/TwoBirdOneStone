@@ -66,7 +66,7 @@ public class MainmenuPanel : MonoBehaviour
 
     public void OnIAPRemoveAds()
     {
-        IAPManager.instance.BuyRemoveAds();
+        IAPManager.Instance.BuyRemoveAds();
     }
 
     private void OnBonusBtn()

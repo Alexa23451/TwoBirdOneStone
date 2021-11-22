@@ -5,7 +5,7 @@ using UnityEngine.Purchasing;
 
 public class IAPManager : MonoBehaviour, IStoreListener
 {
-    public static IAPManager instance;
+    public static IAPManager Instance;
 
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
@@ -84,8 +84,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     private void TestSingleton()
     {
-        if (instance != null) { Destroy(gameObject); return; }
-        instance = this;
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

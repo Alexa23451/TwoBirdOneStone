@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PauseState : IState
 {
+    public PauseState()
+    {
+        UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += OnSettingGame;
+        UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += OnSettingGame;
+
+    }
+
     public void Enter()
     {
         UIManager.Instance.ShowPanelWithDG(typeof(PausePanel) , ()=>Time.timeScale = 0);

@@ -8,7 +8,7 @@ public class LoseState : IState
 
     public LoseState()
     {
-
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnNoTks += OnPlayAgain;
     }
 
     public void Enter()

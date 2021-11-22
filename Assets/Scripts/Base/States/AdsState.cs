@@ -5,6 +5,17 @@ using System;
 
 public class AdsState : IState
 {
+
+    const string headerAds = "ADVERTISEMENT NOT READY YET";
+    const string desAdsNoNet = "CHEATING detected !!!\n\nOpen your wifi, Watch some ads, or I will cry: (((((((((";
+    const string desAds = "OOP !!!\n\n";
+
+    public AdsState()
+    {
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += OnPlayAgain;
+
+    }
+
     public void Enter()
     {
         Time.timeScale = 0;
@@ -24,12 +35,14 @@ public class AdsState : IState
                 },
                 () =>
                 {
-                    UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                    UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo(headerAds, desAds);
+                    UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
                 });
         }
         else
         {
-            UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+            UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo(headerAds, desAdsNoNet);
+            UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
         }
     }
 
@@ -50,13 +63,15 @@ public class AdsState : IState
                 GameplayController.Instance.NormalState();
             }, 
             ()=>
-            {   
-                UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+            {
+                UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo(headerAds, desAds);
+                UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
             });
         }
         else
         {
-            UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+            UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo(headerAds, desAdsNoNet);
+            UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
         }
     }
 
@@ -79,12 +94,14 @@ public class AdsState : IState
             },
             () =>
             {
-                UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+                UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo(headerAds, desAds);
+                UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
             });
         }
         else
         {
-            UIManager.Instance.ShowPanelWithDG(typeof(AdsNotReadyPanel));
+            UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo(headerAds, desAdsNoNet);
+            UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
         }
     }
 
