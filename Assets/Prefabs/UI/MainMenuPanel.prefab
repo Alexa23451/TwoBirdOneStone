@@ -66,9 +66,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 359952eed08b8c44ca4f0cac4979ee02, type: 3}
-    m_FontSize: 80
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 96f6e1926b1f9f4429ed60e437f5b4c4, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -1204,7 +1204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 124}
+  m_AnchoredPosition: {x: -99.999985, y: 123.99996}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337170393222013
@@ -1634,9 +1634,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 359952eed08b8c44ca4f0cac4979ee02, type: 3}
-    m_FontSize: 80
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 96f6e1926b1f9f4429ed60e437f5b4c4, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
@@ -1879,7 +1879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -550}
+  m_AnchoredPosition: {x: 0, y: -549.9998}
   m_SizeDelta: {x: 402, y: 183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4472337170988254445
@@ -1999,7 +1999,7 @@ MonoBehaviour:
     00000000:
       type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
       data:
-        delay: 1
+        delay: 2
         flowType: 1
         target: {fileID: 4472337170988254441}
         duration: 1
@@ -2008,11 +2008,11 @@ MonoBehaviour:
         actions:
         - id: 1
     00000001:
-      type: {class: ScaleDOTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      type: {class: ShakePositionDOTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
       data:
         direction: 0
         ease:
-          ease: 29
+          ease: 22
           curve:
             serializedVersion: 2
             m_Curve: []
@@ -2020,8 +2020,11 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
         isRelative: 0
-        scale: {x: 1.2, y: 1.2, z: 1.2}
-        axisConstraint: 0
+        strength: {x: 0, y: 10, z: 0}
+        vibrato: 20
+        randomness: 90
+        snapping: 0
+        fadeout: 1
 --- !u!1 &4472337171224223887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2037,7 @@ GameObject:
   - component: {fileID: 4472337171224223923}
   - component: {fileID: 4472337171224223920}
   - component: {fileID: 4472337171224223921}
+  - component: {fileID: 1090689425649807977}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -2142,6 +2146,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1090689425649807977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472337171224223887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps:
+  - id: 0
+  updateType: 0
+  timeScaleIndependent: 0
+  playOnAwake: 1
+  pauseOnAwake: 0
+  playType: 0
+  loops: -1
+  loopType: 1
+  onStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onProgressEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 1
+    00000000:
+      type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 1
+        flowType: 1
+        target: {fileID: 4472337171224223887}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - id: 1
+    00000001:
+      type: {class: ShakeRotationDOTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 30
+          curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        isRelative: 0
+        strength: {x: 0, y: 0, z: 20}
+        vibrato: 100
+        randomness: 90
+        fadeout: 1
 --- !u!1 &4472337171281818166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,7 +2264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7735849, g: 0.1724536, b: 0.032111038, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2208,9 +2272,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 359952eed08b8c44ca4f0cac4979ee02, type: 3}
-    m_FontSize: 281
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 96f6e1926b1f9f4429ed60e437f5b4c4, type: 3}
+    m_FontSize: 270
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -2233,6 +2297,7 @@ GameObject:
   - component: {fileID: 4472337171746871114}
   - component: {fileID: 4472337171746871115}
   - component: {fileID: 584644554474671908}
+  - component: {fileID: 1427452052085215273}
   m_Layer: 5
   m_Name: IAP
   m_TagString: Untagged
@@ -2341,6 +2406,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1427452052085215273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472337171746871110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps:
+  - id: 0
+  updateType: 0
+  timeScaleIndependent: 0
+  playOnAwake: 1
+  pauseOnAwake: 0
+  playType: 0
+  loops: -1
+  loopType: 1
+  onStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onProgressEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 1
+    00000000:
+      type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 1
+        flowType: 1
+        target: {fileID: 4472337171746871110}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - id: 1
+    00000001:
+      type: {class: ShakeRotationDOTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 30
+          curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        isRelative: 0
+        strength: {x: 0, y: 0, z: 20}
+        vibrato: 100
+        randomness: 90
+        fadeout: 1
 --- !u!1 &4472337171771250734
 GameObject:
   m_ObjectHideFlags: 0
