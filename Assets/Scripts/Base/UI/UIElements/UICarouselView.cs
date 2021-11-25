@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
-
-    [SerializeField] protected RectTransform[] images;
+    [SerializeField] protected List <RectTransform> images = new List<RectTransform>();
     
     [SerializeField] float imageSpace = 100;
 
@@ -27,12 +26,12 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public int CurrentIndex {
         get { return _currentIndex; }
         protected set {
-            _currentIndex = Mathf.Clamp(value,0,images.Length - 1);
-            onIndexChanged?.Invoke(value);
+            _currentIndex = Mathf.Clamp(value,0,images.Count - 1);
+            OnIndexChanged?.Invoke(value);
         }
     }
 
-    public System.Action<int> onIndexChanged;
+    public System.Action<int> OnIndexChanged;
 
 
     private bool isDragging;
@@ -46,14 +45,14 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private float screenPosition;
     private float lastScreenPosition;
     
-    void Awake () {
-        Init();
+    protected virtual void Start () {
+        Init(); //run after setup => add element into img
     }
 
-    protected virtual void Init()
+    private void Init()
     {
-        imageWidth = images[0].rect.width;
-        for (int i = 0; i < images.Length; i++)
+        imageWidth = images.Count > 0 ? images[0].rect.width : throw new Exception();
+        for (int i = 0; i < images.Count; i++)
         {
             images[i].anchoredPosition = new Vector2((imageWidth + imageSpace) * i, 0);
         }
@@ -62,7 +61,14 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         nextButton.onClick.AddListener(() => ChangePage(1));
         prevButton.onClick.AddListener(() => ChangePage(-1));
 
+        selectButton.onClick.AddListener(OnSelectObject);
+
         UpdatePageButtons();
+    }
+
+    protected virtual void OnSelectObject()
+    {
+
     }
 
     // Update is called once per frame
@@ -83,16 +89,16 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             {
                 canSwipe = false;
                 lastScreenPosition = screenPosition;
-                if (CurrentIndex < images.Length)
+                if (CurrentIndex < images.Count)
                     OnSwipeComplete();
-                else if (CurrentIndex == images.Length && dragAmount < 0)
+                else if (CurrentIndex == images.Count && dragAmount < 0)
                     lerpTimer = 0;
-                else if (CurrentIndex == images.Length && dragAmount > 0)
+                else if (CurrentIndex == images.Count && dragAmount > 0)
                     OnSwipeComplete();
             }
         }
 
-        for (int i = 0; i < images.Length; i++)
+        for (int i = 0; i < images.Count; i++)
         {
             float space = imageWidth + imageSpace;
             Vector2 targetPos = new Vector2(screenPosition + (space * i), 0);
@@ -166,7 +172,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             if (Mathf.Abs(dragAmount) >= swipeThrustHold)
             {
-                if (CurrentIndex == images.Length-1)
+                if (CurrentIndex == images.Count - 1)
                 {
                     lerpTimer = 0;
                     lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
@@ -194,7 +200,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         int idx = 0;
 
         float smallest = Mathf.Abs(images[0].anchoredPosition.x);
-        for (int i = 1; i < images.Length; i++)
+        for (int i = 1; i < images.Count; i++)
         {
             float xpos = Mathf.Abs(images[i].anchoredPosition.x);
             if (xpos < smallest)
@@ -215,7 +221,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
         screenPosition = lerpPosition * -1;
         lastScreenPosition = screenPosition;
-        for (int i = 0; i < images.Length; i++)
+        for (int i = 0; i < images.Count; i++)
         {
             images[i].anchoredPosition = new Vector2(screenPosition + ((imageWidth + imageSpace) * i), 0);
         }
@@ -242,7 +248,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private void UpdatePageButtons()
     {
-        int maxPage = images.Length;
+        int maxPage = images.Count;
         nextButton.interactable = CurrentIndex < maxPage - 1;
         prevButton.interactable = CurrentIndex > 0;
     }

@@ -20,10 +20,10 @@ public class UILevelSeclector : UICarouselView
     public System.Action<UnlockableItemData> onObjectSelected;
 
 
-    protected override void Init()
+    protected override void Start()
     {
         //Add new prefab to img
-        images = new RectTransform[LevelData.Instance.totalLevel];
+        //images = new RectTransform[LevelData.Instance.totalLevel];
         for(int i=0; i< LevelData.Instance.totalLevel; i++)
         {
             var lvObj = Instantiate(itemSamplePrefab, itemsParent);
@@ -44,15 +44,15 @@ public class UILevelSeclector : UICarouselView
             }
 
 
-            images[i] = lvObj.GetComponent<RectTransform>();
+            images.Add(lvObj.GetComponent<RectTransform>());
         }
 
 
-        base.Init();
+        base.Start();
 
-        onIndexChanged += OnIndexChanged;
+        base.OnIndexChanged += OnIndexChange;
 
-        selectButton.onClick.AddListener(SelectObject);
+        
 
         //go to current lv
         GoToIndex(DataManager.Instance.CurrentLv - 1);
@@ -65,17 +65,17 @@ public class UILevelSeclector : UICarouselView
         base.OnSwipeComplete();
     }
 
-    void SelectObject()
+    protected override void OnSelectObject()
     {
         selectedIndex = CurrentIndex;
-        OnIndexChanged(selectedIndex);
+        OnIndexChange(selectedIndex);
 
         //load new lv
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         SceneController.Instance.ChangeScene(selectedIndex +2);
     }
 
-    void OnIndexChanged(int idx)
+    void OnIndexChange(int idx)
     {
         bool isLocked = images[idx].GetComponent<UIObjectSelectorItem>().IsLocked;
         selectButton.interactable = !isLocked && selectedIndex != idx || !isLocked && allowSelectingSelectedItem;
@@ -84,13 +84,13 @@ public class UILevelSeclector : UICarouselView
     public void UnlockItem(int index)
     {
         images[index].GetComponent<UIObjectSelectorItem>().IsLocked = false;
-        OnIndexChanged(index);
+        OnIndexChange(index);
     }
 
     public void LockItem(int index)
     {
         images[index].GetComponent<UIObjectSelectorItem>().IsLocked = true;
-        OnIndexChanged(index);
+        OnIndexChange(index);
     }
 
     public void SetOpenProgress(int index, (float current, float max) value)

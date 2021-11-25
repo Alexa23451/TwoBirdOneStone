@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopPanel : MonoBehaviour
+public class ShopPanel : BasePanel
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ClosePanel()
     {
-        
+        HideWithDG();
+        SoundManager.Instance.Play(Sounds.UI_POPUP);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public override void OverrideText()
     {
-        
+        throw new System.NotImplementedException();
     }
 }

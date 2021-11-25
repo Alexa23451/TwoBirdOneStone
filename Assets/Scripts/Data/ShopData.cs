@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShopData")]
 public class ShopData : SettingsSingleton<ShopData>
 {
-    public ShopItem[] shopItems;
-
-    ShopData()
-    {
-
-    }
+    [SerializeField] public ShopItem[] shopItems;
 }

@@ -5,7 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShopItem")]
 public class ShopItem : ScriptableObject
 {
-    public string itemName;
-    public int goldCost;
-    public Sprite imgImg;
+    [SerializeField] string itemName;
+    [SerializeField] int goldCost;
+    [SerializeField] Sprite imgItem;
+
+    [HideInInspector] public string ItemName => itemName;
+    [HideInInspector] public int GoldCost => goldCost;
+    [HideInInspector] public Sprite ImgItem => imgItem;
 }
