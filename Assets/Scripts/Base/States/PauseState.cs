@@ -7,7 +7,7 @@ public class PauseState : IState
     public PauseState()
     {
         UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += OnSettingGame;
-        UIManager.Instance.GetPanel<PausePanel>().OnSettingGame += OnSettingGame;
+        UIManager.Instance.GetPanel<PausePanel>().OnMainMenuGame += OnMainMenuGame;
 
     }
 

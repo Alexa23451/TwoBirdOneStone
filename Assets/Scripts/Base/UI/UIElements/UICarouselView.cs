@@ -24,7 +24,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
 
     protected int _currentIndex;
-    public int currentIndex {
+    public int CurrentIndex {
         get { return _currentIndex; }
         protected set {
             _currentIndex = Mathf.Clamp(value,0,images.Length - 1);
@@ -83,11 +83,11 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             {
                 canSwipe = false;
                 lastScreenPosition = screenPosition;
-                if (currentIndex < images.Length)
+                if (CurrentIndex < images.Length)
                     OnSwipeComplete();
-                else if (currentIndex == images.Length && dragAmount < 0)
+                else if (CurrentIndex == images.Length && dragAmount < 0)
                     lerpTimer = 0;
-                else if (currentIndex == images.Length && dragAmount > 0)
+                else if (CurrentIndex == images.Length && dragAmount > 0)
                     OnSwipeComplete();
             }
         }
@@ -144,17 +144,17 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             if (dragAmount >= swipeThrustHold)
             {
-                if (currentIndex == 0)
+                if (CurrentIndex == 0)
                 {
                     lerpTimer = 0; lerpPosition = 0;
                 }
                 else
                 {
-                    currentIndex = GetCurrentIndex();
+                    CurrentIndex = GetCurrentIndex();
                     lerpTimer = 0;
-                    if (currentIndex < 0)
-                        currentIndex = 0;
-                    lerpPosition = (imageWidth + imageSpace) * currentIndex;
+                    if (CurrentIndex < 0)
+                        CurrentIndex = 0;
+                    lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
                 }
             }
             else
@@ -166,16 +166,16 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             if (Mathf.Abs(dragAmount) >= swipeThrustHold)
             {
-                if (currentIndex == images.Length-1)
+                if (CurrentIndex == images.Length-1)
                 {
                     lerpTimer = 0;
-                    lerpPosition = (imageWidth + imageSpace) * currentIndex;
+                    lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
                 }
                 else
                 {
                     lerpTimer = 0;
-                    currentIndex = GetCurrentIndex();
-                    lerpPosition = (imageWidth + imageSpace) * currentIndex;
+                    CurrentIndex = GetCurrentIndex();
+                    lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
                 }
             }
             else
@@ -210,9 +210,9 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     
     public void GoToIndex(int value)
     {
-        currentIndex = value;
+        CurrentIndex = value;
         lerpTimer = 0;
-        lerpPosition = (imageWidth + imageSpace) * currentIndex;
+        lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
         screenPosition = lerpPosition * -1;
         lastScreenPosition = screenPosition;
         for (int i = 0; i < images.Length; i++)
@@ -225,17 +225,17 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void GoToIndexSmooth(int value)
     {
-        currentIndex = value;
+        CurrentIndex = value;
         lerpTimer = 0;
-        lerpPosition = (imageWidth + imageSpace) * currentIndex;
+        lerpPosition = (imageWidth + imageSpace) * CurrentIndex;
     }
 
     void ChangePage(int direction)
     {
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         direction = direction > 0 ? 1 : -1;
-        currentIndex += direction;
-        GoToIndexSmooth(currentIndex);
+        CurrentIndex += direction;
+        GoToIndexSmooth(CurrentIndex);
 
         UpdatePageButtons();
     }
@@ -243,7 +243,7 @@ public class UICarouselView : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void UpdatePageButtons()
     {
         int maxPage = images.Length;
-        nextButton.interactable = currentIndex < maxPage - 1;
-        prevButton.interactable = currentIndex > 0;
+        nextButton.interactable = CurrentIndex < maxPage - 1;
+        prevButton.interactable = CurrentIndex > 0;
     }
 }
