@@ -111,7 +111,7 @@ public class GameplayController : BaseManager<GameplayController>
         IAPManager.Instance.OnRemoveAds += () =>
         {
             UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("THANKS FOR SUPPORT",
-    "It mean so much to me !!!\n\nNow you can 'hack' your money by spawn reward, no limited play with the game");
+    "It mean so much to me !!!\n\nNow you have infinitive money !");
             UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
         };
     }

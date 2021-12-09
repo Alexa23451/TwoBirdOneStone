@@ -23,6 +23,7 @@ public class DataManager : BaseManager<DataManager>
     private void OnRemoveAds()
     {
         Debug.Log("ON PURCHASE REMOVE ADS");
+        Money = 9999999;
         RemoveAdsOn = true;
     }
 
