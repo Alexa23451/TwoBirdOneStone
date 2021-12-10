@@ -13,7 +13,7 @@ public class BulletFirer : MonoBehaviour
     private BulletBehaviour bulletBehaviour;
     private Camera cam;
 
-    [SerializeField] [Range(1, 15)] private float speed = 1;
+    [SerializeField] [Range(1, 14)] private float speedMax = 1;
 
     [SerializeField] private PlayerMechanic playerMechanic;
     [SerializeField] private Transform bulletStartPoint;
@@ -27,14 +27,19 @@ public class BulletFirer : MonoBehaviour
 
     private void Awake()
     {
+        bulletBehaviour = GetComponent<BulletBehaviour>();
 
         playerMechanic.OnRecharge += OnRecharge;
-        bulletBehaviour = GetComponent<BulletBehaviour>();
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += OnRecharge;
     }
 
     private void OnRecharge()
     {
+        transform.position = bulletStartPoint.position;
+        transform.rotation = bulletStartPoint.rotation;
+        bulletBehaviour.SetDirection(Vector2.zero, 0);
+        transform.SetParent(playerMechanic.gameObject.transform);
+
         isShot = false;
         lineRenderer.enabled = true;
         trailRenderer.enabled = false;
@@ -52,6 +57,12 @@ public class BulletFirer : MonoBehaviour
 
         trailRenderer.enabled = false;
         lineRenderer.enabled = true;
+    }
+
+    private void OnDestroy()
+    {
+        playerMechanic.OnRecharge -= OnRecharge;
+        UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds -= OnRecharge;
     }
 
     private void OnMouseDown()
@@ -97,7 +108,7 @@ public class BulletFirer : MonoBehaviour
         Vector2 dir = ((Vector2)bulletStartPoint.position - mousePos).normalized;
 
         float distance = Vector2.Distance(mousePos, bulletStartPoint.position);
-        float force = QuanMathf.ReMap(distance, 0, clampRadius, 1, 13);
+        float force = QuanMathf.ReMap(distance, 0, clampRadius, 1, speedMax);
 
         bulletBehaviour.SetDirection(dir, force);
 

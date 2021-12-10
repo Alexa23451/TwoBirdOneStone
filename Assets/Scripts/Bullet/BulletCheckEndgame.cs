@@ -44,7 +44,7 @@ public class BulletCheckEndgame : MonoBehaviour
             {
                 GameplayController.Instance.LoseLevelState();
                 _inGame = false;
-                Pooling.DestroyObject(this.gameObject);
+                //Pooling.DestroyObject(this.gameObject);
             }
         }
     }

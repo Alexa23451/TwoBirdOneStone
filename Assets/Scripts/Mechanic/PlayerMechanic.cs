@@ -8,22 +8,14 @@ public class PlayerMechanic : MonoBehaviour , IBulletInteract
 
     private void Start()
     {
-        OnRecharge += UIManager.Instance.GetPanel<GameplayPanel>().OnRecharge;
-    }
+        //OnRecharge += UIManager.Instance.GetPanel<GameplayPanel>().OnRecharge;
+        
 
+    }
 
     public void OnEnter(GameObject onObject)
     {
-        if(onObject.TryGetComponent<BulletBehaviour>(out var bulletBehaviour))
-        {
-            onObject.transform.position = bulletStartPoint.position;
-            onObject.transform.rotation = bulletStartPoint.rotation;
-
-            bulletBehaviour.SetDirection(Vector2.zero, 0);
-            bulletBehaviour.gameObject.transform.SetParent(this.gameObject.transform);
-
-            OnRecharge?.Invoke();
-        }
+        OnRecharge?.Invoke();
 
         VFX();
     }

@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedbfd8774f848a4aab4cec7a92cd488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speedMax: 14
   playerMechanic: {fileID: 978248241}
   bulletStartPoint: {fileID: 2564555863317169001}
   slingShot: {fileID: 8345442286624023736}

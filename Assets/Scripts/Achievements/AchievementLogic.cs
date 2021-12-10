@@ -14,7 +14,7 @@ public class AchievementLogic : MonoBehaviour
 
     private void OnWinGame(int lv)
     {
-        Debug.LogError(lv);
+        Debug.Log("WIN LV : " + lv);
         AchievementManager.Instance.LogActivity(
             new Activity
             {
