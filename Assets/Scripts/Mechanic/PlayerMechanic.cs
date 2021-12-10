@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMechanic : MonoBehaviour , IBulletInteract
 {
     public event Action OnRecharge;
+    public Transform bulletStartPoint;
 
     private void Start()
     {
@@ -13,8 +14,16 @@ public class PlayerMechanic : MonoBehaviour , IBulletInteract
 
     public void OnEnter(GameObject onObject)
     {
-        onObject.SetActive(false);
-        OnRecharge?.Invoke();
+        if(onObject.TryGetComponent<BulletBehaviour>(out var bulletBehaviour))
+        {
+            onObject.transform.position = bulletStartPoint.position;
+            onObject.transform.rotation = bulletStartPoint.rotation;
+
+            bulletBehaviour.SetDirection(Vector2.zero, 0);
+            bulletBehaviour.gameObject.transform.SetParent(this.gameObject.transform);
+
+            OnRecharge?.Invoke();
+        }
 
         VFX();
     }

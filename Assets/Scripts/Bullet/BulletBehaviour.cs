@@ -8,26 +8,21 @@ public interface IBulletInteract
 [RequireComponent(typeof(Rigidbody2D))]
 public class BulletBehaviour : MonoBehaviour
 {
-    private IBulletInteract bulletInteract;
+    public event System.Action OnBulletHit;
     private Vector2 _direction;
     private Rigidbody2D rig;
-    public event System.Action OnBulletHit;
-
-    [SerializeField] private bool isFly;
-    [SerializeField] float speed;
+    private BulletFirer bulletFirer;
 
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        rig.velocity = _direction * speed;
+        bulletFirer = GetComponent<BulletFirer>();
     }
 
-    public void SetDirection(Vector2 direc) => _direction = direc;
-
-    private void OnEnable()
+    public void SetDirection(Vector2 direc, float speed)
     {
-        if(rig)
-            rig.velocity = _direction * speed;
+        _direction = direc;
+        rig.velocity = _direction * speed;
     }
 
     private void OnDisable()
@@ -37,15 +32,12 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bulletInteract = collision.gameObject.GetComponent<IBulletInteract>();
+        if (!bulletFirer.IsShot)
+            return;
 
-        if (bulletInteract != null)
+        if(collision.gameObject.TryGetComponent<IBulletInteract>(out var bulletInteract))
         {
             bulletInteract.OnEnter(this.gameObject);
-        }
-        else
-        {
-            Debug.LogError("???");
         }
     }
 

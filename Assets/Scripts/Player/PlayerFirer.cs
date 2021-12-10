@@ -10,6 +10,7 @@ public class PlayerFirer : MonoBehaviour
 
     private PlayerMechanic playerMechanic;
     private BulletBehaviour currentBullet;
+    private Collider2D collider;
 
     private bool _isShot = false;
     public bool IsShot => _isShot;
@@ -17,6 +18,7 @@ public class PlayerFirer : MonoBehaviour
     private void Awake()
     {
         playerMechanic = GetComponent<PlayerMechanic>();
+        collider = GetComponent<Collider2D>();
         playerMechanic.OnRecharge += OnRecharge;
         UIManager.Instance.GetPanel<GameplayPanel>().OnSpaceUpdate += OnShot;
         UIManager.Instance.GetPanel<PlayAgainPanel>().OnWatchAds += OnRecharge;
@@ -53,9 +55,11 @@ public class PlayerFirer : MonoBehaviour
             }
 
             SoundManager.Instance.Play(Sounds.SHOT);
+
             _isShot = true;
+            collider.enabled = true;
             currentBullet.OnBulletHit += OnBulletGone;
-            currentBullet.SetDirection(transform.up);
+            currentBullet.SetDirection(transform.up, 10f);
             OnPlayerShot?.Invoke();
         }
     }
