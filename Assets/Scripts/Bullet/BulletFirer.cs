@@ -41,8 +41,6 @@ public class BulletFirer : MonoBehaviour
         transform.SetParent(playerMechanic.gameObject.transform);
 
         isShot = false;
-        lineRenderer.enabled = true;
-        trailRenderer.enabled = false;
     }
 
 
@@ -70,7 +68,10 @@ public class BulletFirer : MonoBehaviour
         if (!isShot)
         {
             isDrag = true;
+            lineRenderer.enabled = true;
+            trailRenderer.enabled = false;
             rig.isKinematic = true;
+            SoundManager.Instance.Play(Sounds.Bow);
         }
     }
 
@@ -96,30 +97,42 @@ public class BulletFirer : MonoBehaviour
 
     private void OnMouseUp()
     {
-        rig.isKinematic = false;
-        trailRenderer.enabled = true;
-        isDrag = false;
-
-        lineRenderer.enabled = false;
-        lineRenderer.SetPosition(0, Vector3.zero);
-        lineRenderer.SetPosition(1, Vector3.zero);
-
-        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dir = ((Vector2)bulletStartPoint.position - mousePos).normalized;
-
-        float distance = Vector2.Distance(mousePos, bulletStartPoint.position);
-        float force = QuanMathf.ReMap(distance, 0, clampRadius, 1, speedMax);
-
-        bulletBehaviour.SetDirection(dir, force);
-
-
-        transform.SetParent(null);
-        SoundManager.Instance.Play(Sounds.SHOT);
-
-        TimerManager.Instance.AddTimer(timeRelease, () =>
+        if (isDrag && !isShot)
         {
-            isShot = true;
-        });
+
+            Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 dir = ((Vector2)bulletStartPoint.position - mousePos).normalized;
+
+            float distance = Vector2.Distance(mousePos, bulletStartPoint.position);
+            if(distance < 1f)
+            {
+                //check if OnMouseUp too close to current pos
+                lineRenderer.enabled = false;
+                transform.position = bulletStartPoint.position;
+                return;
+            }
+
+            float force = QuanMathf.ReMap(distance, 1, clampRadius, 1, speedMax);
+
+            bulletBehaviour.SetDirection(dir, force);
+            SoundManager.Instance.Play(Sounds.SHOT);
+
+            transform.SetParent(null);
+
+            rig.isKinematic = false;
+            trailRenderer.enabled = true;
+            isDrag = false;
+
+            lineRenderer.SetPosition(0, Vector3.zero);
+            lineRenderer.SetPosition(1, Vector3.zero);
+
+            TimerManager.Instance.AddTimer(timeRelease, () =>
+            {
+                isShot = true;
+            });
+
+        }
+
     }
 
     private void SetLineRenderer()

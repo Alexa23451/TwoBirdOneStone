@@ -45,6 +45,7 @@ public class DataManager : BaseManager<DataManager>
     private void OnDestroy()
     {
         SaveGame();
+        IAPManager.Instance.OnRemoveAds -= OnRemoveAds;
     }
 
     private void OnApplicationPause(bool pause)
