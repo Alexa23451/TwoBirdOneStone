@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BackUpMechanic : MonoBehaviour, IBulletInteract
 {
@@ -23,6 +24,9 @@ public class BackUpMechanic : MonoBehaviour, IBulletInteract
         SoundManager.Instance.Play(Sounds.BACKUP_MECHANIC);
         if (DataManager.Instance.VibrateOn)
             UnityAndroidVibrator.Instance.VibrateForGivenDuration();
+
+        transform.DOScale(1.3f, 0.2f).OnComplete(() => transform.DOScale(1f, 0.2f));
+        
 
         var vfx = Pooling.InstantiateObject<ParticleSystem>(_dustParticle.gameObject, transform.position, Quaternion.identity);
 

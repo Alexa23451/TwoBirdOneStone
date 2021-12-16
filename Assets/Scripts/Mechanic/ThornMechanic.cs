@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ThornMechanic : MonoBehaviour, IBulletInteract
 {
@@ -29,6 +30,8 @@ public class ThornMechanic : MonoBehaviour, IBulletInteract
 
         if (DataManager.Instance.VibrateOn)
             UnityAndroidVibrator.Instance.VibrateForGivenDuration();
+
+        transform.DOScale(1.3f, 0.2f).OnComplete(() => transform.DOScale(1f, 0.2f));
 
 
         vfx.Play();
