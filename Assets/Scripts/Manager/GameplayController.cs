@@ -41,7 +41,6 @@ public class GameplayController : BaseManager<GameplayController>
             DataManager.Instance.CurrentLv = lv;
             DataManager.Instance.SaveGame();
 
-            UIManager.Instance.HideAllPanel();
             UIManager.Instance.ShowPanel(typeof(GameplayPanel));
             UIManager.Instance.GetPanel<GameplayPanel>().SetTextLv("Level " + lv.ToString());
             OnStartLv?.Invoke();
@@ -49,7 +48,7 @@ public class GameplayController : BaseManager<GameplayController>
         }
         else
         {
-            UIManager.Instance.HideAllPanel();
+            //.Instance.HidePanel(typeof(GameplayPanel));
         }
     }
 

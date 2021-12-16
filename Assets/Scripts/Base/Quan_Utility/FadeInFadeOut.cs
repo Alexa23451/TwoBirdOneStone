@@ -5,17 +5,12 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 
-public class FadeInFadeOut : BaseManager<FadeInFadeOut>
+public class FadeInFadeOut : BasePanel
 {
     [SerializeField] List<Image> followFade;
     private bool _isFade = false;
 
     public bool IsFade => _isFade;
-
-    public override void Init()
-    {
-
-    }
 
 
     public void Fade(float fadeInTime = 1f , Action eventBetween = null, float fadeOutTime = 1f)
@@ -42,5 +37,10 @@ public class FadeInFadeOut : BaseManager<FadeInFadeOut>
                 });
             });
         }
+    }
+
+    public override void OverrideText()
+    {
+        throw new NotImplementedException();
     }
 }

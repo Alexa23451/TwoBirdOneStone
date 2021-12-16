@@ -34,7 +34,8 @@ public class SceneController : BaseManager<SceneController>
 
 
         _currentScene = id;
-        FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(id), timeWait);
+        UIManager.Instance.ShowPanel(typeof(FadeInFadeOut));
+        UIManager.Instance.GetPanel<FadeInFadeOut>().Fade(timeWait, () => SceneManager.LoadScene(id), timeWait);
     }
 
     public void NextScene(float timeWait = 1)
@@ -47,11 +48,13 @@ public class SceneController : BaseManager<SceneController>
 
 
         _currentScene++;
-        FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait);
+        UIManager.Instance.ShowPanel(typeof(FadeInFadeOut));
+        UIManager.Instance.GetPanel<FadeInFadeOut>().Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait);
     }
 
     public void ReloadScene(float timeWait = 1)
     {
-        FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait);
+        UIManager.Instance.ShowPanel(typeof(FadeInFadeOut));
+        UIManager.Instance.GetPanel<FadeInFadeOut>().Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait);
     }
 }

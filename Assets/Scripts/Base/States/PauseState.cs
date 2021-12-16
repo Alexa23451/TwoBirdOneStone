@@ -20,6 +20,7 @@ public class PauseState : IState
     {
         Time.timeScale = 1;
         UIManager.Instance.HidePanelWithDG(typeof(PausePanel));
+        UIManager.Instance.HidePanelWithDG(typeof(GameplayPanel));
     }
 
     public void OnSettingGame()
