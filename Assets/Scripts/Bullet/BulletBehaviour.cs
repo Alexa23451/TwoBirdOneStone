@@ -21,6 +21,7 @@ public class BulletBehaviour : MonoBehaviour
 
     public void SetDirection(Vector2 direc, float speed)
     {
+        transform.up = direc;
         _direction = direc;
         rig.velocity = _direction * speed;
     }

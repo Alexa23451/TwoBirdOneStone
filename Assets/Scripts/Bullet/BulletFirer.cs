@@ -41,6 +41,7 @@ public class BulletFirer : MonoBehaviour
         transform.SetParent(playerMechanic.gameObject.transform);
 
         isShot = false;
+        transform.up = Vector3.zero;
     }
 
 
@@ -81,6 +82,7 @@ public class BulletFirer : MonoBehaviour
         {
             Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             float distance = Vector2.Distance(mousePos, slingShot.position);
+            transform.up = (Vector2) bulletStartPoint.position - mousePos;
 
             SetLineRenderer();
             if (distance > clampRadius)
@@ -109,6 +111,7 @@ public class BulletFirer : MonoBehaviour
                 //check if OnMouseUp too close to current pos
                 lineRenderer.enabled = false;
                 transform.position = bulletStartPoint.position;
+                transform.up = Vector3.zero;
                 return;
             }
 
