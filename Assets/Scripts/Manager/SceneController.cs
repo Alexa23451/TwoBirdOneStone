@@ -34,7 +34,7 @@ public class SceneController : BaseManager<SceneController>
 
 
         _currentScene = id;
-        DOTween.Play(FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(id), timeWait));
+        FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(id), timeWait);
     }
 
     public void NextScene(float timeWait = 1)
@@ -47,11 +47,11 @@ public class SceneController : BaseManager<SceneController>
 
 
         _currentScene++;
-        DOTween.Play(FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait));
+        FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait);
     }
 
     public void ReloadScene(float timeWait = 1)
     {
-        DOTween.Play(FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait));
+        FadeInFadeOut.Instance.Fade(timeWait, () => SceneManager.LoadScene(_currentScene), timeWait);
     }
 }
