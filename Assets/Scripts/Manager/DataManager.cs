@@ -35,6 +35,8 @@ public class DataManager : BaseManager<DataManager>
     public bool VibrateOn { get => _gameData.vibrateOn; set => _gameData.vibrateOn = value; }
     public bool SoundOn { get => _gameData.soundOn; set => _gameData.soundOn = value; }
     public bool RemoveAdsOn { get => _gameData.removeAds; set => _gameData.removeAds = value; }
+    public int CurrentSlingShot { get => _gameData.currentSlingShot; set => _gameData.currentSlingShot = value; }
+
 
     [ContextMenu("SEE DATA")]
     public void WatchData()
@@ -50,6 +52,7 @@ public class DataManager : BaseManager<DataManager>
 
     private void OnApplicationPause(bool pause)
     {
-        SaveGame();
+        if(pause)
+            SaveGame();
     }
 }

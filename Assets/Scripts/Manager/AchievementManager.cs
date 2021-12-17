@@ -107,5 +107,11 @@ public class AchievementManager : AchievementModule
     {
         Save();
     }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if(pause)
+            Save();
+    }
 }
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b23d0720484a742a7ce721fd909b6d, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  itemName: Gun
+  itemName: Bow
   goldCost: 23
   imgItem: {fileID: 21300000, guid: bb38e756ae34c274e9e8977a578aa61d, type: 3}

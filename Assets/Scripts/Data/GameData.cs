@@ -11,15 +11,18 @@ public class GameData : SettingsSingleton<GameData>
     public bool vibrateOn;
     public bool soundOn;
     public bool removeAds;
+    public int currentSlingShot;
 
     public GameData()
     {
         playerMoney = 0;
+        currentSlingShot = 0;
         currentLv = 1;
         unlockLv = 1;
 
         removeAds = false;
         vibrateOn = true;
         soundOn = true;
+
     }
 }

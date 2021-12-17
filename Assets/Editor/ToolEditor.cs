@@ -13,6 +13,7 @@ public class ToolEditor : EditorWindow
         if (File.Exists(path))
         {
             File.Delete(path);
+            PlayerPrefs.DeleteAll();
             Debug.Log("DELETE SAVE FILE");
         }
         

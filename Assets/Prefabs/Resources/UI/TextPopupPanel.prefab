@@ -368,8 +368,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AdsNotReadyPanel, Assembly-CSharp
+      - m_Target: {fileID: 3619224530560709021}
+        m_TargetAssemblyTypeName: TextPopupPanel, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:

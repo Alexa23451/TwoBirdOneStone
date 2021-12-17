@@ -20,7 +20,6 @@ public class PauseState : IState
     {
         Time.timeScale = 1;
         UIManager.Instance.HidePanelWithDG(typeof(PausePanel));
-        UIManager.Instance.HidePanelWithDG(typeof(GameplayPanel));
     }
 
     public void OnSettingGame()
@@ -31,6 +30,7 @@ public class PauseState : IState
     public void OnMainMenuGame()
     {
         GameplayController.Instance.NormalState();
+        UIManager.Instance.HidePanelWithDG(typeof(GameplayPanel));
         SceneController.Instance.ChangeScene(1);
     }
 }

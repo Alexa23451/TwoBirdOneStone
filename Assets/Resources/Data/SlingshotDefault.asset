@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b23d0720484a742a7ce721fd909b6d, type: 3}
-  m_Name: Slingshot
+  m_Name: SlingshotDefault
   m_EditorClassIdentifier: 
-  itemName: Gold
-  goldCost: 13
-  imgItem: {fileID: 21300000, guid: ecd7afc201a244041aad92b36aed4e34, type: 3}
+  itemName: Wood
+  goldCost: 0
+  imgItem: {fileID: 21300000, guid: 2a503da59889a5f428f736178d983817, type: 3}
