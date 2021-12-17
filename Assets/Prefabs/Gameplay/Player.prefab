@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4783408521110115716}
   - component: {fileID: 8345442286624023736}
   - component: {fileID: 6465234252093008418}
+  - component: {fileID: 1847933935123246235}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,7 +79,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.48, y: 0.78999996, z: 0.69, w: 0.39}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1.41}
     newSize: {x: 1.16, y: 1.41}
@@ -161,6 +162,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1847933935123246235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564555862948843162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b19a43b98a10bd4caffab52318b9165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2564555863317169002
 GameObject:
   m_ObjectHideFlags: 0
