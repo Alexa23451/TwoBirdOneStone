@@ -23,7 +23,6 @@ public class Win1GameState : IState
         TimerManager.Instance.AddTimer(1f,() => { 
             UIManager.Instance.ShowPanelWithDG(typeof(WinLvPanel));
             SoundManager.Instance.Play(Sounds.WIN_LV);
-            //UIManager.Instance.AddPopUpText<PopupTextInfo>("+ " + moneyBonus.ToString(), Color.white);
         });
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5205858365091062268}
   - component: {fileID: 5205858365091062267}
   m_Layer: 5
-  m_Name: BGFade
+  m_Name: 1FadePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -35,6 +35,7 @@ public class BulletFirer : MonoBehaviour
 
     private void OnRecharge()
     {
+        gameObject.SetActive(true);
         transform.position = bulletStartPoint.position;
         transform.rotation = bulletStartPoint.rotation;
         bulletBehaviour.SetDirection(Vector2.zero, 0);
