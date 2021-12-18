@@ -8,6 +8,7 @@ public class MissionElement : MonoBehaviour
     [SerializeField] private Slider progressBar;
     [SerializeField] private Text missionName;
     [SerializeField] private Text rewardTxt;
+    [SerializeField] private Sprite claimSprite;
     public Button claimBtn;
 
     public void Init(string name, int reward)
@@ -30,7 +31,9 @@ public class MissionElement : MonoBehaviour
     private void ClaimReward()
     {
         DataManager.Instance.Money += int.Parse(rewardTxt.text);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        claimBtn.interactable = false;
+        GetComponent<Image>().sprite = claimSprite;
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         AchievementManager.Instance.Save();
     }

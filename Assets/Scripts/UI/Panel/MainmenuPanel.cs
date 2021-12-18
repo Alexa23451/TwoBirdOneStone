@@ -64,6 +64,12 @@ public class MainmenuPanel : MonoBehaviour
         }
     }
 
+    [ContextMenu("TEST POPUP TXT")]
+    public void Test()
+    {
+        UIManager.Instance.AddPopUpText<PopupTextInfo>("Ahihi" , Color.white);
+    }
+
     public void OnIAPRemoveAds()
     {
         IAPManager.Instance.BuyRemoveAds();

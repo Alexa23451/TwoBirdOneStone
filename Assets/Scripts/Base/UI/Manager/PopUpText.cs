@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
 public class PopUpText : MonoBehaviour
 {
     [SerializeField] private float _timeToDestroy = 2f;

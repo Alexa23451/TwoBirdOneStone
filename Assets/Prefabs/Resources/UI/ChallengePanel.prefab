@@ -465,9 +465,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 359952eed08b8c44ca4f0cac4979ee02, type: 3}
+    m_Font: {fileID: 12800000, guid: d5e701599d495e340a4390b0187587ca, type: 3}
     m_FontSize: 40
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 128
@@ -928,11 +928,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 359952eed08b8c44ca4f0cac4979ee02, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 96f6e1926b1f9f4429ed60e437f5b4c4, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1036,6 +1036,7 @@ MonoBehaviour:
   progressBar: {fileID: 133180149409336941}
   missionName: {fileID: 133180149194769697}
   rewardTxt: {fileID: 133180148236252167}
+  claimSprite: {fileID: 21300000, guid: d1e9bedf2e4ee1f4c8b6911a35a51a6a, type: 3}
   claimBtn: {fileID: 4266583449998459827}
 --- !u!1 &133180149386304018
 GameObject:
