@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bow
   goldCost: 400
-  imgShopItem: {fileID: -5419498134413256081, guid: 60f642b3cf3d0994d88c7ecda752f594, type: 3}
+  imgShopItem: {fileID: -6049355571750377099, guid: 60f642b3cf3d0994d88c7ecda752f594, type: 3}
   imgGameItem: {fileID: 1293648832987204089, guid: cce2d056c6c952046808a8bdc34694b4, type: 3}
