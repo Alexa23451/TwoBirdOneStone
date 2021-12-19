@@ -16,7 +16,7 @@ public class UIShopSelector : UICarouselView
         for (int i = 0; i < ShopData.Instance.shopItems.Length; i++)
         {
             var uiElement = Instantiate(prefabElement, elementParent);
-            uiElement.SetElement(ShopData.Instance.shopItems[i].ImgItem,
+            uiElement.SetElement(ShopData.Instance.shopItems[i].ImgShop,
                 ShopData.Instance.shopItems[i].ItemName,
                 false);
 

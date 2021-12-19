@@ -7,9 +7,11 @@ public class ShopItem : ScriptableObject
 {
     [SerializeField] string itemName;
     [SerializeField] int goldCost;
-    [SerializeField] Sprite imgItem;
+    [SerializeField] Sprite imgShopItem;
+    [SerializeField] Sprite imgGameItem;
 
     [HideInInspector] public string ItemName => itemName;
     [HideInInspector] public int GoldCost => goldCost;
-    [HideInInspector] public Sprite ImgItem => imgItem;
+    [HideInInspector] public Sprite ImgShop => imgShopItem;
+    [HideInInspector] public Sprite ImgGame => imgGameItem;
 }

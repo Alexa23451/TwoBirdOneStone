@@ -9,7 +9,7 @@ public class PlayerLoadAsset : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = ShopData.Instance.shopItems[DataManager.Instance.CurrentSlingShot].ImgItem;
+        spriteRenderer.sprite = ShopData.Instance.shopItems[DataManager.Instance.CurrentSlingShot].ImgGame;
     }
 
     

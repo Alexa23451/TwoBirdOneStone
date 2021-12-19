@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b23d0720484a742a7ce721fd909b6d, type: 3}
-  m_Name: SlingshotDefault
+  m_Name: BlackBow2
   m_EditorClassIdentifier: 
-  itemName: SlingShot
-  goldCost: 0
-  imgShopItem: {fileID: 21300000, guid: 2a503da59889a5f428f736178d983817, type: 3}
-  imgGameItem: {fileID: 21300000, guid: 2a503da59889a5f428f736178d983817, type: 3}
+  itemName: Bow
+  goldCost: 400
+  imgShopItem: {fileID: -5419498134413256081, guid: 60f642b3cf3d0994d88c7ecda752f594, type: 3}
+  imgGameItem: {fileID: 1293648832987204089, guid: cce2d056c6c952046808a8bdc34694b4, type: 3}
