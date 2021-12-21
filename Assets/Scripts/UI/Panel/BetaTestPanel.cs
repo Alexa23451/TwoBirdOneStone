@@ -17,6 +17,7 @@ public class BetaTestPanel : BasePanel, IPointerDownHandler
 
     public void BackToMenu()
     {
+        UIManager.Instance.HideAllPanel();
         SoundManager.Instance.Play(Sounds.UI_POPUP);
         SceneController.Instance.ChangeScene(1);
     }
