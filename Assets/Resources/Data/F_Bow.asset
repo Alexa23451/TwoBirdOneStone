@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b23d0720484a742a7ce721fd909b6d, type: 3}
-  m_Name: BlackBow6
+  m_Name: F_Bow
   m_EditorClassIdentifier: 
-  itemName: Bow
-  goldCost: 400
+  itemName: F_Bow
+  goldCost: 1000
   imgShopItem: {fileID: -8323144001250766649, guid: 60f642b3cf3d0994d88c7ecda752f594, type: 3}
   imgGameItem: {fileID: -5856771651338604632, guid: cce2d056c6c952046808a8bdc34694b4, type: 3}
