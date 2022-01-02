@@ -116,7 +116,7 @@ public class BulletFirer : MonoBehaviour
                 return;
             }
 
-            float force = QuanMathf.ReMap(distance, 1, clampRadius, 1, speedMax);
+            float force = QuanMathf.ReMap(distance, 1, clampRadius, 2, speedMax);
 
             bulletBehaviour.SetDirection(dir, force);
             SoundManager.Instance.Play(Sounds.SHOT);

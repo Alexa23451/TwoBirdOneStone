@@ -57,17 +57,22 @@ public class UIShopSelector : UICarouselView
         if (InventoryManager.Instance.IsBuyItem(CurrentIndex))
         {
             if (DataManager.Instance.CurrentSlingShot == CurrentIndex)
+            {
                 buyTextMoney.text = "SELECTED";
+                SoundManager.Instance.Play(Sounds.Bow);
+            }
             else
             {
                 buyTextMoney.text = "SELECTED";
                 DataManager.Instance.CurrentSlingShot = CurrentIndex;
+                SoundManager.Instance.Play(Sounds.SHOT);
             }
         }
         else
         {
             if(DataManager.Instance.Money < ShopData.Instance.shopItems[CurrentIndex].GoldCost)
             {
+                SoundManager.Instance.Play(Sounds.LOSE_LV);
                 UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
                 UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("NOT ENOUGH MONEY",
                     "Failed to buy "+ ShopData.Instance.shopItems[CurrentIndex].ItemName + " ,Kiddo !");
@@ -77,6 +82,9 @@ public class UIShopSelector : UICarouselView
                 //unlock
                 InventoryManager.Instance.SetBuyItem(CurrentIndex, true);
                 DataManager.Instance.Money -= ShopData.Instance.shopItems[CurrentIndex].GoldCost;
+                SoundManager.Instance.Play(Sounds.Buy);
+                UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
+                UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("PURCHASE SUCCESS" , "You have " + ShopData.Instance.shopItems[CurrentIndex].ItemName);
                 buyTextMoney.text = "SELECT";
             }
 

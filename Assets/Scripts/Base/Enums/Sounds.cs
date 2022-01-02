@@ -15,4 +15,5 @@ public enum Sounds
     FadeIn,
     FadeOut,
     Bow,
+    Buy,
 }
