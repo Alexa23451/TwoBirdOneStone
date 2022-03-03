@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.TwoBirdOneStone.iml
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../:\OneDrive\Unity\TwoBirdOneStone\.idea\.idea.TwoBirdOneStone\.idea/dataSources/
+/dataSources.local.xml
