@@ -24,6 +24,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -32,12 +33,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -880,6 +881,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Bow Pack Black Game_60: -8785047203788512068
+      Bow Pack Black Game_46: 5535962625240924399
+      Bow Pack Black Game_30: 7361156792138157555
+      Bow Pack Black Game_3: 1293648832987204089
+      Bow Pack Black Game_29: 3103831503826993453
+      Bow Pack Black Game_69: 6131345774789906170
+      Bow Pack Black Game_21: -3948022525523967934
+      Bow Pack Black Game_32: -238197126414163579
+      Bow Pack Black Game_26: -1377287480089146917
+      Bow Pack Black Game_39: -4357554327938054494
+      Bow Pack Black Game_48: 8416159792649101190
+      Bow Pack Black Game_25: 8963466178197388463
+      Bow Pack Black Game_8: 4412686979605141334
+      Bow Pack Black Game_22: -4317981798217988634
+      Bow Pack Black Game_63: -8761702797261840682
+      Bow Pack Black Game_72: -1900536098026965282
+      Bow Pack Black Game_59: -4850751632007843485
+      Bow Pack Black Game_20: 682285033045922563
+      Bow Pack Black Game_35: -5311819304442743776
+      Bow Pack Black Game_0: -2696739263358643407
+      Bow Pack Black Game_62: -594015855286367507
+      Bow Pack Black Game_36: -2033323445634014220
+      Bow Pack Black Game_51: 7038676577475690107
+      Bow Pack Black Game_9: 5812359698676913662
+      Bow Pack Black Game_67: -4282655363701260250
+      Bow Pack Black Game_47: -206611129277574878
+      Bow Pack Black Game_77: -2933241976368084852
+      Bow Pack Black Game_5: 3063355993696394399
+      Bow Pack Black Game_38: -5437563601054608665
+      Bow Pack Black Game_41: 7075533738205302042
+      Bow Pack Black Game_6: 3496369476028576609
+      Bow Pack Black Game_23: -3923278287053269019
+      Bow Pack Black Game_33: -5856771651338604632
+      Bow Pack Black Game_65: -2722558401543533646
+      Bow Pack Black Game_49: 8634638609193533891
+      Bow Pack Black Game_70: -8275374789126635617
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

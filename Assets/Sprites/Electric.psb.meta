@@ -25,6 +25,7 @@ ScriptedImporter:
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -79,7 +80,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -102,7 +102,6 @@ ScriptedImporter:
       width: 86
       height: 100
     spriteID: 74310f65bda89af4591d66b68bd3b7d2
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -124,7 +123,6 @@ ScriptedImporter:
       width: 100
       height: 100
     spriteID: e9c7db29c4fdc5844be1cd239aa6ca66
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,7 +145,6 @@ ScriptedImporter:
       width: 12
       height: 14
     spriteID: 373ba10275c090e408027d2df089a0a0
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -169,7 +166,6 @@ ScriptedImporter:
       width: 14
       height: 14
     spriteID: 07e3a8ba5eb48134caa74b1e29cb0500
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,6 +175,19 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
@@ -225,21 +234,19 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   mosaicLayers: 1
+  characterMode: 0
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 128
-  importedTextureHeight: 256
-  documentSize: {x: 100, y: 100}
+  layerMappingOption: 2
+  generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
   spriteCategoryList:
     categories: []
-  textureActualWidth: 128
-  textureActualHeight: 256
   spritePackingTag: 
   resliceFromLayer: 0
-  characterMode: 0
   mosaicPSDLayers:
   - name: Layer 2
     spriteName: Layer 2
@@ -248,6 +255,9 @@ ScriptedImporter:
     spriteID: 74310f65bda89af4591d66b68bd3b7d2
     layerID: 8
     mosaicPosition: {x: 4, y: 112}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Layer 1
     spriteName: Layer 1
     isGroup: 0
@@ -255,6 +265,19 @@ ScriptedImporter:
     spriteID: e9c7db29c4fdc5844be1cd239aa6ca66
     layerID: 2
     mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Background
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2adf779a7242f994d83dca241249604e
+    layerID: 1
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   rigPSDLayers:
   - name: Layer 2
     spriteName: Layer 2
@@ -263,6 +286,9 @@ ScriptedImporter:
     spriteID: 373ba10275c090e408027d2df089a0a0
     layerID: 8
     mosaicPosition: {x: 4, y: 112}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: Layer 1
     spriteName: Layer 1
     isGroup: 0
@@ -270,13 +296,14 @@ ScriptedImporter:
     spriteID: 07e3a8ba5eb48134caa74b1e29cb0500
     layerID: 2
     mosaicPosition: {x: 4, y: 4}
-  characterData:
-    bones: []
-    parts: []
-    dimension: {x: 0, y: 0}
-    characterGroups: []
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
   generateGOHierarchy: 0
   textureAssetName: Electric Texture
   prefabAssetName: Electric Prefab
   spriteLibAssetName: Electric Sprite Lib
+  skeletonAssetName: 
   secondarySpriteTextures: []
