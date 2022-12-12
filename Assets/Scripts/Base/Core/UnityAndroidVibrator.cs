@@ -32,7 +32,9 @@ public class UnityAndroidVibrator : BaseManager<UnityAndroidVibrator>
     /// </summary>
     public void StopVibrate()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR 
         plugin.Call("StopVibrate");
+#endif
     }
 
 
@@ -45,6 +47,10 @@ public class UnityAndroidVibrator : BaseManager<UnityAndroidVibrator>
     /// <param name="Pattern">Pattern.</param>
     public void CustomVibrate(long[] Pattern)
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         plugin.Call("CustomVibrate", Pattern);
+#else
+        Handheld.Vibrate();
+#endif
     }
 }
